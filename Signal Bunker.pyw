@@ -13,4 +13,4 @@ except Exception as e:
     error_window(f"An error occurred: {e}", real_time, e, sorce)
     sys.exit()
 
-    #test
+    #test 2
