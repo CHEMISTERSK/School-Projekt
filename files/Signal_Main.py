@@ -50,7 +50,7 @@ log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'files', 'log
 log_path = os.path.join(log_dir, "running_log.log")
 
 
-#Default Value Settings (New Game)
+#Default Value Settings (New Game later in .dat file)
 
 
 
