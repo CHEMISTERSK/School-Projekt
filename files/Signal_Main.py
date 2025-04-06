@@ -1,5 +1,5 @@
 #Importing external functions
-import pygame, sys, time as t, os, random as r, datetime
+import pygame, sys, time as t, os, random as r, datetime, ctypes, subprocess
 from pygame.locals import *
 
 #Importing internal functions
@@ -44,7 +44,7 @@ real_time = datetime.datetime.now().strftime("%H:%M:%S")
 running = True
 
 sorce = "Signal_Main.py"
-
+console_process = None
 fullscreen = False
 
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'files', 'logs')
@@ -66,6 +66,21 @@ res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
 main_log_clear()
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch)
 get_connection()
+
+
+#Functions
+def toggle_console():
+    global console_process
+    if console_process is None:
+        # Open a new console window
+        console_process = subprocess.Popen("python", creationflags=subprocess.CREATE_NEW_CONSOLE)
+    else:
+        # Close the console window
+        console_process.terminate()
+        console_process = None
+
+
+
 
 try:
 #Main Loop
@@ -114,7 +129,9 @@ try:
                         fullscreen = False
                         res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
                         screen = pygame.display.set_mode((res_xy[0], res_xy[1]))
-            
+                
+                elif event.key == pygame.K_F12:
+                    toggle_console()
 
 
 

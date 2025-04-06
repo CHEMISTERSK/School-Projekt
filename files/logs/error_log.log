@@ -2,3 +2,4 @@
 [11:56:36]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [11:57:55]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [11:58:17]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[12:43:08]Error in Signal_Main.py: name 'console_process' is not defined
