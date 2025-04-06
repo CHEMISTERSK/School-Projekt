@@ -23,7 +23,7 @@ try:
             print("Database connection established.")
             return connection
         
-        #Connection error handling
+        #Connection Error Handling
         except psycopg2.OperationalError as e:
             error_window_db(real_time, e, sorce)
             return None
