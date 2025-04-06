@@ -16,7 +16,7 @@ try:
             connection = psycopg2.connect(
                 host = "localhost",
                 port = 5432,
-                database = "", #name of database
+                database = "lol", #name of database
                 user = "postgres",
                 password = "50028082"
             )

@@ -1,11 +1,12 @@
 #Importing external functions
-import pygame, sys, time as t, os, random as r, datetime, ctypes, subprocess
+import pygame, sys, time as t, os, random as r, datetime
 from pygame.locals import *
 
 #Importing internal functions
 from functions.error_handling import error_window
 from functions.logging import main_log, main_log_clear
 from functions.db.db import get_connection
+from functions.console import toggle_console
 
 
 
@@ -47,8 +48,7 @@ sorce = "Signal_Main.py"
 console_process = None
 fullscreen = False
 
-log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'files', 'logs')
-log_path = os.path.join(log_dir, "running_log.log")
+log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 
 
 #Default Value Settings (New Game later in .dat file)
@@ -66,19 +66,6 @@ res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
 main_log_clear()
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch)
 get_connection()
-
-
-#Functions
-def toggle_console():
-    global console_process
-    if console_process is None:
-        # Open a new console window
-        console_process = subprocess.Popen("python", creationflags=subprocess.CREATE_NEW_CONSOLE)
-    else:
-        # Close the console window
-        console_process.terminate()
-        console_process = None
-
 
 
 
@@ -111,11 +98,13 @@ try:
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                os.remove(os.path.join(log_dir, "temp.log"))
                 running = False
 
             #Key Binding
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
+                    os.remove(os.path.join(log_dir, "temp.log"))
                     running = False
 
                 #Switching Between Fullscreen And Windowed Mode
@@ -152,7 +141,6 @@ try:
 
 
 
-
         
 
         pygame.display.update()
@@ -164,5 +152,6 @@ try:
 #Error Handling
 except Exception as e:
     error_window(f"An error occurred: {e}", real_time, e, sorce)
+    os.remove(os.path.join(log_dir, "temp.log"))
     pygame.quit()
     sys.exit()

@@ -641,3 +641,303 @@ CurrentTime:	752
 Epoch:	1743936320.6765435
 PyGame Version:	2.6.1
 
+
+[2025-04-06] [15:49:04]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	947
+Epoch:	1743947344.5991282
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [15:50:02]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	645
+Epoch:	1743947402.9343517
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [15:51:07]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	663
+Epoch:	1743947467.5309873
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [15:51:49]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	639
+Epoch:	1743947509.2714512
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [15:53:04]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	611
+Epoch:	1743947584.3792803
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [15:53:22]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	602
+Epoch:	1743947602.8683496
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [15:55:20]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	620
+Epoch:	1743947720.1759195
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [15:57:00]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	625
+Epoch:	1743947820.4706028
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [15:57:36]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	641
+Epoch:	1743947856.9351716
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [16:00:13]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	643
+Epoch:	1743948013.1601677
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [16:00:51]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	644
+Epoch:	1743948051.1955428
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [16:01:33]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	598
+Epoch:	1743948093.7477803
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [16:04:07]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	644
+Epoch:	1743948247.994858
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [16:06:05]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	635
+Epoch:	1743948365.9187026
+PyGame Version:	2.6.1
+
+
+[2025-04-06] [16:06:15]
+Resolution:
+	<VideoInfo(hw = 0, wm = 1,video_mem = 0
+         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
+         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
+         bitsize  = 32, bytesize = 4,
+         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
+         shifts = (16, 8, 0, 0),
+         losses =  (0, 0, 0, 8),
+         current_w = 1536, current_h = 864
+         pixel_format = SDL_PIXELFORMAT_RGB888)
+>
+Resolution X:	1536 px
+Resolution Y:	803 px
+PyClock:	<Clock(fps=0.00)>
+CurrentTime:	384
+Epoch:	1743948375.1920204
+PyGame Version:	2.6.1
+

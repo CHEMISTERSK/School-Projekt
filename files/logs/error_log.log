@@ -2,4 +2,17 @@
 [11:56:36]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [11:57:55]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [11:58:17]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
-[12:43:08]Error in Signal_Main.py: name 'console_process' is not defined
+[12:43:08]Error in Signal_Main.py: name 'console_process' is not defined[15:29:07]Error in console.py: name 'console_process' is not defined[15:30:04]Error in console.py: name 'console_process' is not defined[15:37:08]Error in console.py: module 'tkinter' has no attribute 'scrolledtext'[15:37:16]Error in console.py: name 'scrolledtext' is not defined[15:50:02]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[15:51:07]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[15:51:07]Error in Signal_Main.py: division by zero[15:51:49]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[15:51:49]Error in Signal_Main.py: division by zero[15:53:04]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[15:53:04]Error in Signal_Main.py: division by zero[15:53:22]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[15:53:24]Error in Signal_Main.py: [Errno 2] No such file or directory: 'c:\\Users\\Tomáš\\Desktop\\Tomáš\\Dokumenty\\VSCode\\Python\\PyGame\\Signal_Bunker\\files\\functions\\temp.log'[15:55:20]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[15:55:22]Error in Signal_Main.py: [Errno 2] No such file or directory: 'temp.log'[15:57:00]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[15:57:36]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[16:00:13]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[16:00:21]Error in Signal_Main.py: [WinError 3] The system cannot find the path specified: 'logs/temp.log'[16:00:51]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[16:00:56]Error in Signal_Main.py: [WinError 3] The system cannot find the path specified: 'logs\\temp.log'[16:01:33]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[16:01:35]Error in Signal_Main.py: [WinError 3] The system cannot find the path specified: '\\logs\\temp.log'[16:04:07]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[16:04:09]Error in Signal_Main.py: [WinError 3] The system cannot find the path specified: 'c:\\Users\\Tomáš\\Desktop\\Tomáš\\Dokumenty\\VSCode\\Python\\PyGame\\Signal_Bunker\\files\\files\\logs\\temp.log'[16:06:05]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[16:06:15]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist

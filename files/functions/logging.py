@@ -14,6 +14,7 @@ try:
     def main_log(real_time, resolution, res_x, res_y, clock, current_time, epoch):
         log_path_a = os.path.join(log_dir, "running_log.log")
         log_path_b = os.path.join(log_dir, "epoch_running_log.log")
+        log_path_c = os.path.join(log_dir, "temp.log")
         
         with open(log_path_a, "a") as file:
             file.write("\n")
@@ -39,6 +40,17 @@ try:
             file.write(f"Epoch:\t{epoch}\n")
             file.write(f"PyGame Version:\t{pygame.version.ver}\n")
             file.write("\n")
+            file.close()
+
+        with open(log_path_c, "a") as file:
+            file.write(f"[{real_time}]\n")
+            file.write(f"Resolution:\n\t{resolution}\n")
+            file.write(f"Resolution X:\t{res_x} px\n")
+            file.write(f"Resolution Y:\t{int(res_y)} px\n")
+            file.write(f"PyClock:\t{clock}\n")
+            file.write(f"CurrentTime:\t{current_time}\n")
+            file.write(f"Epoch:\t{epoch}\n")
+            file.write(f"PyGame Version:\t{pygame.version.ver}\n")
             file.close()
 
     def main_log_clear():
