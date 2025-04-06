@@ -16,3 +16,5 @@
 [16:01:35]Error in Signal_Main.py: [WinError 3] The system cannot find the path specified: '\\logs\\temp.log'[16:04:07]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [16:04:09]Error in Signal_Main.py: [WinError 3] The system cannot find the path specified: 'c:\\Users\\Tomáš\\Desktop\\Tomáš\\Dokumenty\\VSCode\\Python\\PyGame\\Signal_Bunker\\files\\files\\logs\\temp.log'[16:06:05]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [16:06:15]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[16:09:31]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[16:10:31]Error in Signal_Main.py: [WinError 2] The system cannot find the file specified: 'C:\\Users\\Tomáš\\Desktop\\Tomáš\\Dokumenty\\VSCode\\Python\\PyGame\\Signal_Bunker\\files\\logs\\temp.log'
