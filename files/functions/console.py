@@ -12,8 +12,8 @@ try:
     def toggle_console():
         # Create a new Tkinter window
         root = tkinter.Tk()
-        root.title("Console Output")
-        root.geometry("600x400")
+        root.title("Output Terminal")
+        root.geometry("800x400")
 
         # Add a scrolled text widget for output with a black background and white text
         console_output = scrolledtext.ScrolledText(
@@ -36,7 +36,6 @@ try:
 
         # Start the Tkinter main loop
         root.mainloop()
-    #toggle_console()
 
 except Exception as e:
     error_window(f"An error occurred: {e}", real_time, e, sorce)
