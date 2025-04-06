@@ -5,6 +5,7 @@ from pygame.locals import *
 #Importing internal functions
 from functions.error_handling import error_window
 from functions.logging import main_log, main_log_clear
+from functions.db.db import get_connection
 
 
 
@@ -64,7 +65,7 @@ log_path = os.path.join(log_dir, "running_log.log")
 res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
 main_log_clear()
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch)
-
+get_connection()
 
 try:
 #Main Loop

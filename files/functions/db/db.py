@@ -9,6 +9,7 @@ sorce = "db.py"
 try:
     def get_connection():
         #Variables For except psycopg2.OperationalError
+        print("Connecting to database...")
         real_time = datetime.datetime.now().strftime("%H:%M:%S")
         sorce = "db.py"
         try:
@@ -19,8 +20,10 @@ try:
                 user = "postgres",
                 password = "50028082"
             )
+            print("Database connection established.")
         #Connection error handling
         except psycopg2.OperationalError as e:
+            print("Database connection error.")
             error_window("Database connection error.", real_time, e, sorce)
             return None
 
