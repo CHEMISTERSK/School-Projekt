@@ -9,7 +9,8 @@ real_time = dt.datetime.now().strftime("%H:%M:%S")
 
 def error_window(message, real_time, e, sorce):
     print(f"\n[{real_time}]Error in {sorce}:\t{e}\n")
-    ct.windll.user32.MessageBoxW(0, f"{message} in {sorce}. \nPlease check error.log \nIn: Signal\\files\\logs", "Error", 0x10)
+    if "Database" not in e:
+        ct.windll.user32.MessageBoxW(0, f"{message} in {sorce}. \nPlease check error.log \nIn: Signal\\files\\logs", "Error", 0x10)
 
     log_file_path = os.path.join(log_dir, "error_log.log")
 

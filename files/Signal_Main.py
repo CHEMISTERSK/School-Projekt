@@ -2,7 +2,7 @@
 import pygame, sys, time as t, os, random as r, datetime
 from pygame.locals import *
 
-#Importing own functions
+#Importing internal functions
 from functions.error_handling import error_window
 from functions.logging import main_log, main_log_clear
 
@@ -60,16 +60,27 @@ log_path = os.path.join(log_dir, "running_log.log")
 
 
 
-#Functions
+#Functions calling
 res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
 main_log_clear()
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch)
 
 
 try:
-#Main Code
+#Main Loop
     while running:
 
+        #Screen Resolution
+        screen.fill((0, 0, 0))
+
+        #FPS Counter
+        fps = clock.get_fps()
+        fps_text = f"FPS: {int(fps)}"
+        font = pygame.font.Font(None, 18)
+        text_surface = font.render(fps_text, True, (255, 255, 255))
+        screen.blit(text_surface, (10, 10))
+
+        #Game Loop
         clock = pygame.time.Clock()
         current_time = pygame.time.get_ticks()
 
@@ -86,11 +97,12 @@ try:
             if event.type == pygame.QUIT:
                 running = False
 
-            #Key binding
+            #Key Binding
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     running = False
-            
+
+                #Switching Between Fullscreen And Windowed Mode
                 elif event.key == pygame.K_F11:
                     if not fullscreen:
                         fullscreen = True
