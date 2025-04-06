@@ -13,7 +13,7 @@ try:
         real_time = datetime.datetime.now().strftime("%H:%M:%S")
         sorce = "db.py"
         try:
-            return psycopg2.connect(
+            connection = psycopg2.connect(
                 host = "localhost",
                 port = 5432,
                 database = "", #name of database
@@ -21,6 +21,8 @@ try:
                 password = "50028082"
             )
             print("Database connection established.")
+            return connection
+        
         #Connection error handling
         except psycopg2.OperationalError as e:
             print("Database connection error.")
@@ -30,3 +32,5 @@ try:
 except Exception as e:
     error_window(f"An error occurred: {e}", real_time, e, sorce)
     sys.exit()
+
+    #where to put print conncetion establishmed in get_connection
