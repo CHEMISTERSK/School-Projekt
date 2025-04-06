@@ -28,6 +28,44 @@ try:
             console_output.config(state='disabled')  # Disable editing
             console_output.see(tkinter.END)  # Scroll to the end
 
+        # Export content of the terminal to a file
+        def export_content():
+            user_name = os.getlogin()
+            file_path = f"C:\\users\\{user_name}\\desktop\\export.txt"
+            
+            if file_path:
+                with open(file_path, 'w') as file:
+                    console_output.config(state='normal')
+                    file.write(console_output.get("1.0", tkinter.END))
+                    console_output.config(state='disabled')
+
+        # Clear the terminal content
+        def clear_terminal():
+            console_output.config(state='normal')
+            console_output.delete("1.0", tkinter.END)
+            console_output.config(state='disabled')
+
+        # Copy content of the terminal to clipboard
+        def copy_content():
+            root.clipboard_clear()
+            console_output.config(state='normal')
+            root.clipboard_append(console_output.get("1.0", tkinter.END))
+            console_output.config(state='disabled')
+            root.update()  # Update the clipboard
+
+        # Add buttons at the bottom of the terminal
+        button_frame = tkinter.Frame(root)
+        button_frame.pack(fill='x', side='bottom')
+
+        export_button = tkinter.Button(button_frame, text="Export", command=export_content)
+        export_button.pack(side='left', padx=5, pady=5)
+
+        clear_button = tkinter.Button(button_frame, text="Clear", command=clear_terminal)
+        clear_button.pack(side='left', padx=5, pady=5)
+
+        copy_button = tkinter.Button(button_frame, text="Copy", command=copy_content)
+        copy_button.pack(side='left', padx=5, pady=5)
+
         # Example usage: Append some text
         with open(os.path.join(log_dir, "temp.log"), 'r') as temp_file:
             lines = temp_file.readlines()

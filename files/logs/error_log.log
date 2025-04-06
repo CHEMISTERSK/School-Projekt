@@ -29,3 +29,11 @@
 [18:47:47]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [18:48:07]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [18:48:25]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[21:13:35]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[21:16:51]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[21:18:11]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[21:21:34]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[21:27:18]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[21:28:42]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[21:29:54]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[21:30:17]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
