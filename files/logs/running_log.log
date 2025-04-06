@@ -1,5 +1,5 @@
  
-[21:30:17]
+[21:35:19]
 Resolution:
 	<VideoInfo(hw = 0, wm = 1,video_mem = 0
          blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
@@ -14,7 +14,7 @@ Resolution:
 Resolution X:	1536 px
 Resolution Y:	803 px
 PyClock:	<Clock(fps=0.00)>
-CurrentTime:	1158
-Epoch:		1743967817.5464385
+CurrentTime:	1157
+Epoch:		1743968119.9834566
 PyGame Version:	2.6.1
 

@@ -44,6 +44,9 @@ try:
             console_output.config(state='normal')
             console_output.delete("1.0", tkinter.END)
             console_output.config(state='disabled')
+            with open(os.path.join(log_dir, "temp.log"), 'w') as temp_file:
+                temp_file.write(" ")
+                temp_file.close()
 
         # Copy content of the terminal to clipboard
         def copy_content():
