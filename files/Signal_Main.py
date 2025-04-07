@@ -84,7 +84,7 @@ try:
         fps_text = f"FPS: {int(fps)}"
         font = pygame.font.Font(None, 18)
         text_surface = font.render(fps_text, True, (255, 255, 255))
-        screen.blit(text_surface, (10, 28))
+        screen.blit(text_surface, (10, 25))
 
         #Game Loop
         clock = pygame.time.Clock()
@@ -134,8 +134,7 @@ try:
 
 
 
-         
-
+                
 
 
 
