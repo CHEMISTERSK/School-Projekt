@@ -41,8 +41,10 @@
 [08:50:28]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [08:50:44]Error in Signal_Main.py: [WinError 2] The system cannot find the file specified: 'C:\\Users\\Tom�\\Desktop\\Tom�\\Dokumenty\\VSCode\\Python\\PyGame\\Signal_Bunker\\files\\logs\\temp.log'[09:10:17]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [09:11:04]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
-[09:11:04]Error in Signal_Main.py: name 'db' is not defined[09:11:33]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
-[09:11:34]Error in Signal_Main.py: argument 1 must be pygame.surface.Surface, not str[09:12:57]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[09:11:04]Error in Signal_Main.py: name 'db' is not defined
+[09:11:33]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[09:11:34]Error in Signal_Main.py: argument 1 must be pygame.surface.Surface, not str
+[09:12:57]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [09:13:08]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [09:13:15]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [09:13:29]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
@@ -53,3 +55,8 @@
 [09:15:08]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [09:21:42]Error in Signal_Main.py: 'int' object is not subscriptable
 [09:23:54]Error in Signal_Main.py: 'bool' object is not subscriptable
+[09:47:22]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[09:47:31]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[09:48:11]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[09:48:20]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
+[10:17:41]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
