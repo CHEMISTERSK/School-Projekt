@@ -18,7 +18,7 @@ def error_window(message, real_time, e, sorce):
         file.close()
 
     with open(log_file_path_temp, "a") as file:
-        file.write(f"[{real_time}]Error in {sorce}: {e}")
+        file.write(f"[{real_time}]\nError in {sorce}: {e}")
         file.close()
 
 
@@ -32,6 +32,6 @@ def error_window_db(real_time, e, sorce):
         file.close()
     
     with open(log_file_path_temp, "a") as file:
-        file.write(f"[{real_time}]Database connection error.\n")
-        file.write(f"[{real_time}]Error in {sorce}: {e}")
+        file.write(f"[{real_time}]\nDatabase connection error.\n")
+        file.write(f"[{real_time}]\nError in {sorce}: {e}")
         file.close()
