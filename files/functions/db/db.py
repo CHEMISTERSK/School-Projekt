@@ -16,17 +16,19 @@ try:
             connection = psycopg2.connect(
                 host = "localhost",
                 port = 5432,
-                database = "lol", #name of database
+                database = "demo", #name of database
                 user = "postgres",
                 password = "50028082"
             )
             print("Database connection established.")
-            return connection
+            db = True
+            return db, connection
         
         #Connection Error Handling
         except psycopg2.OperationalError as e:
+            db = False
             error_window_db(real_time, e, sorce)
-            return None
+            return db, connection
 
 except Exception as e:
     error_window(f"An error occurred: {e}", real_time, e, sorce)

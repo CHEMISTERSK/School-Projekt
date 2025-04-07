@@ -9,7 +9,7 @@ sorce = "console.py"
 console_process = None
 
 try:
-    def toggle_console():
+    def console():
         # Create a new Tkinter window
         root = tkinter.Tk()
         root.title("Output Terminal")

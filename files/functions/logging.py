@@ -11,7 +11,7 @@ try:
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
 
-    def main_log(real_time, resolution, res_x, res_y, clock, current_time, epoch):
+    def main_log(real_time, resolution, res_x, res_y, clock, current_time, epoch, db, connection):
         log_path_a = os.path.join(log_dir, "running_log.log")
         log_path_b = os.path.join(log_dir, "epoch_running_log.log")
         log_path_c = os.path.join(log_dir, "temp.log")
@@ -26,6 +26,7 @@ try:
             file.write(f"CurrentTime:\t{current_time}\n")
             file.write(f"Epoch:\t\t{epoch}\n")
             file.write(f"PyGame Version:\t{pygame.version.ver}\n")
+            file.write(f"Database connection status: {db}, Connection object: {connection}")
             file.write("\n")
             file.close()
 
@@ -51,6 +52,7 @@ try:
             file.write(f"CurrentTime:\t{current_time}\n")
             file.write(f"Epoch:\t{epoch}\n")
             file.write(f"PyGame Version:\t{pygame.version.ver}\n")
+            file.write(f"[{real_time}]Database connection status: {db}, Connection object: {connection}\n")
             file.close()
 
     def main_log_clear():

@@ -6,7 +6,7 @@ from pygame.locals import *
 from functions.error_handling import error_window
 from functions.logging import main_log, main_log_clear
 from functions.db.db import get_connection
-from functions.console import toggle_console
+from functions.console import console
 
 
 
@@ -50,6 +50,8 @@ fullscreen = False
 
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 
+db = False
+
 
 #Default Value Settings (New Game later in .dat file)
 
@@ -64,8 +66,9 @@ log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 #Functions calling
 res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
 main_log_clear()
-main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch)
-get_connection()
+db, connection = get_connection()
+main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, db, connection)
+
 
 
 
@@ -81,7 +84,7 @@ try:
         fps_text = f"FPS: {int(fps)}"
         font = pygame.font.Font(None, 18)
         text_surface = font.render(fps_text, True, (255, 255, 255))
-        screen.blit(text_surface, (10, 10))
+        screen.blit(text_surface, (10, 28))
 
         #Game Loop
         clock = pygame.time.Clock()
@@ -94,7 +97,14 @@ try:
 
         if(int(epoch) - last_log == 60):
             last_log = int(epoch)
-            main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch)
+            db, connection = get_connection()
+            main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, db, connection)
+            
+
+        if not db:
+            screen.blit(font.render("No Connection", True, (255, 255, 255)), (10, 10))
+        else:
+            screen.blit(font.render("Connected", True, (255, 255, 255)), (10, 10))
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -120,7 +130,7 @@ try:
                         screen = pygame.display.set_mode((res_xy[0], res_xy[1]))
                 
                 elif event.key == pygame.K_F12:
-                    toggle_console()
+                    console()
 
 
 
