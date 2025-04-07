@@ -2,7 +2,6 @@ import os, pygame, sys, datetime as dt
 from datetime import date
 from functions.error_handling import error_window
 
-
 real_time = dt.datetime.now().strftime("%H:%M:%S")
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs')
 sorce = "logging.py"

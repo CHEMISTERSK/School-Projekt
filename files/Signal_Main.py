@@ -63,7 +63,7 @@ db = False
 
 
 
-#Functions calling
+#Functions Calling
 res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
 main_log_clear()
 db, connection = get_connection()
