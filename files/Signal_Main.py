@@ -67,7 +67,7 @@ tank_x, tank_y = 325, 640
 
 
 # Loading Files
-test_tank = pygame.image.load(os.path.join(os.path.dirname(__file__), "textures", "ST-1.png"))
+test_tank = pygame.image.load(os.path.join(os.path.dirname(__file__), "textures", "ST-1_px.png"))
 
 
 
@@ -136,6 +136,21 @@ try:
         # Draw Tank
         screen.blit(test_tank, (tank_x, tank_y))
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         if int(epoch) - last_log == 60:
             last_log = int(epoch)
             db, connection = get_connection()
