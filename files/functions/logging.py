@@ -43,14 +43,14 @@ try:
             file.close()
 
         with open(log_path_c, "a") as file:
-            file.write(f"[{real_time}]\n")
-            file.write(f"Resolution X:\t{res_x} px\n")
-            file.write(f"Resolution Y:\t{int(res_y)} px\n")
-            file.write(f"PyClock:\t{clock}\n")
-            file.write(f"CurrentTime:\t{current_time}\n")
-            file.write(f"Epoch:\t{epoch}\n")
+            file.write(f"[{real_time}]:\n")
+            file.write(f"Resolution X:\t\t{res_x} px\n")
+            file.write(f"Resolution Y:\t\t{int(res_y)} px\n")
+            file.write(f"PyClock:\t\t{clock}\n")
+            file.write(f"CurrentTime:\t\t{current_time}\n")
+            file.write(f"Epoch:\t\t{epoch}\n")
             file.write(f"PyGame Version:\t{pygame.version.ver}\n")
-            file.write(f"[{real_time}]\nDatabase connection status: {db}, Connection object: {connection}\n")
+            file.write(f"[{real_time}]Database connection status: {db}, Connection object: {connection}\n")
             file.close()
 
     def main_log_clear():
@@ -60,5 +60,5 @@ try:
             file.close()
 
 except Exception as e:
-    error_window(f"An error occurred: {e}", real_time, e, sorce)
+    error_window(e, sorce)
     sys.exit()

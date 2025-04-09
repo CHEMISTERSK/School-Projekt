@@ -44,7 +44,6 @@ current_time = pygame.time.get_ticks()
 real_time = datetime.datetime.now().strftime("%H:%M:%S")
 running = True
 
-sorce = "Signal_Main.py"
 console_process = None
 fullscreen = False
 
@@ -67,7 +66,7 @@ tank_x, tank_y = 325, 640
 
 
 # Loading Files
-test_tank = pygame.image.load(os.path.join(os.path.dirname(__file__), "textures", "ST-1_px.png"))
+test_tank = pygame.image.load(os.path.join(os.path.dirname(__file__), "textures", "ST-1.png"))
 
 
 
@@ -140,7 +139,7 @@ try:
 
 
 
-
+        x = 1 / 0
 
 
 
@@ -178,7 +177,7 @@ try:
 
 #Error Handling
 except Exception as e:
-    error_window(f"An error occurred: {e}", real_time, e, sorce)
+    error_window(e, "Signal_Main.py")
     os.remove(os.path.join(log_dir, "temp.log"))
     pygame.quit()
     sys.exit()

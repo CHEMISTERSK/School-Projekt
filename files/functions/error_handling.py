@@ -7,9 +7,11 @@ if not os.path.exists(log_dir):
 
 real_time = dt.datetime.now().strftime("%H:%M:%S")
 
-def error_window(message, real_time, e, sorce):
+def error_window(e, sorce):
+    message = f"An error occurred: {e}"
     ct.windll.user32.MessageBoxW(0, f"{message} in {sorce}. \nPlease check error.log \nIn: Signal\\files\\logs", "Error", 0x10)
 
+    real_time = dt.datetime.now().strftime("%H:%M:%S")
     log_file_path = os.path.join(log_dir, "error_log.log")
     log_file_path_temp = os.path.join(log_dir, "temp.log")
 

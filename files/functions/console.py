@@ -79,5 +79,5 @@ try:
         root.mainloop()
 
 except Exception as e:
-    error_window(f"An error occurred: {e}", real_time, e, sorce)
+    error_window(e, sorce)
     sys.exit()

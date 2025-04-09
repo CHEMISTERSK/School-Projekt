@@ -3,7 +3,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 from functions.error_handling import error_window_db, error_window
 
 #Variables For except Exception
-real_time = datetime.datetime.now().strftime("%H:%M:%S")
 sorce = "db.py"
 
 try:
@@ -42,5 +41,5 @@ try:
             return db, connection
 
 except Exception as e:
-    error_window(f"An error occurred: {e}", real_time, e, sorce)
+    error_window(e, sorce)
     sys.exit()

@@ -10,7 +10,7 @@ script_path = os.path.join(base_dir, 'files\\Signal_Main.py')
 try:
     sp.run([sys.executable, script_path])
 except Exception as e:
-    error_window(f"An error occurred: {e}", real_time, e, sorce)
+    error_window(e, sorce)
     sys.exit()
 
     # upload:   git push -u origin main
