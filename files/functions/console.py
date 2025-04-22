@@ -4,78 +4,77 @@ from functions.error_handling import error_window
 
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs')
 real_time = dt.datetime.now().strftime("%H:%M:%S")
+
 sorce = "console.py"
 
 console_process = None
 
 try:
     def console():
-        # Create a new Tkinter window
         root = tkinter.Tk()
         root.title("Output Terminal")
         root.geometry("800x400")
 
-        # Add a scrolled text widget for output with a black background and white text
+        # Grid layout configuration (2 rows: output + buttons)
+        root.grid_rowconfigure(0, weight=1)
+        root.grid_rowconfigure(1, weight=0)
+        root.grid_columnconfigure(0, weight=1)
+
+        # Output console
         console_output = scrolledtext.ScrolledText(
             root, wrap=tkinter.WORD, state='disabled', bg='black', fg='white'
         )
-        console_output.pack(expand=True, fill='both')
+        console_output.grid(row=0, column=0, sticky='nsew')  
 
-        # Function to append text to the console
         def append_to_console(text):
-            console_output.config(state='normal')  # Enable editing
-            console_output.insert(tkinter.END, text + '\n')  # Add text
-            console_output.config(state='disabled')  # Disable editing
-            console_output.see(tkinter.END)  # Scroll to the end
+            console_output.config(state='normal')
+            console_output.insert(tkinter.END, text + '\n')
+            console_output.config(state='disabled')
+            console_output.see(tkinter.END)
 
-        # Export content of the terminal to a file
         def export_content():
             user_name = os.getlogin()
-            file_path = f"C:\\users\\{user_name}\\desktop\\export.txt"
-            
-            if file_path:
-                with open(file_path, 'w') as file:
-                    console_output.config(state='normal')
-                    file.write(console_output.get("1.0", tkinter.END))
-                    console_output.config(state='disabled')
+            file_path = f"C:\\Users\\{user_name}\\Desktop\\export.txt"
+            with open(file_path, 'w') as file:
+                console_output.config(state='normal')
+                file.write(console_output.get("1.0", tkinter.END))
+                console_output.config(state='disabled')
 
-        # Clear the terminal content
         def clear_terminal():
             console_output.config(state='normal')
             console_output.delete("1.0", tkinter.END)
             console_output.config(state='disabled')
             with open(os.path.join(log_dir, "temp.log"), 'w') as temp_file:
                 temp_file.write(" ")
-                temp_file.close()
 
-        # Copy content of the terminal to clipboard
         def copy_content():
             root.clipboard_clear()
             console_output.config(state='normal')
             root.clipboard_append(console_output.get("1.0", tkinter.END))
             console_output.config(state='disabled')
-            root.update()  # Update the clipboard
+            root.update()
 
-        # Add buttons at the bottom of the terminal
+        # Button frame
         button_frame = tkinter.Frame(root)
-        button_frame.pack(fill='x', side='bottom')
+        button_frame.grid(row=1, column=0, sticky='ew', padx=5, pady=5)
+        button_frame.grid_columnconfigure((0, 1, 2), weight=1)
 
+        # Buttons
         export_button = tkinter.Button(button_frame, text="Export", command=export_content)
-        export_button.pack(side='left', padx=5, pady=5)
+        export_button.grid(row=0, column=0, padx=5, sticky='ew')
 
         clear_button = tkinter.Button(button_frame, text="Clear", command=clear_terminal)
-        clear_button.pack(side='left', padx=5, pady=5)
+        clear_button.grid(row=0, column=1, padx=5, sticky='ew')
 
         copy_button = tkinter.Button(button_frame, text="Copy", command=copy_content)
-        copy_button.pack(side='left', padx=5, pady=5)
+        copy_button.grid(row=0, column=2, padx=5, sticky='ew')
 
-        # Example usage: Append some text
+        # Loading output from a file
         with open(os.path.join(log_dir, "temp.log"), 'r') as temp_file:
             lines = temp_file.readlines()
             for line in lines:
                 append_to_console(line.strip())
 
-        # Start the Tkinter main loop
         root.mainloop()
 
 except Exception as e:

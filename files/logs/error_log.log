@@ -61,4 +61,4 @@
 [09:48:20]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [10:17:41]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
 [10:20:05]Error in db.py: connection to server at "localhost" (::1), port 5432 failed: FATAL:  database "lol" does not exist
-[20:38:54]Error in Signal_Main.py: name 'font' is not defined[20:40:11]Error in Signal_Main.py: name 'text_surface' is not defined[20:41:15]Error in Signal_Main.py: name 'text_surface' is not defined[20:41:39]Error in Signal_Main.py: name 'text_surface' is not defined[09:59:26]Error in Signal_Main.py: division by zero
+[20:38:54]Error in Signal_Main.py: name 'font' is not defined[20:40:11]Error in Signal_Main.py: name 'text_surface' is not defined[20:41:15]Error in Signal_Main.py: name 'text_surface' is not defined[20:41:39]Error in Signal_Main.py: name 'text_surface' is not defined[09:59:26]Error in Signal_Main.py: division by zero[17:17:48]Error in Signal_Main.py: ord() takes exactly one argument (2 given)
