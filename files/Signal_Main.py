@@ -4,7 +4,7 @@ from pygame.locals import *
 
 # Importing internal functions
 from functions.error_handling import error_window
-from functions.logging import main_log, main_log_clear
+from functions.logging import main_log, main_log_clear, console_output_log
 from functions.db.db import get_connection
 from functions.console import console
 
@@ -62,7 +62,7 @@ tank_speed = 2
 
 # Default Value Settings (New Game later in .dat file)
 tank_x, tank_y = 325, 640
-
+tank_angle = 0
 
 
 # Loading Files
@@ -131,9 +131,20 @@ try:
             tank_y -= tank_speed
         if keys[pygame.K_s]:
             tank_y += tank_speed
+        if keys[pygame.K_q]:
+            tank_angle += 1
+        if keys[pygame.K_e]:
+            tank_angle -= 1
 
-        # Draw Tank
-        screen.blit(test_tank, (tank_x, tank_y))
+        
+        rotated_tank = pygame.transform.rotate(test_tank, tank_angle)
+        rotated_tank_rect = rotated_tank.get_rect(center=(tank_x, tank_y))
+        screen.blit(rotated_tank, rotated_tank_rect.topleft)
+
+
+
+
+
 
 
 
@@ -167,6 +178,10 @@ try:
             font = pygame.font.Font(None, 18)
             text_surface = font.render(fps_text, True, (255, 255, 255))
         screen.blit(text_surface, (10, 25))
+
+        if int(epoch) - last_log >= 10:
+            last_log = int(epoch)
+            console_output_log(tank_x, tank_y, tank_angle)
 
         pygame.display.update()
         clock.tick(240)

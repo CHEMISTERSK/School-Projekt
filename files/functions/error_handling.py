@@ -16,7 +16,7 @@ def error_window(e, sorce):
     log_file_path_temp = os.path.join(log_dir, "temp.log")
 
     with open(log_file_path, "a") as file:
-        file.write(f"[{real_time}]Error in {sorce}: {e}")
+        file.write(f"[{real_time}]Error in {sorce}: {e}\n")
         file.close()
 
     with open(log_file_path_temp, "a") as file:
@@ -30,7 +30,7 @@ def error_window_db(real_time, e, sorce):
     log_file_path_temp = os.path.join(log_dir, "temp.log")
 
     with open(log_file_path, "a") as file:
-        file.write(f"[{real_time}]Error in {sorce}: {e}")
+        file.write(f"[{real_time}]Error in {sorce}: {e}\n")
         file.close()
     
     with open(log_file_path_temp, "a") as file:

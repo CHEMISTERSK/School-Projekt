@@ -58,6 +58,14 @@ try:
         with open(log_path, "w") as file:
             file.write(" ")     
             file.close()
+    
+    def console_output_log(tank_x, tank_y, tank_angle):
+         with open(os.path.join(log_dir, "temp.log"), "a") as file:
+            file.write(f"[{dt.datetime.now().strftime("%H:%M:%S")}]:\n")
+            file.write(f"tank_x:\t\t{tank_x} px\n")
+            file.write(f"tank_y:\t\t{tank_y} px\n")
+            file.write(f"tank_angle:\t{tank_angle} degrees\n")
+            file.close()
 
 except Exception as e:
     error_window(e, sorce)
