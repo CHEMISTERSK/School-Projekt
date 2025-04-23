@@ -1,5 +1,5 @@
 # Importing external functions
-import pygame, sys, time as t, os, random as r, datetime
+import pygame, sys, time as t, os, random as r, datetime, math
 from pygame.locals import *
 
 # Importing internal functions
@@ -58,11 +58,12 @@ fps_text = f"FPS: 0"
 font = pygame.font.Font(None, 18)
 text_surface = font.render(fps_text, True, (255, 255, 255))
 
-tank_speed = 2
+
 
 # Default Value Settings (New Game later in .dat file)
-tank_x, tank_y = 325, 640
-tank_angle = 0
+tank_x, tank_y = 768, 401.5
+tank_angle = 270
+tank_speed = 2
 
 
 # Loading Files
@@ -123,20 +124,31 @@ try:
 
         # Movement Logic
         keys = pygame.key.get_pressed()
+
         if keys[pygame.K_a]:
-            tank_x -= tank_speed
-        if keys[pygame.K_d]:
-            tank_x += tank_speed
-        if keys[pygame.K_w]:
-            tank_y -= tank_speed
-        if keys[pygame.K_s]:
-            tank_y += tank_speed
-        if keys[pygame.K_q]:
             tank_angle += 1
-        if keys[pygame.K_e]:
+
+        if keys[pygame.K_d]:
             tank_angle -= 1
 
-        
+        if tank_angle > 360:
+            tank_angle -= 360
+
+        if tank_angle < 0:
+            tank_angle += 360
+
+        angle_radians = math.radians(tank_angle)
+
+        if keys[pygame.K_w]:
+            tank_x -= tank_speed * math.sin(angle_radians)
+            tank_y -= tank_speed * math.cos(angle_radians)
+
+        if keys[pygame.K_s]:
+            tank_x += tank_speed * math.sin(angle_radians)
+            tank_y += tank_speed * math.cos(angle_radians)
+
+
+
         rotated_tank = pygame.transform.rotate(test_tank, tank_angle)
         rotated_tank_rect = rotated_tank.get_rect(center=(tank_x, tank_y))
         screen.blit(rotated_tank, rotated_tank_rect.topleft)
