@@ -4,7 +4,7 @@ from pygame.locals import *
 
 # Importing internal functions
 from functions.error_handling import error_window
-from functions.logging import main_log, main_log_clear, console_output_log
+from functions.logging import main_log, main_log_clear, console_output_log, console_game_state
 from functions.db.db import get_connection
 from functions.console import console
 
@@ -54,16 +54,17 @@ db = False
 font = pygame.font.Font(None, 18)
 
 last_fps_log = int(epoch)
-fps_text = f"FPS: 0"
+fps_text = f"FPS: "
 font = pygame.font.Font(None, 18)
 text_surface = font.render(fps_text, True, (255, 255, 255))
 
 
 
-# Default Value Settings (New Game later in .dat file)
+# Default Value Settings (New Game, later in .dat file)
 tank_x, tank_y = 768, 401.5
-tank_angle = 270
-tank_speed = 2
+tank_angle = 0
+tank_speed = 1
+tank_rotation_speed = 0.375   # 90 degrees per second
 
 
 # Loading Files
@@ -120,16 +121,17 @@ try:
                         screen = pygame.display.set_mode((res_xy[0], res_xy[1]))
 
                 elif event.key == pygame.K_F12:
+                    console_game_state()
                     console()
 
         # Movement Logic
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_a]:
-            tank_angle += 1
+            tank_angle += tank_rotation_speed
 
         if keys[pygame.K_d]:
-            tank_angle -= 1
+            tank_angle -= tank_rotation_speed
 
         if tank_angle > 360:
             tank_angle -= 360
@@ -177,6 +179,10 @@ try:
             db, connection = get_connection()
             main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, db, connection)
 
+        if int(epoch) - last_log >= 10:
+            last_log = int(epoch)
+            console_output_log(tank_x, tank_y, tank_angle)
+
         if not db:
             screen.blit(font.render("No Connection", True, (219, 17, 4)), (10, 7))
         else:
@@ -190,10 +196,6 @@ try:
             font = pygame.font.Font(None, 18)
             text_surface = font.render(fps_text, True, (255, 255, 255))
         screen.blit(text_surface, (10, 25))
-
-        if int(epoch) - last_log >= 10:
-            last_log = int(epoch)
-            console_output_log(tank_x, tank_y, tank_angle)
 
         pygame.display.update()
         clock.tick(240)

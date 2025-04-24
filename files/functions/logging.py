@@ -11,11 +11,10 @@ try:
         os.makedirs(log_dir)
 
     def main_log(real_time, resolution, res_x, res_y, clock, current_time, epoch, db, connection):
-        log_path_a = os.path.join(log_dir, "running_log.log")
-        log_path_b = os.path.join(log_dir, "epoch_running_log.log")
-        log_path_c = os.path.join(log_dir, "temp.log")
+        log_path_r = os.path.join(log_dir, "running_log.log")
+        log_path_t = os.path.join(log_dir, "temp.log")
         
-        with open(log_path_a, "a") as file:
+        with open(log_path_r, "a") as file:
             file.write("\n")
             file.write(f"[{real_time}]\n")
             file.write(f"Resolution:\n\t{resolution}\n")
@@ -29,20 +28,7 @@ try:
             file.write("\n")
             file.close()
 
-        with open(log_path_b, "a") as file:
-            file.write("\n")
-            file.write(f"[{date.today()}] [{real_time}]\n")
-            file.write(f"Resolution:\n\t{resolution}\n")
-            file.write(f"Resolution X:\t{res_x} px\n")
-            file.write(f"Resolution Y:\t{int(res_y)} px\n")
-            file.write(f"PyClock:\t{clock}\n")
-            file.write(f"CurrentTime:\t{current_time}\n")
-            file.write(f"Epoch:\t{epoch}\n")
-            file.write(f"PyGame Version:\t{pygame.version.ver}\n")
-            file.write("\n")
-            file.close()
-
-        with open(log_path_c, "a") as file:
+        with open(log_path_t, "a") as file:
             file.write(f"[{real_time}]:\n")
             file.write(f"Resolution X:\t\t{res_x} px\n")
             file.write(f"Resolution Y:\t\t{int(res_y)} px\n")
@@ -65,6 +51,11 @@ try:
             file.write(f"tank_x:\t\t{tank_x} px\n")
             file.write(f"tank_y:\t\t{tank_y} px\n")
             file.write(f"tank_angle:\t{tank_angle} degrees\n")
+            file.close()
+        
+    def console_game_state():
+        with open(os.path.join(log_dir, "temp.log"), "a") as file:
+            file.write(f"[{dt.datetime.now().strftime("%H:%M:%S")}]: Game is Paused\n")
             file.close()
 
 except Exception as e:
