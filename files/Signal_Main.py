@@ -58,13 +58,19 @@ font = pygame.font.Font(None, 18)
 text_surface = font.render(fps_text, True, (255, 255, 255))
 
 
-# Default Value Settings (New Game, later in .dat file)
-tank_x = 768
-tank_y =  401.5
-tank_angle = 0
-tank_speed = 1
-tank_rotation_speed = 0.375   # 0.375 = 90 degrees per second
+# Default Value Settings (New Game)
+tank_x = None
+tank_y = None
+tank_angle = None
+tank_speed = None
+tank_rotation_speed = None
 
+with open ("files\\data\\default_data.dat", "r") as file:
+    init_data = file.read()
+    default_data = file.readlines()
+    file.close()
+
+exec(init_data)
 
 # Loading Files
 test_tank = pygame.image.load(os.path.join(os.path.dirname(__file__), "textures", "ST-1.png"))
