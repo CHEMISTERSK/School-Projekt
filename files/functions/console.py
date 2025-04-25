@@ -1,17 +1,21 @@
 import sys, datetime as dt, os, tkinter
 from tkinter import scrolledtext
 from functions.error_handling import error_window
-from functions.logging import console_game_state
+from functions import data
+from functions.logging import console_output_log
 
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs')
 real_time = dt.datetime.now().strftime("%H:%M:%S")
 
 sorce = "console.py"
 console_process = None
+command_line = None
+
+
 
 try:
     def console():
-        console_game_state()
+
         root = tkinter.Tk()
         root.title("Output Terminal")
         root.geometry("800x400")
@@ -29,9 +33,12 @@ try:
 
         def append_to_console(text):
             console_output.config(state='normal')
-            console_output.insert(tkinter.END, text + '\n')
-            console_output.config(state='disabled')
+            console_output.insert(tkinter.END, text + "\n")
+            console_output.config(state = 'disabled')
             console_output.see(tkinter.END)
+            with open (os.path.join(log_dir, "temp.log"), 'a') as temp_file:
+                temp_file.write(f"{text}\n")
+                temp_file.close()
 
         def export_content():
             user_name = os.getlogin()
@@ -56,12 +63,58 @@ try:
             console_output.config(state='disabled')
             root.update()
 
+        def default_values():
+            data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
+            with open (os.path.join(data_path, "default_data.dat"), "r") as file:
+                default_data = file.readlines()
+                file.close()
+            return default_data
+
+        def command_line_execution(command_line):
+            command = command_line.split()
+            if command[0] == "set":
+                if command[1] == "tank_x":
+                    data.tank_x = float(command[2])
+                elif command[1] == "tank_y":
+                    data.tank_y = float(command[2])
+                elif command[1] == "tank_angle":
+                    data.tank_angle = float(command[2])
+                elif command[1] == "tank_speed":
+                    data.tank_speed = float(command[2])
+                elif command[1] == "tank_rotation_speed":
+                    data.tank_rotation_speed = float(command[2])
+                elif command[1] == "?":
+                    append_to_console("variables:\n\ttank_x [value]\n\ttank_y [value]\n\ttank_angle [value]\n\ttank_speed [value]\n\ttank_rotation_speed [value]")
+                elif command[1] == "default" and command[2] == "all":
+                    default_data = default_values()
+                    data.tank_x = float(default_data[0])
+                    data.tank_y = float(default_data[1])
+                    data.tank_angle = float(default_data[2])
+                    data.tank_speed = float(default_data[3])
+                    data.tank_rotation_speed = float(default_data[4]) 
+                else:
+                    append_to_console(f"Unknown variable: {command[1]}")
+
+            elif command[0] == "show" or command[0] == "sh":
+                if command[1] == "tank_info":
+                    append_to_console(console_output_log(data.tank_x, data.tank_y, data.tank_angle, data.tank_speed, data.tank_rotation_speed))
+                elif command[1] == "time":
+                    append_to_console(f"[{real_time}]")
+                elif command[1] == "fps":
+                    append_to_console(str(int(data.fps)))
+                elif command[1] == "?":
+                    append_to_console("variables:\n\ttank_info\n\ttime\n\tfps")
+                else:
+                    append_to_console(f"Unknown variable: {command[1]}")
+            elif command[0] == "shutdown":
+                append_to_console("Shutting down...")
+                data.running = False
+
         def execute_command():
-            global command
-            command = command_entry.get()
-            append_to_console(f"{command}")
+            command_line = command_entry.get()
+            append_to_console(f">>{command_line}")
             command_entry.delete(0, tkinter.END)
-            print(command)
+            command_line_execution(command_line)
 
         # Command line frame with Execute button on the left
         command_frame = tkinter.Frame(root)
@@ -92,9 +145,11 @@ try:
         with open(os.path.join(log_dir, "temp.log"), 'r') as temp_file:
             lines = temp_file.readlines()
             for line in lines:
-                append_to_console(line.strip())
-
+                append_to_console(line.strip())         
+        
         root.mainloop()
+
+    #console()
 
 except Exception as e:
     error_window(e, sorce)

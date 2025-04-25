@@ -1,5 +1,5 @@
 # Importing external functions
-import pygame, sys, time as t, os, random as r, datetime, math
+import pygame, sys, time as t, os, random as r, datetime, math, threading
 from pygame.locals import *
 
 # Importing internal functions
@@ -7,6 +7,8 @@ from functions.error_handling import error_window
 from functions.logging import main_log, main_log_clear, console_output_log
 from functions.db.db import get_connection
 from functions.console import console
+from functions import data
+from functions.data import default_values
 
 
 
@@ -34,6 +36,7 @@ def screen_resolution(full_res_x, full_res_y, fullscreen):
 
     return(res_x, res_y)
 
+
 epoch = t.time()
 last_log = int(epoch)
 
@@ -41,7 +44,6 @@ clock = pygame.time.Clock()
 current_time = pygame.time.get_ticks()
 
 real_time = datetime.datetime.now().strftime("%H:%M:%S")
-running = True
 
 console_process = None
 fullscreen = False
@@ -58,20 +60,6 @@ font = pygame.font.Font(None, 18)
 text_surface = font.render(fps_text, True, (255, 255, 255))
 
 
-# Default Value Settings (New Game)
-tank_x = None
-tank_y = None
-tank_angle = None
-tank_speed = None
-tank_rotation_speed = None
-
-with open ("files\\data\\default_data.dat", "r") as file:
-    init_data = file.read()
-    default_data = file.readlines()
-    file.close()
-
-exec(init_data)
-
 # Loading Files
 test_tank = pygame.image.load(os.path.join(os.path.dirname(__file__), "textures", "ST-1.png"))
 
@@ -81,12 +69,13 @@ res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
 main_log_clear()
 db, connection = get_connection()
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, db, connection)
+default_values()
 
 
 
 try:
 # Main Loop
-    while running:
+    while data.running:
 
         # Screen Resolution
         screen.fill((0, 0, 0))
@@ -96,20 +85,20 @@ try:
 
         real_time = datetime.datetime.now().strftime("%H:%M:%S")
         epoch = t.time()
-
+        keys = pygame.key.get_pressed()
         
 
         # Event Handling
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 os.remove(os.path.join(log_dir, "temp.log"))
-                running = False
+                data.running = False
 
             # Key Binding
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     os.remove(os.path.join(log_dir, "temp.log"))
-                    running = False
+                    data.running = False
 
                 # Switching Between Fullscreen And Windowed Mode
                 elif event.key == pygame.K_F11:
@@ -124,37 +113,35 @@ try:
                         screen = pygame.display.set_mode((res_xy[0], res_xy[1]))
 
                 elif event.key == pygame.K_F12:
-                    console()
+                    threading.Thread(target=console, daemon=True).start()
 
         # Movement Logic
-        keys = pygame.key.get_pressed()
-
         if keys[pygame.K_a]:
-            tank_angle += tank_rotation_speed
+            data.tank_angle += data.tank_rotation_speed
 
         if keys[pygame.K_d]:
-            tank_angle -= tank_rotation_speed
+            data.tank_angle -= data.tank_rotation_speed
 
-        if tank_angle > 360:
-            tank_angle -= 360
+        if data.tank_angle > 360:
+            data.tank_angle -= 360
 
-        if tank_angle < 0:
-            tank_angle += 360
+        if data.tank_angle < 0:
+            data.tank_angle += 360
 
-        angle_radians = math.radians(tank_angle)
+        angle_radians = math.radians(data.tank_angle)
 
         if keys[pygame.K_w]:
-            tank_x -= tank_speed * math.sin(angle_radians)
-            tank_y -= tank_speed * math.cos(angle_radians)
+            data.tank_x -= data.tank_speed * math.sin(angle_radians)
+            data.tank_y -= data.tank_speed * math.cos(angle_radians)
 
         if keys[pygame.K_s]:
-            tank_x += tank_speed * math.sin(angle_radians)
-            tank_y += tank_speed * math.cos(angle_radians)
+            data.tank_x += data.tank_speed * math.sin(angle_radians)
+            data.tank_y += data.tank_speed * math.cos(angle_radians)
 
 
 
-        rotated_tank = pygame.transform.rotate(test_tank, tank_angle)
-        rotated_tank_rect = rotated_tank.get_rect(center = (tank_x, tank_y))
+        rotated_tank = pygame.transform.rotate(test_tank, data.tank_angle)
+        rotated_tank_rect = rotated_tank.get_rect(center = (data.tank_x, data.tank_y))
         screen.blit(rotated_tank, rotated_tank_rect.topleft)
 
 
@@ -181,10 +168,6 @@ try:
             db, connection = get_connection()
             main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, db, connection)
 
-        if int(epoch) - last_log >= 10:
-            last_log = int(epoch)
-            console_output_log(tank_x, tank_y, tank_angle)
-
         if not db:
             screen.blit(font.render("No Connection", True, (219, 17, 4)), (10, 7))
         else:
@@ -193,8 +176,8 @@ try:
         # FPS Counter
         if int(epoch) - last_fps_log >= 1:
             last_fps_log = int(epoch)
-            fps = clock.get_fps()
-            fps_text = f"FPS: {int(fps)}"
+            data.fps = clock.get_fps()
+            fps_text = f"FPS: {int(data.fps)}"
             font = pygame.font.Font(None, 18)
             text_surface = font.render(fps_text, True, (255, 255, 255))
         screen.blit(text_surface, (10, 25))

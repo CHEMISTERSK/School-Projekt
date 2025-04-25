@@ -27,3 +27,12 @@
 [08:19:44]Error in Signal_Main.py: name 'en_console' is not defined
 [09:39:08]Error in Signal_Main.py: cannot access local variable 'command_frame' where it is not associated with a value
 [09:45:39]Error in Signal_Main.py: name 'command' is not defined
+[14:11:58]Error in console.py: [Errno 2] No such file or directory: 'c:\\Users\\Tom�\\Desktop\\Tom�\\Dokumenty\\VSCode\\Python\\PyGame\\Signal_Bunker\\files\\functions\\..\\logs\\temp.log'
+[14:12:41]Error in console.py: [Errno 2] No such file or directory: 'c:\\Users\\Tom�\\Desktop\\Tom�\\Dokumenty\\VSCode\\Python\\PyGame\\Signal_Bunker\\files\\functions\\logs\\temp.log'
+[14:15:39]Error in console.py: name 'command_line' is not defined
+[15:24:20]Error in Signal_Main.py: module 'functions.data' has no attribute 'tank_angle'
+[15:27:39]Error in Signal_Main.py: module 'functions.data' has no attribute 'tank_angle'
+[15:30:41]Error in Signal_Main.py: '>' not supported between instances of 'str' and 'int'
+[15:32:37]Error in Signal_Main.py: '>' not supported between instances of 'str' and 'int'
+[15:43:59]Error in Signal_Main.py: module 'functions.data' has no attribute 'tank_angle'
+[15:46:37]Error in Signal_Main.py: module 'functions.data' has no attribute 'tank_angle'

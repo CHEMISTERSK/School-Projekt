@@ -25,18 +25,10 @@ try:
             file.write(f"Epoch:\t\t{epoch}\n")
             file.write(f"PyGame Version:\t{pygame.version.ver}\n")
             file.write(f"Database connection status: {db}, Connection object: {connection}")
-            file.write("\n")
             file.close()
 
         with open(log_path_t, "a") as file:
-            file.write(f"[{real_time}]:\n")
-            file.write(f"Resolution X:\t\t{res_x} px\n")
-            file.write(f"Resolution Y:\t\t{int(res_y)} px\n")
-            file.write(f"PyClock:\t\t{clock}\n")
-            file.write(f"CurrentTime:\t\t{current_time}\n")
-            file.write(f"Epoch:\t\t{epoch}\n")
-            file.write(f"PyGame Version:\t{pygame.version.ver}\n")
-            file.write(f"[{real_time}]Database connection status: {db}, Connection object: {connection}\n")
+            file.write("Signal_Bunker game console all rights reserved (C)\n")
             file.close()
 
     def main_log_clear():
@@ -45,18 +37,13 @@ try:
             file.write(" ")     
             file.close()
     
-    def console_output_log(tank_x, tank_y, tank_angle):
-         with open(os.path.join(log_dir, "temp.log"), "a") as file:
-            file.write(f"[{dt.datetime.now().strftime("%H:%M:%S")}]:\n")
-            file.write(f"tank_x:\t\t{tank_x} px\n")
-            file.write(f"tank_y:\t\t{tank_y} px\n")
-            file.write(f"tank_angle:\t\t{tank_angle} deg\n")
-            file.close()
+    def console_output_log(tank_x, tank_y, tank_angle, tank_speed, tank_rotation_speed):
+        return f"Tank X:\t\t\t{tank_x}\n" \
+               f"Tank Y:\t\t\t{tank_y}\n" \
+               f"Tank Angle:\t\t\t{tank_angle}\n" \
+               f"Tank Speed:\t\t\t{tank_speed}\n" \
+               f"Tank Rotation Speed:\t\t\t{tank_rotation_speed}\n"
         
-    def console_game_state():
-        with open(os.path.join(log_dir, "temp.log"), "a") as file:
-            file.write(f"[{dt.datetime.now().strftime("%H:%M:%S")}]: Game is Paused\n")
-            file.close()
 
 except Exception as e:
     error_window(e, sorce)
