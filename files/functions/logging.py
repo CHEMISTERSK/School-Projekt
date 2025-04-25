@@ -50,7 +50,7 @@ try:
             file.write(f"[{dt.datetime.now().strftime("%H:%M:%S")}]:\n")
             file.write(f"tank_x:\t\t{tank_x} px\n")
             file.write(f"tank_y:\t\t{tank_y} px\n")
-            file.write(f"tank_angle:\t{tank_angle} degrees\n")
+            file.write(f"tank_angle:\t\t{tank_angle} deg\n")
             file.close()
         
     def console_game_state():

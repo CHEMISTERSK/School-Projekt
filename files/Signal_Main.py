@@ -4,7 +4,7 @@ from pygame.locals import *
 
 # Importing internal functions
 from functions.error_handling import error_window
-from functions.logging import main_log, main_log_clear, console_output_log, console_game_state
+from functions.logging import main_log, main_log_clear, console_output_log
 from functions.db.db import get_connection
 from functions.console import console
 
@@ -121,7 +121,6 @@ try:
                         screen = pygame.display.set_mode((res_xy[0], res_xy[1]))
 
                 elif event.key == pygame.K_F12:
-                    console_game_state()
                     console()
 
         # Movement Logic
