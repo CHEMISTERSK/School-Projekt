@@ -10,7 +10,6 @@ from functions.console import console
 
 
 
-
 # Game Initialization
 pygame.init()
 pygame.display.set_caption("Signal")
@@ -59,17 +58,16 @@ font = pygame.font.Font(None, 18)
 text_surface = font.render(fps_text, True, (255, 255, 255))
 
 
-
 # Default Value Settings (New Game, later in .dat file)
-tank_x, tank_y = 768, 401.5
+tank_x = 768
+tank_y =  401.5
 tank_angle = 0
 tank_speed = 1
-tank_rotation_speed = 0.375   # 90 degrees per second
+tank_rotation_speed = 0.375   # 0.375 = 90 degrees per second
 
 
 # Loading Files
 test_tank = pygame.image.load(os.path.join(os.path.dirname(__file__), "textures", "ST-1.png"))
-
 
 
 # Functions Calling
@@ -77,7 +75,6 @@ res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
 main_log_clear()
 db, connection = get_connection()
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, db, connection)
-
 
 
 
@@ -151,7 +148,7 @@ try:
 
 
         rotated_tank = pygame.transform.rotate(test_tank, tank_angle)
-        rotated_tank_rect = rotated_tank.get_rect(center=(tank_x, tank_y))
+        rotated_tank_rect = rotated_tank.get_rect(center = (tank_x, tank_y))
         screen.blit(rotated_tank, rotated_tank_rect.topleft)
 
 
