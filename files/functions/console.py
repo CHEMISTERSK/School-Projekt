@@ -8,10 +8,7 @@ log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs')
 real_time = dt.datetime.now().strftime("%H:%M:%S")
 
 sorce = "console.py"
-console_process = None
 command_line = None
-
-
 
 try:
     def console():
@@ -72,8 +69,22 @@ try:
 
         def command_line_execution(command_line):
             command = command_line.split()
-            if command[0] == "set":
-                if command[1] == "tank_x":
+            if command[0] == "help":
+                append_to_console("Available commands:\n\tset\n\tshow\n\tshutdown")
+            elif command[0] == "set":
+                if command[1] == "?":
+                    append_to_console("variables:\n\ttank_x [value]/default\n\ttank_y [value]/default\n\ttank_angle [value]/default\n\ttank_speed [value]/default\n\ttank_rotation_speed [value]/default\n\tdefault all")
+                elif command[2] == "default":
+                    if command[1] == "tank_location":
+                        data.tank_x, data.tank_y = data.set_tank_location_default(data.default_data)
+                    elif command[1] == "tank_speed":
+                        data.tank_speed = data.set_tank_speed_default(data.default_data)
+                    elif command[1] == "tank_rotation_speed":
+                        data.tank_rotation_speed = data.set_tank_rotation_speed_default(data.default_data)
+                    else:
+                        append_to_console(f"Unknown variable: {command[1]}")
+
+                elif command[1] == "tank_x":
                     data.tank_x = float(command[2])
                 elif command[1] == "tank_y":
                     data.tank_y = float(command[2])
@@ -83,15 +94,13 @@ try:
                     data.tank_speed = float(command[2])
                 elif command[1] == "tank_rotation_speed":
                     data.tank_rotation_speed = float(command[2])
-                elif command[1] == "?":
-                    append_to_console("variables:\n\ttank_x [value]\n\ttank_y [value]\n\ttank_angle [value]\n\ttank_speed [value]\n\ttank_rotation_speed [value]")
                 elif command[1] == "default" and command[2] == "all":
                     default_data = default_values()
                     data.tank_x = float(default_data[0])
                     data.tank_y = float(default_data[1])
                     data.tank_angle = float(default_data[2])
                     data.tank_speed = float(default_data[3])
-                    data.tank_rotation_speed = float(default_data[4]) 
+                    data.tank_rotation_speed = float(default_data[4])
                 else:
                     append_to_console(f"Unknown variable: {command[1]}")
 
@@ -106,9 +115,13 @@ try:
                     append_to_console("variables:\n\ttank_info\n\ttime\n\tfps")
                 else:
                     append_to_console(f"Unknown variable: {command[1]}")
+            
             elif command[0] == "shutdown":
                 append_to_console("Shutting down...")
                 data.running = False
+            else:
+                append_to_console(f"Unknown command: {command[0]}")
+                append_to_console("Use \"help\" for help.")
 
         def execute_command():
             command_line = command_entry.get()
@@ -148,8 +161,6 @@ try:
                 append_to_console(line.strip())         
         
         root.mainloop()
-
-    #console()
 
 except Exception as e:
     error_window(e, sorce)

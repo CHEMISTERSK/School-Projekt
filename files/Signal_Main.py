@@ -4,11 +4,10 @@ from pygame.locals import *
 
 # Importing internal functions
 from functions.error_handling import error_window
-from functions.logging import main_log, main_log_clear, console_output_log
+from functions.logging import main_log, main_log_clear
 from functions.db.db import get_connection
 from functions.console import console
 from functions import data
-from functions.data import default_values
 
 
 
@@ -45,12 +44,7 @@ current_time = pygame.time.get_ticks()
 
 real_time = datetime.datetime.now().strftime("%H:%M:%S")
 
-console_process = None
-fullscreen = False
-
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
-
-db = False
 
 font = pygame.font.Font(None, 18)
 
@@ -65,11 +59,11 @@ test_tank = pygame.image.load(os.path.join(os.path.dirname(__file__), "textures"
 
 
 # Functions Calling
-res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
+res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
 main_log_clear()
 db, connection = get_connection()
-main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, db, connection)
-default_values()
+main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, data.db, connection)
+data.set_default_values()
 
 
 
@@ -102,14 +96,14 @@ try:
 
                 # Switching Between Fullscreen And Windowed Mode
                 elif event.key == pygame.K_F11:
-                    if not fullscreen:
-                        fullscreen = True
-                        res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
+                    if not data.fullscreen:
+                        data.fullscreen = True
+                        res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
                         screen = pygame.display.set_mode((res_xy[0], res_xy[1]), pygame.FULLSCREEN)
 
-                    elif fullscreen:
-                        fullscreen = False
-                        res_xy = screen_resolution(full_res_x, full_res_y, fullscreen)
+                    elif data.fullscreen:
+                        data.fullscreen = False
+                        res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
                         screen = pygame.display.set_mode((res_xy[0], res_xy[1]))
 
                 elif event.key == pygame.K_F12:
@@ -165,8 +159,8 @@ try:
         
         if int(epoch) - last_log == 60:
             last_log = int(epoch)
-            db, connection = get_connection()
-            main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, db, connection)
+            data.db, connection = get_connection()
+            main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, data.db, connection)
 
         if not db:
             screen.blit(font.render("No Connection", True, (219, 17, 4)), (10, 7))

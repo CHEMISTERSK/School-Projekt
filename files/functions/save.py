@@ -1,4 +1,4 @@
-import sys, datetime, json
+import sys, datetime
 from error_handling import error_window
 
 sorce = "save.py"

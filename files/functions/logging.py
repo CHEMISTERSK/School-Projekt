@@ -12,7 +12,6 @@ try:
 
     def main_log(real_time, resolution, res_x, res_y, clock, current_time, epoch, db, connection):
         log_path_r = os.path.join(log_dir, "running_log.log")
-        log_path_t = os.path.join(log_dir, "temp.log")
         
         with open(log_path_r, "a") as file:
             file.write("\n")
@@ -27,14 +26,16 @@ try:
             file.write(f"Database connection status: {db}, Connection object: {connection}")
             file.close()
 
-        with open(log_path_t, "a") as file:
-            file.write("Signal_Bunker game console all rights reserved (C)\n")
-            file.close()
-
     def main_log_clear():
+        log_path_t = os.path.join(log_dir, "temp.log")
         log_path = os.path.join(log_dir, "running_log.log")
+        
         with open(log_path, "w") as file:
             file.write(" ")     
+            file.close()
+        
+        with open(log_path_t, "a") as file:
+            file.write("Signal_Bunker game console all rights reserved (C)\n")
             file.close()
     
     def console_output_log(tank_x, tank_y, tank_angle, tank_speed, tank_rotation_speed):

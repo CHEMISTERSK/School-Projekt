@@ -7,7 +7,6 @@ sorce = "db.py"
 
 try:
     def get_connection():
-        # Variables For except psycopg2.OperationalError
         print("Connecting to database...")
         real_time = datetime.datetime.now().strftime("%H:%M:%S")
         sorce = "db.py"
@@ -32,8 +31,7 @@ try:
 
             db = True
             return db, connection
-
-        # Connection Error Handling
+        
         except psycopg2.OperationalError as e:
             db = False
             connection = False
