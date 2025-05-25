@@ -1,5 +1,5 @@
  
-[11:57:25]
+[15:09:00]
 Resolution:
 	<VideoInfo(hw = 0, wm = 1,video_mem = 0
          blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
@@ -14,64 +14,7 @@ Resolution:
 Resolution X:	1920.0 px
 Resolution Y:	1080 px
 PyClock:	<Clock(fps=0.00)>
-CurrentTime:	918
-Epoch:		1745661445.6660924
+CurrentTime:	1207
+Epoch:		1748178540.2892823
 PyGame Version:	2.6.1
-Database connection status: True, Connection object: <connection object at 0x000001B75A585AD0; dsn: 'user=postgres password=xxx dbname=demo host=localhost port=5432', closed: 0>
-[11:58:25]
-Resolution:
-	<VideoInfo(hw = 0, wm = 1,video_mem = 0
-         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
-         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
-         bitsize  = 32, bytesize = 4,
-         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
-         shifts = (16, 8, 0, 0),
-         losses =  (0, 0, 0, 8),
-         current_w = 1536, current_h = 864
-         pixel_format = SDL_PIXELFORMAT_RGB888)
->
-Resolution X:	1920.0 px
-Resolution Y:	1080 px
-PyClock:	<Clock(fps=212.77)>
-CurrentTime:	60255
-Epoch:		1745661505.0028853
-PyGame Version:	2.6.1
-Database connection status: True, Connection object: <connection object at 0x000001B75BF2C6A0; dsn: 'user=postgres password=xxx dbname=demo host=localhost port=5432', closed: 0>
-[11:59:25]
-Resolution:
-	<VideoInfo(hw = 0, wm = 1,video_mem = 0
-         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
-         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
-         bitsize  = 32, bytesize = 4,
-         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
-         shifts = (16, 8, 0, 0),
-         losses =  (0, 0, 0, 8),
-         current_w = 1536, current_h = 864
-         pixel_format = SDL_PIXELFORMAT_RGB888)
->
-Resolution X:	1920.0 px
-Resolution Y:	1080 px
-PyClock:	<Clock(fps=227.27)>
-CurrentTime:	120255
-Epoch:		1745661565.0034482
-PyGame Version:	2.6.1
-Database connection status: True, Connection object: <connection object at 0x000001B75BF2CF20; dsn: 'user=postgres password=xxx dbname=demo host=localhost port=5432', closed: 0>
-[12:00:25]
-Resolution:
-	<VideoInfo(hw = 0, wm = 1,video_mem = 0
-         blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
-         blit_sw = 0, blit_sw_CC = 0, blit_sw_A = 0,
-         bitsize  = 32, bytesize = 4,
-         masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
-         shifts = (16, 8, 0, 0),
-         losses =  (0, 0, 0, 8),
-         current_w = 1536, current_h = 864
-         pixel_format = SDL_PIXELFORMAT_RGB888)
->
-Resolution X:	1920.0 px
-Resolution Y:	1080 px
-PyClock:	<Clock(fps=222.22)>
-CurrentTime:	180252
-Epoch:		1745661625.0002956
-PyGame Version:	2.6.1
-Database connection status: True, Connection object: <connection object at 0x000001B75A585AD0; dsn: 'user=postgres password=xxx dbname=demo host=localhost port=5432', closed: 0>
+Database connection status: True, Connection object: <connection object at 0x000001E80C55D140; dsn: 'user=postgres password=xxx dbname=demo host=localhost port=5432', closed: 0>

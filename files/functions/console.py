@@ -73,7 +73,7 @@ try:
                 append_to_console("Available commands:\n\tset\n\tshow\n\tshutdown")
             elif command[0] == "set":
                 if command[1] == "?":
-                    append_to_console("variables:\n\ttank_x [value]/default\n\ttank_y [value]/default\n\ttank_angle [value]/default\n\ttank_speed [value]/default\n\ttank_rotation_speed [value]/default\n\tdefault all")
+                    append_to_console("variables:\n\ttank_x [value]/default\n\ttank_y [value]/default\n\ttank_angle [value]/default\n\ttank_speed [value]/default\n\ttank_rotation_speed [value]/default\n\ttank_location default\n\tdefault all")
                 elif command[2] == "default":
                     if command[1] == "tank_location":
                         data.tank_x, data.tank_y = data.set_tank_location_default(data.default_data)
@@ -82,7 +82,7 @@ try:
                     elif command[1] == "tank_rotation_speed":
                         data.tank_rotation_speed = data.set_tank_rotation_speed_default(data.default_data)
                     else:
-                        append_to_console(f"Unknown variable: {command[1]}")
+                        append_to_console(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
 
                 elif command[1] == "tank_x":
                     data.tank_x = float(command[2])
@@ -102,7 +102,7 @@ try:
                     data.tank_speed = float(default_data[3])
                     data.tank_rotation_speed = float(default_data[4])
                 else:
-                    append_to_console(f"Unknown variable: {command[1]}")
+                    append_to_console(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
 
             elif command[0] == "show" or command[0] == "sh":
                 if command[1] == "tank_info":
