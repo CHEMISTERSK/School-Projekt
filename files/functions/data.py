@@ -53,7 +53,7 @@ try:
             if filename:  # Skip empty lines
                 texture_loading_path.append(os.path.join(texture_path, filename))
         return texture_loading_path
-
+    
     texture_loading_path = load_textures()
 
     test_tank = pygame.image.load(texture_loading_path[1])

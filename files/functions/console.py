@@ -1,4 +1,4 @@
-import sys, datetime as dt, os, tkinter
+import sys, datetime as dt, os, tkinter, pygame
 from tkinter import scrolledtext
 from functions.error_handling import error_window
 from functions import data
@@ -121,6 +121,11 @@ try:
             elif command[0] == "shutdown":
                 append_to_console("Shutting down...")
                 data.running = False
+            elif command[0] == "reload":
+                append_to_console("Reoading AV data...")
+                data.texture_loading_path = data.load_textures()
+                data.test_tank = pygame.image.load(data.texture_loading_path[1])
+                data.surface = pygame.image.load(data.texture_loading_path[2])
             else:
                 append_to_console(f"Unknown command: {command[0]}")
                 append_to_console("Use \"help\" for help.")
