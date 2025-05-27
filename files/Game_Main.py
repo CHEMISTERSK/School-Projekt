@@ -54,10 +54,6 @@ font = pygame.font.Font(None, 18)
 text_surface = font.render(fps_text, True, (255, 255, 255))
 
 
-# Loading Files
-test_tank = pygame.image.load(os.path.join(os.path.dirname(__file__), "textures", "ST-1.png"))
-
-
 # Functions Calling
 res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
 main_log_clear()
@@ -134,7 +130,7 @@ try:
 
 
 
-        rotated_tank = pygame.transform.rotate(test_tank, data.tank_angle)
+        rotated_tank = pygame.transform.rotate(data.test_tank, data.tank_angle)
         rotated_tank_rect = rotated_tank.get_rect(center = (data.tank_x, data.tank_y))
         screen.blit(rotated_tank, rotated_tank_rect.topleft)
 
