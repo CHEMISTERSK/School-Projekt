@@ -36,3 +36,6 @@
 [15:32:37]Error in Signal_Main.py: '>' not supported between instances of 'str' and 'int'
 [15:43:59]Error in Signal_Main.py: module 'functions.data' has no attribute 'tank_angle'
 [15:46:37]Error in Signal_Main.py: module 'functions.data' has no attribute 'tank_angle'
+[08:44:48]Error in Signal_Main.py: division by zero
+[08:49:56]Error in Data.py: Error during file loading: No such file or directory: 'c:\Projekts\School_Project\files\functions\..\textures\Surface.jp'.
+[08:49:59]Error in Signal_Main.py: module 'functions.data' has no attribute 'surface'
