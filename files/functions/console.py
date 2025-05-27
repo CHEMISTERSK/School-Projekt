@@ -81,6 +81,8 @@ try:
                         data.tank_speed = data.set_tank_speed_default(data.default_data)
                     elif command[1] == "tank_rotation_speed":
                         data.tank_rotation_speed = data.set_tank_rotation_speed_default(data.default_data)
+                    elif command[1] == "tank_angle":
+                        data.tank_angle = data.set_tank_angle_default(data.default_data)
                     else:
                         append_to_console(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
 

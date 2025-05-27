@@ -21,6 +21,10 @@ try:
         tank_x = float(default_data[0])
         tank_y = float(default_data[1])
         return tank_x, tank_y
+    
+    def set_tank_angle_default(default_data):
+        tank_angle = float(default_data[2])
+        return tank_angle
 
     default_data = set_default_values()
 
