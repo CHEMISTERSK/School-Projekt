@@ -9,6 +9,9 @@ from functions.db.db import get_connection
 from functions.console import console
 from functions import data
 
+# Importing Mechanics
+from mechanics.generation import generation
+
 
 
 # Game Initialization
@@ -52,6 +55,9 @@ last_fps_log = int(epoch)
 fps_text = f"FPS: "
 font = pygame.font.Font(None, 18)
 text_surface = font.render(fps_text, True, (255, 255, 255))
+
+d_x = data.tank_x
+d_y = data.tank_y
 
 
 # Functions Calling
@@ -105,7 +111,7 @@ try:
                 elif event.key == pygame.K_F12:
                     threading.Thread(target=console, daemon=True).start()
 
-        screen.blit(data.surface, (0, 0))
+        generation(screen)
 
         # Movement Logic
         if keys[pygame.K_a]:
@@ -133,7 +139,7 @@ try:
 
 
         rotated_tank = pygame.transform.rotate(data.test_tank, data.tank_angle)
-        rotated_tank_rect = rotated_tank.get_rect(center = (data.tank_x, data.tank_y))
+        rotated_tank_rect = rotated_tank.get_rect(center = (d_x, d_y))
         screen.blit(rotated_tank, rotated_tank_rect.topleft)
 
 
@@ -182,7 +188,7 @@ try:
 
 #Error Handling
 except Exception as e:
-    error_window(e, "Signal_Main.py")
+    error_window(e, "Main.py")
     os.remove(os.path.join(log_dir, "temp.log"))
     pygame.quit()
     sys.exit()

@@ -39,3 +39,11 @@
 [08:44:48]Error in Signal_Main.py: division by zero
 [08:49:56]Error in Data.py: Error during file loading: No such file or directory: 'c:\Projekts\School_Project\files\functions\..\textures\Surface.jp'.
 [08:49:59]Error in Signal_Main.py: module 'functions.data' has no attribute 'surface'
+[16:40:58]Error in Signal_Main.py: cannot access local variable 'gen_y' where it is not associated with a value
+[16:41:59]Error in Main.py: cannot access local variable 'gen_y' where it is not associated with a value
+[16:42:59]Error in Main.py: cannot access local variable 'gen_x' where it is not associated with a value
+[16:44:28]Error in Main.py: cannot access local variable 'gen_y' where it is not associated with a value
+[16:47:24]Error in Main.py: cannot access local variable 'gen_y' where it is not associated with a value
+[16:50:25]Error in Main.py: cannot access local variable 'gen_x' where it is not associated with a value
+[16:50:51]Error in Main.py: cannot access local variable 'gen_y' where it is not associated with a value
+[17:00:14]Error in Main.py: generation() takes 1 positional argument but 3 were given
