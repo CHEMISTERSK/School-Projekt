@@ -105,6 +105,8 @@ try:
                 elif event.key == pygame.K_F12:
                     threading.Thread(target=console, daemon=True).start()
 
+        screen.blit(data.surface, (0, 0))
+
         # Movement Logic
         if keys[pygame.K_a]:
             data.tank_angle += data.tank_rotation_speed
@@ -151,7 +153,7 @@ try:
 
 
 
-
+        
         
         if int(epoch) - last_log == 60:
             last_log = int(epoch)

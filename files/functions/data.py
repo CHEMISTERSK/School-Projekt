@@ -39,14 +39,16 @@ db = bool(default_data[8])
 def load_textures():
     texture_loading_path = []
     data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
-    with open (os.path.join(data_path, "avdata.dat"), "r") as file:
+    with open(os.path.join(data_path, "avdata.dat"), "r") as file:
         texture_data = file.readlines()
-        file.close()
     texture_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'textures')
     for line in texture_data:
-        texture_loading_path.append(texture_path + "\\" + line)
+        filename = line.strip()  # Remove whitespace and newlines
+        if filename:  # Skip empty lines
+            texture_loading_path.append(os.path.join(texture_path, filename))
     return texture_loading_path
 
 texture_loading_path = load_textures()
 
 test_tank = pygame.image.load(texture_loading_path[1])
+surface = pygame.image.load(texture_loading_path[2])
