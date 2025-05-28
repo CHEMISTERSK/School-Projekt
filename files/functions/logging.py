@@ -1,6 +1,7 @@
 import os, pygame, sys, datetime as dt
 from datetime import date
 from functions.error_handling import error_window
+from functions import data
 
 real_time = dt.datetime.now().strftime("%H:%M:%S")
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs')
@@ -33,10 +34,12 @@ try:
         with open(log_path, "w") as file:
             file.write(" ")     
             file.close()
-        
-        with open(log_path_t, "a") as file:
-            file.write("Signal_Bunker game console all rights reserved (C)\n")
-            file.close()
+
+        if data.copy == True:
+            with open(log_path_t, "w") as file:
+                file.write("Signal_Bunker game console all rights reserved (C)\n")
+                file.close()
+            data.copy = False
     
     def console_output_log(tank_x, tank_y, tank_angle, tank_speed, tank_rotation_speed):
         return f"Tank X:\t\t\t{tank_x}\n" \

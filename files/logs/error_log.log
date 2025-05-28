@@ -47,3 +47,5 @@
 [16:50:25]Error in Main.py: cannot access local variable 'gen_x' where it is not associated with a value
 [16:50:51]Error in Main.py: cannot access local variable 'gen_y' where it is not associated with a value
 [17:00:14]Error in Main.py: generation() takes 1 positional argument but 3 were given
+[08:20:39]Error in Main.py: [WinError 2] The system cannot find the file specified: 'c:\\Projekts\\School_Project\\files\\logs\\temp.log'
+[08:20:52]Error in Main.py: [WinError 2] The system cannot find the file specified: 'c:\\Projekts\\School_Project\\files\\logs\\temp.log'

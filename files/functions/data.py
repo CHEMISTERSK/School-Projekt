@@ -39,6 +39,7 @@ try:
     running = bool(default_data[7])
     fullscreen = bool(default_data[8])
     db = bool(default_data[9])
+    copy = bool(default_data[10])
 
 
     # Loading Textures and Sounds

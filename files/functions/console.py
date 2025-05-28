@@ -33,6 +33,8 @@ try:
             console_output.insert(tkinter.END, text + "\n")
             console_output.config(state = 'disabled')
             console_output.see(tkinter.END)
+
+        def append_to_temp_log(text):
             with open (os.path.join(log_dir, "temp.log"), 'a') as temp_file:
                 temp_file.write(f"{text}\n")
                 temp_file.close()
@@ -49,6 +51,7 @@ try:
             console_output.config(state='normal')
             console_output.delete("1.0", tkinter.END)
             console_output.config(state='disabled')
+            data.copy = True
 
             with open(os.path.join(log_dir, "temp.log"), 'w') as temp_file:
                 temp_file.truncate(0)
@@ -76,9 +79,11 @@ try:
             command = command_line.split()
             if command[0] == "help":
                 append_to_console("Available commands:\n\tset\n\tshow\n\tshutdown")
+                append_to_temp_log("Available commands:\n\tset\n\tshow\n\tshutdown")
             elif command[0] == "set":
                 if command[1] == "?":
                     append_to_console("variables:\n\ttank_x [value]/default\n\ttank_y [value]/default\n\ttank_angle [value]/default\n\ttank_speed [value]/default\n\ttank_rotation_speed [value]/default\n\ttank_location default\n\tdefault all")
+                    append_to_temp_log("variables:\n\ttank_x [value]/default\n\ttank_y [value]/default\n\ttank_angle [value]/default\n\ttank_speed [value]/default\n\ttank_rotation_speed [value]/default\n\ttank_location default\n\tdefault all")
                 elif command[2] == "default":
                     if command[1] == "tank_location":
                         data.tank_x, data.tank_y = data.set_tank_location_default(data.default_data)
@@ -90,6 +95,7 @@ try:
                         data.tank_angle = data.set_tank_angle_default(data.default_data)
                     else:
                         append_to_console(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
+                        append_to_temp_log(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
 
                 elif command[1] == "tank_x":
                     data.tank_x = float(command[2])
@@ -114,33 +120,45 @@ try:
                     data.fov = float(default_data[6])
                 else:
                     append_to_console(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
+                    append_to_temp_log(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
 
             elif command[0] == "show" or command[0] == "sh":
                 if command[1] == "tank_info":
                     append_to_console(console_output_log(data.tank_x, data.tank_y, data.tank_angle, data.tank_speed, data.tank_rotation_speed))
+                    append_to_temp_log(console_output_log(data.tank_x, data.tank_y, data.tank_angle, data.tank_speed, data.tank_rotation_speed))
                 elif command[1] == "time":
                     append_to_console(f"[{real_time}]")
+                    append_to_temp_log(f"[{real_time}]")
                 elif command[1] == "fps":
                     append_to_console(str(int(data.fps)))
+                    append_to_temp_log(str(int(data.fps)))
                 elif command[1] == "?":
                     append_to_console("variables:\n\ttank_info\n\ttime\n\tfps")
+                    append_to_temp_log("variables:\n\ttank_info\n\ttime\n\tfps")
                 else:
                     append_to_console(f"Unknown variable: {command[1]}")
+                    append_to_temp_log(f"Unknown variable: {command[1]}")
             
             elif command[0] == "shutdown":
                 append_to_console("Shutting down...")
+                append_to_temp_log("Shutting down...")
                 data.running = False
             elif command[0] == "reload":
                 append_to_console("Reoading AV data...")
+                append_to_temp_log("Reoading AV data...")
                 reload()
                 append_to_console("AV data reloaded successfully.")
+                append_to_temp_log("AV data reloaded successfully.")
             else:
                 append_to_console(f"Unknown command: {command[0]}")
+                append_to_temp_log(f"Unknown command: {command[0]}")
                 append_to_console("Use \"help\" for help.")
+                append_to_temp_log("Use \"help\" for help.")
 
         def execute_command():
             command_line = command_entry.get()
             append_to_console(f">>{command_line}")
+            append_to_temp_log(f">>{command_line}")
             command_entry.delete(0, tkinter.END)
             command_line_execution(command_line)
 
