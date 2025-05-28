@@ -10,8 +10,7 @@ from functions.console import console
 from functions import data
 
 # Importing Mechanics
-from mechanics.generation import generation
-
+from mechanics import generation as gen
 
 
 # Game Initialization
@@ -111,7 +110,7 @@ try:
                 elif event.key == pygame.K_F12:
                     threading.Thread(target=console, daemon=True).start()
 
-        generation(screen)
+        gen.generation_4(screen)
 
         # Movement Logic
         if keys[pygame.K_a]:
@@ -138,7 +137,7 @@ try:
 
 
 
-        rotated_tank = pygame.transform.rotate(data.test_tank, data.tank_angle)
+        rotated_tank = pygame.transform.rotate(pygame.transform.scale_by(data.test_tank, 0.5), data.tank_angle)
         rotated_tank_rect = rotated_tank.get_rect(center = (d_x, d_y))
         screen.blit(rotated_tank, rotated_tank_rect.topleft)
 

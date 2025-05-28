@@ -35,9 +35,10 @@ try:
     tank_rotation_speed = float(default_data[4])
 
     fps = float(default_data[5])
-    running = bool(default_data[6])
-    fullscreen = bool(default_data[7])
-    db = bool(default_data[8])
+    fov = float(default_data[6])
+    running = bool(default_data[7])
+    fullscreen = bool(default_data[8])
+    db = bool(default_data[9])
 
 
     # Loading Textures and Sounds
@@ -56,8 +57,8 @@ try:
     
     texture_loading_path = load_textures()
 
-    test_tank = pygame.image.load(texture_loading_path[1])
-    surface = pygame.image.load(texture_loading_path[2])
+    test_tank = pygame.transform.scale_by(pygame.image.load(texture_loading_path[1]), fov)
+    surface = pygame.transform.scale_by(pygame.image.load(texture_loading_path[2]), (fov / 2))
 
 except Exception as e:
     source = "Data.py"

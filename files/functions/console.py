@@ -66,6 +66,11 @@ try:
                 default_data = file.readlines()
                 file.close()
             return default_data
+        
+        def reload():
+            data.texture_loading_path = data.load_textures()
+            data.test_tank = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[1]), data.fov)
+            data.surface = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), data.fov)
 
         def command_line_execution(command_line):
             command = command_line.split()
@@ -96,6 +101,9 @@ try:
                     data.tank_speed = float(command[2])
                 elif command[1] == "tank_rotation_speed":
                     data.tank_rotation_speed = float(command[2])
+                elif command[1] == "fov":
+                    data.fov = float(command[2])
+                    reload()
                 elif command[1] == "default" and command[2] == "all":
                     default_data = default_values()
                     data.tank_x = float(default_data[0])
@@ -103,6 +111,7 @@ try:
                     data.tank_angle = float(default_data[2])
                     data.tank_speed = float(default_data[3])
                     data.tank_rotation_speed = float(default_data[4])
+                    data.fov = float(default_data[6])
                 else:
                     append_to_console(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
 
@@ -123,9 +132,7 @@ try:
                 data.running = False
             elif command[0] == "reload":
                 append_to_console("Reoading AV data...")
-                data.texture_loading_path = data.load_textures()
-                data.test_tank = pygame.image.load(data.texture_loading_path[1])
-                data.surface = pygame.image.load(data.texture_loading_path[2])
+                reload()
             else:
                 append_to_console(f"Unknown command: {command[0]}")
                 append_to_console("Use \"help\" for help.")
