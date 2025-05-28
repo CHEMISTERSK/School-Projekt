@@ -1,5 +1,4 @@
 from functions import data
-import pygame
 
 def generation_4(screen):
     block_size = 1024 * data.fov / 2

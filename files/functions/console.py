@@ -133,6 +133,7 @@ try:
             elif command[0] == "reload":
                 append_to_console("Reoading AV data...")
                 reload()
+                append_to_console("AV data reloaded successfully.")
             else:
                 append_to_console(f"Unknown command: {command[0]}")
                 append_to_console("Use \"help\" for help.")
