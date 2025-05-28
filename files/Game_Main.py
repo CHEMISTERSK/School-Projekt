@@ -128,12 +128,12 @@ try:
         angle_radians = math.radians(data.tank_angle)
 
         if keys[pygame.K_w]:
-            data.tank_x -= data.tank_speed * math.sin(angle_radians)
-            data.tank_y -= data.tank_speed * math.cos(angle_radians)
+            data.tank_x -= (data.tank_speed * math.sin(angle_radians)) * data.fov
+            data.tank_y -= (data.tank_speed * math.cos(angle_radians)) * data.fov
 
         if keys[pygame.K_s]:
-            data.tank_x += data.tank_speed * math.sin(angle_radians)
-            data.tank_y += data.tank_speed * math.cos(angle_radians)
+            data.tank_x += (data.tank_speed * math.sin(angle_radians)) * data.fov
+            data.tank_y += (data.tank_speed * math.cos(angle_radians)) * data.fov
 
 
 

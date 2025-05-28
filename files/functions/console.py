@@ -108,8 +108,12 @@ try:
                 elif command[1] == "tank_rotation_speed":
                     data.tank_rotation_speed = float(command[2])
                 elif command[1] == "fov":
-                    data.fov = float(command[2])
-                    reload()
+                    if int(command[2]) >= 0.1 and int(command[2]) <= 5:
+                        data.fov = float(command[2])
+                        reload()
+                    else:
+                        append_to_console("Error: Invalid argument or out of range.")
+                        append_to_temp_log("Error: Invalid argument or out of range.")
                 elif command[1] == "default" and command[2] == "all":
                     default_data = default_values()
                     data.tank_x = float(default_data[0])
