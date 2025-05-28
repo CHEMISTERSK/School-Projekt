@@ -9,14 +9,6 @@ try:
             file.close()
         return default_data
 
-    def set_tank_speed_default(default_data):
-        tank_speed = float(default_data[3])
-        return tank_speed
-
-    def set_tank_rotation_speed_default(default_data):
-        tank_rotation_speed = float(default_data[4])
-        return tank_rotation_speed
-
     def set_tank_location_default(default_data):
         tank_x = float(default_data[0])
         tank_y = float(default_data[1])
@@ -25,6 +17,18 @@ try:
     def set_tank_angle_default(default_data):
         tank_angle = float(default_data[2])
         return tank_angle
+    
+    def set_tank_speed_default(default_data):
+        tank_speed = float(default_data[3])
+        return tank_speed
+
+    def set_tank_rotation_speed_default(default_data):
+        tank_rotation_speed = float(default_data[4])
+        return tank_rotation_speed
+    
+    def set_fov_default(default_data):
+        fov = float(default_data[6])
+        return fov
 
     default_data = set_default_values()
 

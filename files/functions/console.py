@@ -73,7 +73,7 @@ try:
         def reload():
             data.texture_loading_path = data.load_textures()
             data.test_tank = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[1]), data.fov)
-            data.surface = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), data.fov)
+            data.surface = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), (data.fov / 2))
 
         def command_line_execution(command_line):
             command = command_line.split()
@@ -93,6 +93,8 @@ try:
                         data.tank_rotation_speed = data.set_tank_rotation_speed_default(data.default_data)
                     elif command[1] == "tank_angle":
                         data.tank_angle = data.set_tank_angle_default(data.default_data)
+                    elif command[1] == "fov":
+                        data.fov = data.set_fov_default(data.default_data)
                     else:
                         append_to_console(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
                         append_to_temp_log(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
@@ -108,7 +110,7 @@ try:
                 elif command[1] == "tank_rotation_speed":
                     data.tank_rotation_speed = float(command[2])
                 elif command[1] == "fov":
-                    if int(command[2]) >= 0.1 and int(command[2]) <= 5:
+                    if float(command[2]) >= 0.1 and float(command[2]) <= 5:
                         data.fov = float(command[2])
                         reload()
                     else:

@@ -110,7 +110,7 @@ try:
                 elif event.key == pygame.K_F12:
                     threading.Thread(target=console, daemon=True).start()
 
-        gen.generation_4(screen)
+        gen.generation(screen)
 
         # Movement Logic
         if keys[pygame.K_a]:

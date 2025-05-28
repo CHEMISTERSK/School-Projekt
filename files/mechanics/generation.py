@@ -1,6 +1,6 @@
 from functions import data
 
-def generation_4(screen):
+def generation(screen):
     block_size = 1024 * data.fov / 2
     screen_width, screen_height = screen.get_size()
     
