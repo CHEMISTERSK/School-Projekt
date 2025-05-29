@@ -71,9 +71,17 @@ try:
             return default_data
         
         def reload():
-            data.texture_loading_path = data.load_textures()
+            data.texture_loading_path = data.load_audiovisual()
+
             data.test_tank = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[1]), data.fov)
             data.surface = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), (data.fov / 2))
+            data.orange_shell = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[3]), data.fov)
+            data.red_shell = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[4]), data.fov)
+            data.green_shell = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[5]), data.fov)
+            data.shells = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[6]), data.fov)
+
+            data.shot_sound = pygame.mixer.Sound(data.texture_loading_path[7])
+            data.realod_sound = pygame.mixer.Sound(data.texture_loading_path[8])
 
         def command_line_execution(command_line):
             command = command_line.split()
@@ -130,8 +138,8 @@ try:
 
             elif command[0] == "show" or command[0] == "sh":
                 if command[1] == "tank_info":
-                    append_to_console(console_output_log(data.tank_x, data.tank_y, data.tank_angle, data.tank_speed, data.tank_rotation_speed))
-                    append_to_temp_log(console_output_log(data.tank_x, data.tank_y, data.tank_angle, data.tank_speed, data.tank_rotation_speed))
+                    append_to_console(console_output_log(data.tank_x, data.tank_y, data.tank_angle, data.tank_speed, data.tank_rotation_speed, data.tank_hp))
+                    append_to_temp_log(console_output_log(data.tank_x, data.tank_y, data.tank_angle, data.tank_speed, data.tank_rotation_speed, data.tank_hp))
                 elif command[1] == "time":
                     append_to_console(f"[{real_time}]")
                     append_to_temp_log(f"[{real_time}]")

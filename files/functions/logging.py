@@ -41,12 +41,13 @@ try:
                 file.close()
             data.copy = False
     
-    def console_output_log(tank_x, tank_y, tank_angle, tank_speed, tank_rotation_speed):
+    def console_output_log(tank_x, tank_y, tank_angle, tank_speed, tank_rotation_speed, tank_hp):
         return f"Tank X:\t\t\t{tank_x}\n" \
                f"Tank Y:\t\t\t{tank_y}\n" \
                f"Tank Angle:\t\t\t{tank_angle}\n" \
                f"Tank Speed:\t\t\t{tank_speed}\n" \
-               f"Tank Rotation Speed:\t\t\t{tank_rotation_speed}\n"
+               f"Tank Rotation Speed:\t\t\t{tank_rotation_speed}\n" \
+               f"Tank Health:\t\t\t{tank_hp}"
         
 
 except Exception as e:

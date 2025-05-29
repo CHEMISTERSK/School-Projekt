@@ -37,6 +37,7 @@ try:
     tank_angle = float(default_data[2])
     tank_speed = float(default_data[3])
     tank_rotation_speed = float(default_data[4])
+    tank_hp = float(default_data[11])
 
     fps = float(default_data[5])
     fov = float(default_data[6])
@@ -48,7 +49,7 @@ try:
 
     # Loading Textures and Sounds
 
-    def load_textures():
+    def load_audiovisual():
         texture_loading_path = []
         data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
         with open(os.path.join(data_path, "avdata.dat"), "r") as file:
@@ -60,10 +61,19 @@ try:
                 texture_loading_path.append(os.path.join(texture_path, filename))
         return texture_loading_path
     
-    texture_loading_path = load_textures()
+    texture_loading_path = load_audiovisual()
 
+    # Textures
     test_tank = pygame.transform.scale_by(pygame.image.load(texture_loading_path[1]), fov)
     surface = pygame.transform.scale_by(pygame.image.load(texture_loading_path[2]), (fov / 2))
+    orange_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[3]), fov)
+    red_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[4]), fov)
+    green_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[5]), fov)
+    shells = pygame.transform.scale_by(pygame.image.load(texture_loading_path[6]), fov)
+
+    #Sounds
+    shot_sound = pygame.mixer.Sound(texture_loading_path[7])
+    realod_sound = pygame.mixer.Sound(texture_loading_path[8])
 
 except Exception as e:
     source = "Data.py"
