@@ -83,10 +83,10 @@ try:
     # Textures
     test_tank = pygame.transform.scale_by(pygame.image.load(texture_loading_path[0]), fov)
     surface = pygame.transform.scale_by(pygame.image.load(texture_loading_path[1]), (fov / 2))
-    orange_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[2]), fov)
+    orange_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[2]), (fov / 25))
     red_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[3]), (fov / 25))
-    green_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[4]), fov)
-    shells = pygame.transform.scale_by(pygame.image.load(texture_loading_path[5]), fov)
+    green_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[4]), (fov / 25))
+    shells = pygame.transform.scale_by(pygame.image.load(texture_loading_path[5]), (fov / 12.5))
 
     #Sounds
     shot_sound = pygame.mixer.Sound(sound_loading_path[0])
