@@ -15,6 +15,7 @@ from mechanics import generation as gen
 
 # Game Initialization
 pygame.init()
+pygame.mixer.init()
 pygame.display.set_caption("Signal")
 
 resolution = pygame.display.Info()
@@ -140,6 +141,8 @@ try:
         rotated_tank = pygame.transform.rotate(pygame.transform.scale_by(data.test_tank, 0.5), data.tank_angle)
         rotated_tank_rect = rotated_tank.get_rect(center = (d_x, d_y))
         screen.blit(rotated_tank, rotated_tank_rect.topleft)
+
+        screen.blit(data.red_shell, (d_x + 500, d_y))
 
 
 

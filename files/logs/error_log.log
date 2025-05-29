@@ -49,3 +49,15 @@
 [17:00:14]Error in Main.py: generation() takes 1 positional argument but 3 were given
 [08:20:39]Error in Main.py: [WinError 2] The system cannot find the file specified: 'c:\\Projekts\\School_Project\\files\\logs\\temp.log'
 [08:20:52]Error in Main.py: [WinError 2] The system cannot find the file specified: 'c:\\Projekts\\School_Project\\files\\logs\\temp.log'
+[07:45:37]Error in Data.py: Error during file loading: mixer not initialized
+[07:46:32]Error in Data.py: Error during file loading: Cannot scale to negative size
+[07:47:10]Error in Main.py: module 'functions.data' has no attribute 'red_shell'
+[07:47:35]Error in Data.py: Error during file loading: Cannot scale to negative size
+[07:47:37]Error in Main.py: module 'functions.data' has no attribute 'red_shell'
+[07:48:07]Error in Data.py: Error during file loading: mixer not initialized
+[07:48:18]Error in Data.py: Error during file loading: mixer not initialized
+[07:48:29]Error in Data.py: Error during file loading: mixer not initialized
+[07:48:52]Error in Data.py: Error during file loading: mixer not initialized
+[07:50:36]Error in Data.py: Error during file loading: No such file or directory: 'c:\Projekts\School_Project\files\functions\..\textures\cannon_shot.wav'.
+[08:12:59]Error in Data.py: Error during file loading: invalid syntax (<string>, line 7)
+[08:13:10]Error in Main.py: module 'functions.data' has no attribute 'surface'

@@ -1,4 +1,4 @@
 Funkcie mechaník upgrade-ov po každrej vlne zvolenie z troch (poškodenie, výdrž, pohyblivosť) bez integrácie do hlavného súboru. Umiestnenie "Mechaniky"
-Urobyť "AI" nepriatelov tak aby rovno po spawne prišli k hráčovy na vzdialenosť ~200px a potom začaly na hrača strielať. Umiestnenie "Mechaniky"
+Urobyť "AI" nepriatelov tak aby rovno po spawne prišli k hráčovy na vzdialenosť ~500px a potom začaly na hrača strielať. Umiestnenie "Mechaniky"
 Detekciu kolízii strely s nepriatelom. Umiestnenie "Mechaniky"
 Mechanika strelby a nabíjania. Umiestnenie "Mechaniky"

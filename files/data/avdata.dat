@@ -1,9 +1,13 @@
-TEXTURES > SOUNDS   ;   index = 0
-ST-1.png
-Surface.jpg
-orange_shell.png
-red_shell.png
-green_shell.png
-shells.png
-cannon_shot.wav
-reload_sound.wav
+textures = [
+    "ST-1.png",
+    "Surface.jpg",
+    "orange_shell.png",
+    "red_shell.png",
+    "green_shell.png",
+    "shells.png"
+]
+
+sounds = [
+    "cannon_shot.wav",
+    "reload_sound.wav"
+]

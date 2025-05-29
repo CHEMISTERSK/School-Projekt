@@ -2,6 +2,8 @@ import os, pygame
 from functions.error_handling import error_window
 
 try:
+    pygame.mixer.init()
+
     def set_default_values():
         data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
         with open (os.path.join(data_path, "default_data.dat"), "r") as file:
@@ -50,30 +52,45 @@ try:
     # Loading Textures and Sounds
 
     def load_audiovisual():
-        texture_loading_path = []
         data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
         with open(os.path.join(data_path, "avdata.dat"), "r") as file:
-            texture_data = file.readlines()
+            av_data = file.read()
+
+        texture_loading_path = []
+        sound_loading_path = []
+        namespace = {}
+        exec(av_data, {}, namespace)
+
+        textures = namespace.get("textures", [])
+        sounds = namespace.get("sounds", [])
+
         texture_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'textures')
-        for line in texture_data:
-            filename = line.strip()  # Remove whitespace and newlines
-            if filename:  # Skip empty lines
+        sound_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sounds')
+
+        for texture in textures:
+            filename = texture.strip()  
+            if filename:  
                 texture_loading_path.append(os.path.join(texture_path, filename))
-        return texture_loading_path
+
+        for sound in sounds:
+            filename = sound.strip()  
+            if filename:  
+                sound_loading_path.append(os.path.join(sound_path, filename))
+        return texture_loading_path, sound_loading_path
     
-    texture_loading_path = load_audiovisual()
+    texture_loading_path, sound_loading_path = load_audiovisual()
 
     # Textures
-    test_tank = pygame.transform.scale_by(pygame.image.load(texture_loading_path[1]), fov)
-    surface = pygame.transform.scale_by(pygame.image.load(texture_loading_path[2]), (fov / 2))
-    orange_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[3]), fov)
-    red_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[4]), fov)
-    green_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[5]), fov)
-    shells = pygame.transform.scale_by(pygame.image.load(texture_loading_path[6]), fov)
+    test_tank = pygame.transform.scale_by(pygame.image.load(texture_loading_path[0]), fov)
+    surface = pygame.transform.scale_by(pygame.image.load(texture_loading_path[1]), (fov / 2))
+    orange_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[2]), fov)
+    red_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[3]), (fov / 25))
+    green_shell = pygame.transform.scale_by(pygame.image.load(texture_loading_path[4]), fov)
+    shells = pygame.transform.scale_by(pygame.image.load(texture_loading_path[5]), fov)
 
     #Sounds
-    shot_sound = pygame.mixer.Sound(texture_loading_path[7])
-    realod_sound = pygame.mixer.Sound(texture_loading_path[8])
+    shot_sound = pygame.mixer.Sound(sound_loading_path[0])
+    realod_sound = pygame.mixer.Sound(sound_loading_path[1])
 
 except Exception as e:
     source = "Data.py"
