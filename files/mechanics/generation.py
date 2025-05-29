@@ -1,7 +1,7 @@
 from functions import data
 
 def generation(screen):
-    block_size = 1024 * data.fov / 2
+    block_size = 1020 * data.fov / 2
     screen_width, screen_height = screen.get_size()
     
     tank_block_x = data.tank_x // block_size

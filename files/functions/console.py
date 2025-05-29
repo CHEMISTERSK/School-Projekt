@@ -10,6 +10,7 @@ real_time = dt.datetime.now().strftime("%H:%M:%S")
 sorce = "console.py"
 command_line = None
 
+
 try:
     def console():
 
@@ -71,17 +72,17 @@ try:
             return default_data
         
         def reload():
-            data.texture_loading_path = data.load_audiovisual()
+            data.texture_loading_path, data.sound_loading_path = data.load_audiovisual()
 
-            data.test_tank = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[1]), data.fov)
-            data.surface = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), (data.fov / 2))
-            data.orange_shell = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[3]), data.fov)
-            data.red_shell = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[4]), data.fov)
-            data.green_shell = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[5]), data.fov)
-            data.shells = pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[6]), data.fov)
+            data.test_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]),  data.fov)
+            data.surface        =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[1]), (data.fov / 2))
+            data.orange_shell   =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), (data.fov / 25))
+            data.red_shell      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[3]), (data.fov / 25))
+            data.green_shell    =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[4]), (data.fov / 25))
+            data.shells         =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[5]), (data.fov / 12.5))
 
-            data.shot_sound = pygame.mixer.Sound(data.texture_loading_path[7])
-            data.realod_sound = pygame.mixer.Sound(data.texture_loading_path[8])
+            data.shot_sound = pygame.mixer.Sound(data.sound_loading_path[0])
+            data.realod_sound = pygame.mixer.Sound(data.sound_loading_path[1])
 
         def command_line_execution(command_line):
             command = command_line.split()
