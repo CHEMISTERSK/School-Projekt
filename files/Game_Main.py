@@ -112,7 +112,7 @@ try:
                         screen = pygame.display.set_mode((res_xy[0], res_xy[1]))
 
                 elif event.key == pygame.K_F12:
-                    threading.Thread(target=console, daemon=True).start()
+                    threading.Thread(target = console, daemon = True).start()
 
         gen.generation(screen)
 

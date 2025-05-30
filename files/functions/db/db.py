@@ -12,7 +12,7 @@ try:
         sorce = "db.py"
         try:
             connection = psycopg2.connect(
-                host = "localhost",
+                host = "0.0.0.0",   # insert ip
                 port = 5432,
                 database = "demo",  # name of database
                 user = "postgres",
@@ -27,7 +27,7 @@ try:
                 if result and result[0] == 1:
                     print("Database connection confirmed.")
                 else:
-                    print("Database connection test failed.")
+                    print("Database connection failed.")
 
             db = True
             return db, connection
@@ -36,6 +36,7 @@ try:
             db = False
             connection = False
             error_window_db(real_time, e, sorce)
+            print("Database connection failed.")
             return db, connection
 
 except Exception as e:

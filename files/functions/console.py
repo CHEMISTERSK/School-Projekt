@@ -74,15 +74,17 @@ try:
         def reload():
             data.texture_loading_path, data.sound_loading_path = data.load_audiovisual()
 
-            data.test_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]),  data.fov)
+            data.test_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))
             data.surface        =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[1]), (data.fov / 2))
             data.orange_shell   =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), (data.fov / 25))
             data.red_shell      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[3]), (data.fov / 25))
             data.green_shell    =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[4]), (data.fov / 25))
             data.shells         =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[5]), (data.fov / 12.5))
 
-            data.shot_sound = pygame.mixer.Sound(data.sound_loading_path[0])
-            data.realod_sound = pygame.mixer.Sound(data.sound_loading_path[1])
+            data.shot_sound =    pygame.mixer.Sound(data.sound_loading_path[0])
+            data.realod_sound =  pygame.mixer.Sound(data.sound_loading_path[1])
+            data.active_engine = pygame.mixer.Sound(data.sound_loading_path[2])
+            data.calm_engine =   pygame.mixer.Sound(data.sound_loading_path[3])
 
         def command_line_execution(command_line):
             command = command_line.split()
@@ -127,12 +129,12 @@ try:
                         append_to_temp_log("Error: Invalid argument or out of range.")
                 elif command[1] == "default" and command[2] == "all":
                     default_data = default_values()
-                    data.tank_x = float(default_data[0])
-                    data.tank_y = float(default_data[1])
-                    data.tank_angle = float(default_data[2])
-                    data.tank_speed = float(default_data[3])
-                    data.tank_rotation_speed = float(default_data[4])
-                    data.fov = float(default_data[6])
+                    data.tank_x =               float(default_data[0])
+                    data.tank_y =               float(default_data[1])
+                    data.tank_angle =           float(default_data[2])
+                    data.tank_speed =           float(default_data[3])
+                    data.tank_rotation_speed =  float(default_data[4])
+                    data.fov =                  float(default_data[6])
                 else:
                     append_to_console(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
                     append_to_temp_log(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
