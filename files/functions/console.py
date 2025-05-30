@@ -86,6 +86,9 @@ try:
             data.active_engine = pygame.mixer.Sound(data.sound_loading_path[2])
             data.calm_engine =   pygame.mixer.Sound(data.sound_loading_path[3])
 
+            data.calm_engine.set_volume(0.2)    # %
+            data.active_engine.set_volume(0.1)  # %
+
         def command_line_execution(command_line):
             command = command_line.split()
             if command[0] == "help":

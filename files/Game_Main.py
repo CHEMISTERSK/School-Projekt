@@ -59,10 +59,6 @@ text_surface = font.render(fps_text, True, (255, 255, 255))
 d_x = data.tank_x
 d_y = data.tank_y
 
-# Volume setting
-data.calm_engine.set_volume(0.2)    # %
-data.active_engine.set_volume(0.1)  # %
-
 # Functions Calling
 res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
 main_log_clear()
@@ -144,7 +140,7 @@ try:
             if data.active_engine.get_num_channels() == 0:
                 data.active_engine.play()
             data.calm_engine.stop()
-        
+
         else:
             if data.calm_engine.get_num_channels() == 0:
                 data.calm_engine.play()
@@ -175,8 +171,8 @@ try:
 
 
         
-        
-        if int(epoch) - last_log == 60:
+
+        if int(epoch) - last_log == 240:
             last_log = int(epoch)
             data.db, connection = get_connection()
             main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, data.db, connection)
