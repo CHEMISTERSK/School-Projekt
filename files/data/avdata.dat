@@ -9,5 +9,7 @@ textures = [
 
 sounds = [
     "cannon_shot.wav",
-    "reload_sound.wav"
+    "reload_sound.wav",
+    "engine.wav",
+    "calm_engine.wav"
 ]

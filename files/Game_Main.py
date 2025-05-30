@@ -59,6 +59,13 @@ text_surface = font.render(fps_text, True, (255, 255, 255))
 d_x = data.tank_x
 d_y = data.tank_y
 
+# Volume setting
+data.calm_engine.set_volume(0.2)    # %
+data.active_engine.set_volume(0.1)  # %
+
+# Getting lenght
+calm_engine_lenght =    data.calm_engine.get_length()
+active_engine_lenght =  data.active_engine.get_length()
 
 # Functions Calling
 res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
@@ -117,7 +124,7 @@ try:
         if keys[pygame.K_a]:
             data.tank_angle += data.tank_rotation_speed
 
-        if keys[pygame.K_d]:
+        elif keys[pygame.K_d]:
             data.tank_angle -= data.tank_rotation_speed
 
         if data.tank_angle > 360:
@@ -132,17 +139,27 @@ try:
             data.tank_x -= (data.tank_speed * math.sin(angle_radians)) * data.fov
             data.tank_y -= (data.tank_speed * math.cos(angle_radians)) * data.fov
 
-        if keys[pygame.K_s]:
+        elif keys[pygame.K_s]:
             data.tank_x += (data.tank_speed * math.sin(angle_radians)) * data.fov
             data.tank_y += (data.tank_speed * math.cos(angle_radians)) * data.fov
 
+        # Engine Sounds
+        if (keys[pygame.K_s] or keys[pygame.K_w]) or (keys[pygame.K_a] or keys[pygame.K_d]):
+            if data.active_engine.get_num_channels() == 0:
+                data.active_engine.play()
+            data.calm_engine.stop()
+        
+        else:
+            if data.calm_engine.get_num_channels() == 0:
+                data.calm_engine.play()
+            data.active_engine.stop()
 
 
         rotated_tank = pygame.transform.rotate(pygame.transform.scale_by(data.test_tank, 0.5), data.tank_angle)
         rotated_tank_rect = rotated_tank.get_rect(center = (d_x, d_y))
         screen.blit(rotated_tank, rotated_tank_rect.topleft)
 
-        #screen.blit(data.red_shell, (d_x + 500, d_y))   # Test
+        screen.blit(data.shells, (d_x + 500, d_y))   # Test
 
 
 

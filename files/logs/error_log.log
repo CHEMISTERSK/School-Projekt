@@ -61,3 +61,7 @@
 [07:50:36]Error in Data.py: Error during file loading: No such file or directory: 'c:\Projekts\School_Project\files\functions\..\textures\cannon_shot.wav'.
 [08:12:59]Error in Data.py: Error during file loading: invalid syntax (<string>, line 7)
 [08:13:10]Error in Main.py: module 'functions.data' has no attribute 'surface'
+[07:48:46]Error in Data.py: Error during file loading: No such file or directory: 'c:\Projekts\School_Project\files\functions\..\sounds\clam_engine.wav'.
+[07:48:47]Error in Main.py: module 'functions.data' has no attribute 'calm_engine'
+[08:15:51]Error in Main.py: 'NoneType' object has no attribute 'play'
+[08:16:28]Error in Main.py: 'NoneType' object has no attribute 'play'
