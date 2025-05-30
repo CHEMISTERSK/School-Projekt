@@ -63,10 +63,6 @@ d_y = data.tank_y
 data.calm_engine.set_volume(0.2)    # %
 data.active_engine.set_volume(0.1)  # %
 
-# Getting lenght
-calm_engine_lenght =    data.calm_engine.get_length()
-active_engine_lenght =  data.active_engine.get_length()
-
 # Functions Calling
 res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
 main_log_clear()
