@@ -159,7 +159,7 @@ try:
         rotated_tank_rect = rotated_tank.get_rect(center = (d_x, d_y))
         screen.blit(rotated_tank, rotated_tank_rect.topleft)
 
-        screen.blit(data.shells, (d_x + 500, d_y))   # Test
+
 
 
 
