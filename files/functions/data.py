@@ -109,8 +109,8 @@ try:
     calm_engine =   pygame.mixer.Sound(sound_loading_path[3])
     
     # Volume setting
-    calm_engine.set_volume(0.2)    # %
-    active_engine.set_volume(0.1)  # %
+    calm_engine.set_volume(0.4)    # %
+    active_engine.set_volume(0.2)  # %
 
 except Exception as e:
     source = "Data.py"
