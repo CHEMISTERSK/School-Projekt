@@ -64,7 +64,6 @@ res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
 main_log_clear()
 db, connection = get_connection()
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, data.db, connection)
-data.set_default_values()
 
 
 
