@@ -49,12 +49,15 @@ try:
     db =         bool(default_data[9])
     copy =       bool(default_data[10])
 
-    gs_dmg = float(default_data[12])
-    gs_pen = float(default_data[13])
-    gs_spd = float(default_data[14])
+    # Shells Data   (gs - green shell;  os - orange shell;  rs - red shell)
+    gs_dmg = float(default_data[12])    # damage
+    gs_pen = float(default_data[13])    # penetration
+    gs_spd = float(default_data[14])    # speed
+
     os_dmg = float(default_data[15])
     os_pen = float(default_data[16])
     os_spd = float(default_data[17])
+
     rs_dmg = float(default_data[18])
     rs_pen = float(default_data[19])
     rs_spd = float(default_data[20])
