@@ -49,11 +49,10 @@ real_time = datetime.datetime.now().strftime("%H:%M:%S")
 
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 
-font = pygame.font.Font(None, 18)
+font = pygame.font.Font('files\\fonts\\impact.ttf', 15)
 
 last_fps_log = int(epoch)
 fps_text = f"FPS: "
-font = pygame.font.Font(None, 18)
 text_surface = font.render(fps_text, True, (255, 255, 255))
 
 d_x = data.tank_x
@@ -176,19 +175,26 @@ try:
             data.db, connection = get_connection()
             main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, data.db, connection)
 
+        pygame.draw.rect(screen, (0, 0, 0), (0, 0, res_xy[0], 35), 100)
+
         if not db:
-            screen.blit(font.render("No Connection", True, (219, 17, 4)), (10, 7))
+            screen.blit(font.render("No Connection To The Server", True, (219, 17, 4)), (100, 7))
         else:
-            screen.blit(font.render("Connected", True, (5, 199, 2)), (10, 7))
+            screen.blit(font.render("Connected To The Server", True, (5, 199, 2)), (100, 7))
+
+        screen.blit(font.render(f"Score: {data.score}", True, (226, 226, 10)), (1440, 7))
+        screen.blit(font.render(f"Wave:  {data.wave}", True, (226, 226, 10)), (1350, 7))
+
+        screen.blit(font.render(f"{real_time}", True, (255, 255, 255)), (745, 7))
 
         # FPS Counter
         if int(epoch) - last_fps_log >= 1:
             last_fps_log = int(epoch)
             data.fps = clock.get_fps()
             fps_text = f"FPS: {int(data.fps)}"
-            font = pygame.font.Font(None, 18)
+            font = pygame.font.Font('files\\fonts\\impact.ttf', 15)
             text_surface = font.render(fps_text, True, (255, 255, 255))
-        screen.blit(text_surface, (10, 25))
+        screen.blit(text_surface, (10, 7))
 
         pygame.display.update()
         clock.tick(240)
