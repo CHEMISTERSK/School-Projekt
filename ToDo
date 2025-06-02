@@ -2,3 +2,4 @@ Funkcie mechaník upgrade-ov po každrej vlne zvolenie z troch (poškodenie, vý
 Urobyť "AI" nepriatelov tak aby rovno po spawne prišli k hráčovy na vzdialenosť ~500px a potom začaly na hrača strielať. Umiestnenie "Mechaniky"
 Detekciu kolízii strely s nepriatelom. Umiestnenie "Funkcie"
 Mechanika strelby a nabíjania. Umiestnenie "Mechaniky"
+Vytvoriť herné menu (Play, Setting, Exit). Umiestnenie "files"
