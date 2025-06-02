@@ -62,6 +62,9 @@ try:
     rs_pen = float(default_data[19])
     rs_spd = float(default_data[20])
 
+    wave =  int(default_data[21])
+    score = int(default_data[22])
+
 
     # Loading Textures and Sounds
 
