@@ -184,6 +184,7 @@ try:
 
         screen.blit(font.render(f"Score: {data.score}", True, (226, 226, 10)), (1440, 7))
         screen.blit(font.render(f"Wave:  {data.wave}", True, (226, 226, 10)), (1350, 7))
+        screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (1000, 7))
 
         screen.blit(font.render(f"{real_time}", True, (255, 255, 255)), (745, 7))
 

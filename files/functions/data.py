@@ -41,6 +41,7 @@ try:
     tank_speed =          float(default_data[3])
     tank_rotation_speed = float(default_data[4])
     tank_hp =             float(default_data[11])
+    max_tank_hp =         float(default_data[11])
 
     fps =        float(default_data[5])
     fov =        float(default_data[6])
