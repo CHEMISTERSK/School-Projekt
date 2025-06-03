@@ -17,7 +17,7 @@ from mechanics import generation as gen
 # Game Initialization
 pygame.init()
 pygame.mixer.init()
-pygame.display.set_caption("Signal")
+pygame.display.set_caption("SP")
 
 resolution = pygame.display.Info()
 full_res_x = resolution.current_w
