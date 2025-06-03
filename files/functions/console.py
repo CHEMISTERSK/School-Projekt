@@ -115,15 +115,15 @@ try:
                         append_to_temp_log(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
 
                 elif command[1] == "tank_x":
-                    data.tank_x = float(command[2])
+                    data.tank_x = float(eval(command[2]))
                 elif command[1] == "tank_y":
-                    data.tank_y = float(command[2])
+                    data.tank_y = float(eval(command[2]))
                 elif command[1] == "tank_angle":
-                    data.tank_angle = float(command[2])
+                    data.tank_angle = float(eval(command[2]))
                 elif command[1] == "tank_speed":
-                    data.tank_speed = float(command[2])
+                    data.tank_speed = float(eval(command[2]))
                 elif command[1] == "tank_rotation_speed":
-                    data.tank_rotation_speed = float(command[2])
+                    data.tank_rotation_speed = float(eval(command[2]))
                 elif command[1] == "fov":
                     if float(command[2]) >= 0.1 and float(command[2]) <= 5:
                         data.fov = float(command[2])
@@ -159,9 +159,21 @@ try:
                     full_res_y = resolution.current_h
                     append_to_console(f"{full_res_x}x{full_res_y}")
                     append_to_temp_log(f"{full_res_x}x{full_res_y}")
+                elif command[1] == "tank_speed":
+                    append_to_console(f"Tank Speed: {data.tank_speed}")
+                    append_to_temp_log(f"Tank Speed: {data.tank_speed}")
+                elif command[1] == "tank_rotation_speed":
+                    append_to_console(f"Tank Rotation Speed: {data.tank_rotation_speed}")
+                    append_to_temp_log(f"Tank Rotation Speed: {data.tank_rotation_speed}")
+                elif command[1] == "tank_location":
+                    append_to_console(f"Tank Location: ({data.tank_x}, {data.tank_y})")
+                    append_to_temp_log(f"Tank Location: ({data.tank_x}, {data.tank_y})")
+                elif command[1] == "tank_angle":
+                    append_to_console(f"Tank Angle: {data.tank_angle}")
+                    append_to_temp_log(f"Tank Angle: {data.tank_angle}")
                 elif command[1] == "?":
-                    append_to_console("variables:\n\ttank_info\n\ttime\n\tfps")
-                    append_to_temp_log("variables:\n\ttank_info\n\ttime\n\tfps")
+                    append_to_console("variables:\n\ttank_info\n\ttime\n\tfps\n\tres\n\ttank_speed\n\ttank_rotation_speed\n\ttank_location\n\ttank_angle")
+                    append_to_temp_log("variables:\n\ttank_info\n\ttime\n\tfps\n\tres\n\ttank_speed\n\ttank_rotation_speed\n\ttank_location\n\ttank_angle")
                 else:
                     append_to_console(f"Unknown variable: {command[1]}")
                     append_to_temp_log(f"Unknown variable: {command[1]}")
