@@ -7,6 +7,7 @@ from functions.error_handling import error_window
 from functions.logging import main_log, main_log_clear
 from functions.db.db import get_connection
 from functions.console import console
+from functions.fun import ingame_t
 from functions import data
 
 # Importing Mechanics
@@ -186,7 +187,7 @@ try:
         screen.blit(font.render(f"Wave:  {data.wave}", True, (226, 226, 10)), (1350, 7))
         screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (1000, 7))
 
-        screen.blit(font.render(f"{real_time}", True, (255, 255, 255)), (745, 7))
+        screen.blit(font.render(f"{ingame_t(current_time)}", True, (255, 255, 255)), (745, 7))
 
         # FPS Counter
         if int(epoch) - last_fps_log >= 1:
