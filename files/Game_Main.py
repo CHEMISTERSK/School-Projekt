@@ -7,7 +7,7 @@ from functions.error_handling import error_window
 from functions.logging import main_log, main_log_clear
 from functions.db.db import get_connection
 from functions.console import console
-from functions.fun import ingame_t
+from functions.fun import ingame_time
 from functions import data
 
 # Importing Mechanics
@@ -183,11 +183,11 @@ try:
         else:
             screen.blit(font.render("Connected To The Server", True, (5, 199, 2)), (100, 7))
 
-        screen.blit(font.render(f"Score: {data.score}", True, (226, 226, 10)), (1440, 7))
+        screen.blit(font.render(f"Score: {data.score}", True, (226, 226, 10)), (1430, 7))
         screen.blit(font.render(f"Wave:  {data.wave}", True, (226, 226, 10)), (1350, 7))
         screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (1000, 7))
 
-        screen.blit(font.render(f"{ingame_t(current_time)}", True, (255, 255, 255)), (745, 7))
+        screen.blit(font.render(f"{ingame_time(current_time)}", True, (255, 255, 255)), (750, 7))
 
         # FPS Counter
         if int(epoch) - last_fps_log >= 1:
