@@ -4,6 +4,7 @@ from functions.error_handling import error_window
 from functions import data
 from functions.logging import console_output_log
 
+
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs')
 real_time = dt.datetime.now().strftime("%H:%M:%S")
 
@@ -152,6 +153,12 @@ try:
                 elif command[1] == "fps":
                     append_to_console(str(int(data.fps)))
                     append_to_temp_log(str(int(data.fps)))
+                elif command[1] == "res":
+                    resolution = pygame.display.Info()
+                    full_res_x = resolution.current_w
+                    full_res_y = resolution.current_h
+                    append_to_console(f"{full_res_x}x{full_res_y}")
+                    append_to_temp_log(f"{full_res_x}x{full_res_y}")
                 elif command[1] == "?":
                     append_to_console("variables:\n\ttank_info\n\ttime\n\tfps")
                     append_to_temp_log("variables:\n\ttank_info\n\ttime\n\tfps")

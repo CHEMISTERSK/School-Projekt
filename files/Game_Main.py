@@ -4,10 +4,10 @@ from pygame.locals import *
 
 # Importing internal functions
 from functions.error_handling import error_window
-from functions.logging import main_log, main_log_clear
+from functions.logging import *
 from functions.db.db import get_connection
 from functions.console import console
-from functions.fun import ingame_time
+from functions.fun import *
 from functions import data
 
 # Importing Mechanics
@@ -56,8 +56,8 @@ last_fps_log = int(epoch)
 fps_text = f"FPS: "
 text_surface = font.render(fps_text, True, (255, 255, 255))
 
-d_x = data.tank_x
-d_y = data.tank_y
+d_x = full_res_x * 0.5
+d_y = full_res_y * 0.5
 
 # Functions Calling
 res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
@@ -179,15 +179,15 @@ try:
         pygame.draw.rect(screen, (0, 0, 0), (0, 0, res_xy[0], 35), 100)
 
         if not db:
-            screen.blit(font.render("No Connection To The Server", True, (219, 17, 4)), (100, 7))
+            screen.blit(font.render("No Connection To The Server", True, (219, 17, 4)), (full_res_x * 0.0651, full_res_y * 0.0087))
         else:
-            screen.blit(font.render("Connected To The Server", True, (5, 199, 2)), (100, 7))
+            screen.blit(font.render("Connected To The Server", True, (5, 199, 2)), (full_res_x * 0.0651, full_res_y * 0.0087))
 
-        screen.blit(font.render(f"Score: {data.score}", True, (226, 226, 10)), (1430, 7))
-        screen.blit(font.render(f"Wave:  {data.wave}", True, (226, 226, 10)), (1350, 7))
-        screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (1000, 7))
+        screen.blit(font.render(f"Score: {data.score}", True, (226, 226, 10)), (full_res_x * 0.9309, full_res_y * 0.0087))
+        screen.blit(font.render(f"Wave:  {data.wave}" , True, (226, 226, 10)), (full_res_x * 0.8789, full_res_y * 0.0087))
+        screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (full_res_x * 0.6510, full_res_y * 0.0087))
 
-        screen.blit(font.render(f"{ingame_time(current_time)}", True, (255, 255, 255)), (750, 7))
+        screen.blit(font.render(f"{ingame_time(current_time)}", True, (255, 255, 255)), (full_res_x * 0.4883, full_res_y * 0.0087))
 
         # FPS Counter
         if int(epoch) - last_fps_log >= 1:
@@ -196,7 +196,7 @@ try:
             fps_text = f"FPS: {int(data.fps)}"
             font = pygame.font.Font('files\\fonts\\impact.ttf', 15)
             text_surface = font.render(fps_text, True, (255, 255, 255))
-        screen.blit(text_surface, (10, 7))
+        screen.blit(text_surface, (full_res_x * 0.0065, full_res_y * 0.0087))
 
         pygame.display.update()
         clock.tick(240)
