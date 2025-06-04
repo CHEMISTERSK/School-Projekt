@@ -18,7 +18,7 @@ try:
         root = tkinter.Tk()
         root.title("Output Terminal")
         root.geometry("800x400")
-
+        #jejije4
         # Grid layout configuration (2 rows: output + input line)
         root.grid_rowconfigure(0, weight=1)
         root.grid_rowconfigure(1, weight=0)
