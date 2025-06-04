@@ -90,9 +90,14 @@ try:
 
         if data.playing == False:
             menu_buttons(full_res_x, full_res_y, screen)
+            if data.menu_ambient.get_num_channels() == 0:
+                    data.menu_ambient.play()
+            data.calm_engine.stop()
+            data.active_engine.stop()
 
         if data.playing == True:
             gen.generation(screen)
+            data.menu_ambient.stop()
 
             # Game Loop
             current_time = pygame.time.get_ticks()

@@ -118,6 +118,7 @@ try:
     realod_sound =  pygame.mixer.Sound(sound_loading_path[1])
     active_engine = pygame.mixer.Sound(sound_loading_path[2])
     calm_engine =   pygame.mixer.Sound(sound_loading_path[3])
+    menu_ambient =  pygame.mixer.Sound(sound_loading_path[4])
     
     # Volume setting
     calm_engine.set_volume(0.5)    # %

@@ -842,3 +842,17 @@
 [13:52:37]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
+[16:11:17]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+	Is the server running on that host and accepting TCP/IP connections?
+
+[16:29:26]Error in Data.py: Error during file loading: No such file or directory: 'c:\Projekts\School_Project\files\functions\..\sounds\calm_engine.wavmenu_ambient.mp3'.
+[16:29:26]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+	Is the server running on that host and accepting TCP/IP connections?
+
+[16:29:30]Error in Main.py: module 'functions.data' has no attribute 'calm_engine'
+[16:29:55]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+	Is the server running on that host and accepting TCP/IP connections?
+
+[16:31:57]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+	Is the server running on that host and accepting TCP/IP connections?
+
