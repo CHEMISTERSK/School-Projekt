@@ -68,8 +68,6 @@ try:
 
     playing = default_data[23].strip() == "True"
 
-    seconds = 0
-
 
     # Loading Textures and Sounds
 

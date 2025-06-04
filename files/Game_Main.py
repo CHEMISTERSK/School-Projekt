@@ -50,7 +50,7 @@ res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
 main_log_clear()
 db, connection = get_connection()
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, pygame.time.get_ticks(), epoch, data.db, connection)
-fullscreen_toggle(screen, full_res_x, full_res_y)
+fullscreen_toggle(full_res_x, full_res_y)
 
 
 
@@ -80,7 +80,7 @@ try:
         
                 # Switching Between Fullscreen And Windowed Mode
                 elif event.key == pygame.K_F11:
-                    fullscreen_toggle(screen, full_res_x, full_res_y)
+                    fullscreen_toggle(full_res_x, full_res_y)
 
                 elif event.key == pygame.K_F12:
                     threading.Thread(target = console, daemon = True).start()
@@ -174,7 +174,7 @@ try:
             screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (full_res_x * 0.6510, full_res_y * 0.0087))
         
         screen.blit(font.render(f"{ingame_time()}", True, (255, 255, 255)), (full_res_x * 0.4883, full_res_y * 0.0087))
-        
+
         #   development tool
         #screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 840))
 
