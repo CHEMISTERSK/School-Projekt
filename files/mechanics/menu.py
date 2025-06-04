@@ -14,5 +14,3 @@ def exit_button(mouse_x, mouse_y, full_res_x, full_res_y):
     if mouse_x in range(int(full_res_x * 0.5664), int(full_res_x * 0.7878)) and mouse_y in range(int(full_res_y * 0.8275), int(full_res_y * 0.9722)):
         if pygame.mouse.get_pressed()[0]:
             data.running = False
-#715
-#840
