@@ -7,7 +7,7 @@ from functions.error_handling import error_window
 from functions.logging import *
 from functions.db.db import get_connection
 from functions.console import console
-from functions.fun import *
+from files.functions.func import *
 from functions import data
 
 # Importing Mechanics
