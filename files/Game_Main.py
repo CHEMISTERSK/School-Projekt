@@ -88,12 +88,6 @@ try:
             play_button(mouse_x, mouse_y, full_res_x, full_res_y)
             exit_button(mouse_x, mouse_y, full_res_x, full_res_y)
 
-        if data.playing == False:
-            menu_buttons(full_res_x, full_res_y, screen)
-            if data.menu_ambient.get_num_channels() == 0:
-                    data.menu_ambient.play()
-            data.calm_engine.stop()
-            data.active_engine.stop()
 
         if data.playing == True:
             gen.generation(screen)
@@ -179,6 +173,13 @@ try:
             screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (full_res_x * 0.6510, full_res_y * 0.0087))
         
         screen.blit(font.render(f"{ingame_time()}", True, (255, 255, 255)), (full_res_x * 0.4883, full_res_y * 0.0087))
+
+        if data.playing == False:
+            menu_buttons(full_res_x, full_res_y, screen)
+            if data.menu_ambient.get_num_channels() == 0:
+                    data.menu_ambient.play()
+            data.calm_engine.stop()
+            data.active_engine.stop()
 
         #   development tool
         #screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 840))
