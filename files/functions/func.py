@@ -15,7 +15,6 @@ def ingame_time():
     else:
         last_tick = None
     
-    
     seconds_total = game_ms // 1000
     minutes = seconds_total // 60
     seconds = seconds_total % 60

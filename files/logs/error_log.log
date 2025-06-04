@@ -871,3 +871,9 @@
 [17:26:06]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
+[19:26:22]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+	Is the server running on that host and accepting TCP/IP connections?
+
+[20:32:44]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+	Is the server running on that host and accepting TCP/IP connections?
+
