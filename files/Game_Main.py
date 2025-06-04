@@ -12,6 +12,7 @@ from functions import data
 
 # Importing Mechanics
 from mechanics import generation as gen
+from mechanics.menu import *
 
 
 # Game Initialization
@@ -25,26 +26,11 @@ full_res_y = resolution.current_h
 
 screen = pygame.display.set_mode((full_res_x, full_res_y * 0.93))
 
-def screen_resolution(full_res_x, full_res_y, fullscreen):
-    window_res_x = full_res_x
-    window_res_y = full_res_y * 0.93 #%
-
-    if fullscreen == True:
-        res_x = full_res_x * 1.25 #%
-        res_y = full_res_y * 1.25 #%
-
-    elif fullscreen == False:
-        res_x = window_res_x
-        res_y = window_res_y
-
-    return(res_x, res_y)
-
-
 epoch = t.time()
 last_log = int(epoch)
+T = int(pygame.time.get_ticks() / 1000)
 
 clock = pygame.time.Clock()
-current_time = pygame.time.get_ticks()
 
 real_time = datetime.datetime.now().strftime("%H:%M:%S")
 
@@ -63,7 +49,8 @@ d_y = full_res_y * 0.5
 res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
 main_log_clear()
 db, connection = get_connection()
-main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, data.db, connection)
+main_log(real_time, resolution, res_xy[0], res_xy[1], clock, pygame.time.get_ticks(), epoch, data.db, connection)
+fullscreen_toggle(screen, full_res_x, full_res_y)
 
 
 
@@ -74,12 +61,10 @@ try:
         # Screen Resolution
         screen.fill((0, 0, 0))
 
-        # Game Loop
-        current_time = pygame.time.get_ticks()
-
         real_time = datetime.datetime.now().strftime("%H:%M:%S")
         epoch = t.time()
         keys = pygame.key.get_pressed()
+        mouse_x, mouse_y = pygame.mouse.get_pos()
         
 
         # Event Handling
@@ -91,76 +76,65 @@ try:
             # Key Binding
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    os.remove(os.path.join(log_dir, "temp.log"))
-                    data.running = False
-
+                    data.playing = False
+        
                 # Switching Between Fullscreen And Windowed Mode
                 elif event.key == pygame.K_F11:
-                    if not data.fullscreen:
-                        data.fullscreen = True
-                        res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
-                        screen = pygame.display.set_mode((res_xy[0], res_xy[1]), pygame.FULLSCREEN)
-
-                    elif data.fullscreen:
-                        data.fullscreen = False
-                        res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
-                        screen = pygame.display.set_mode((res_xy[0], res_xy[1]))
+                    fullscreen_toggle(screen, full_res_x, full_res_y)
 
                 elif event.key == pygame.K_F12:
                     threading.Thread(target = console, daemon = True).start()
 
-        gen.generation(screen)
+            play_button(mouse_x, mouse_y, full_res_x, full_res_y)
+            exit_button(mouse_x, mouse_y, full_res_x, full_res_y)
 
-        # Movement Logic
-        if keys[pygame.K_a]:
-            data.tank_angle += data.tank_rotation_speed
+        if data.playing == False:
+            menu_buttons(full_res_x, full_res_y, screen)
 
-        elif keys[pygame.K_d]:
-            data.tank_angle -= data.tank_rotation_speed
+        if data.playing == True:
+            gen.generation(screen)
 
-        if data.tank_angle > 360:
-            data.tank_angle -= 360
+            # Game Loop
+            current_time = pygame.time.get_ticks()
 
-        if data.tank_angle < 0:
-            data.tank_angle += 360
+            # Movement Logic
+            if keys[pygame.K_a]:
+                data.tank_angle += data.tank_rotation_speed
 
-        angle_radians = math.radians(data.tank_angle)
+            elif keys[pygame.K_d]:
+                data.tank_angle -= data.tank_rotation_speed
 
-        if keys[pygame.K_w]:
-            data.tank_x -= (data.tank_speed * math.sin(angle_radians)) * data.fov
-            data.tank_y -= (data.tank_speed * math.cos(angle_radians)) * data.fov
+            if data.tank_angle > 360:
+                data.tank_angle -= 360
 
-        elif keys[pygame.K_s]:
-            data.tank_x += (data.tank_speed * math.sin(angle_radians)) * data.fov
-            data.tank_y += (data.tank_speed * math.cos(angle_radians)) * data.fov
+            if data.tank_angle < 0:
+                data.tank_angle += 360
 
-        # Engine Sounds
-        if (keys[pygame.K_s] or keys[pygame.K_w]) or (keys[pygame.K_a] or keys[pygame.K_d]):
-            if data.active_engine.get_num_channels() == 0:
-                data.active_engine.play()
-            data.calm_engine.stop()
+            angle_radians = math.radians(data.tank_angle)
 
-        else:
-            if data.calm_engine.get_num_channels() == 0:
-                data.calm_engine.play()
-            data.active_engine.stop()
+            if keys[pygame.K_w]:
+                data.tank_x -= (data.tank_speed * math.sin(angle_radians)) * data.fov
+                data.tank_y -= (data.tank_speed * math.cos(angle_radians)) * data.fov
 
+            elif keys[pygame.K_s]:
+                data.tank_x += (data.tank_speed * math.sin(angle_radians)) * data.fov
+                data.tank_y += (data.tank_speed * math.cos(angle_radians)) * data.fov
 
-        rotated_tank = pygame.transform.rotate(pygame.transform.scale_by(data.test_tank, 0.5), data.tank_angle)
-        rotated_tank_rect = rotated_tank.get_rect(center = (d_x, d_y))
-        screen.blit(rotated_tank, rotated_tank_rect.topleft)
+            # Engine Sounds
+            if (keys[pygame.K_s] or keys[pygame.K_w]) or (keys[pygame.K_a] or keys[pygame.K_d]):
+                if data.active_engine.get_num_channels() == 0:
+                    data.active_engine.play()
+                data.calm_engine.stop()
 
-
-
-
-
-
-
+            else:
+                if data.calm_engine.get_num_channels() == 0:
+                    data.calm_engine.play()
+                data.active_engine.stop()
 
 
-
-
-
+            rotated_tank = pygame.transform.rotate(pygame.transform.scale_by(data.test_tank, 0.5), data.tank_angle)
+            rotated_tank_rect = rotated_tank.get_rect(center = (d_x, d_y))
+            screen.blit(rotated_tank, rotated_tank_rect.topleft)
 
 
 
@@ -169,25 +143,40 @@ try:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+            if int(epoch) - last_log == 240:
+                last_log = int(epoch)
+                data.db, connection = get_connection()
+                main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, data.db, connection)
+
+            pygame.draw.rect(screen, (0, 0, 0), (0, 0, res_xy[0], 35), 100)
+
+            if not db:
+                screen.blit(font.render("No Connection To The Server", True, (219, 17, 4)), (full_res_x * 0.0651, full_res_y * 0.0087))
+            else:
+                screen.blit(font.render("Connected To The Server", True, (5, 199, 2)), (full_res_x * 0.0651, full_res_y * 0.0087))
+
+            screen.blit(font.render(f"Score: {data.score}", True, (226, 226, 10)), (full_res_x * 0.9309, full_res_y * 0.0087))
+            screen.blit(font.render(f"Wave:  {data.wave}" , True, (226, 226, 10)), (full_res_x * 0.8789, full_res_y * 0.0087))
+            screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (full_res_x * 0.6510, full_res_y * 0.0087))
         
-
-        if int(epoch) - last_log == 240:
-            last_log = int(epoch)
-            data.db, connection = get_connection()
-            main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, data.db, connection)
-
-        pygame.draw.rect(screen, (0, 0, 0), (0, 0, res_xy[0], 35), 100)
-
-        if not db:
-            screen.blit(font.render("No Connection To The Server", True, (219, 17, 4)), (full_res_x * 0.0651, full_res_y * 0.0087))
-        else:
-            screen.blit(font.render("Connected To The Server", True, (5, 199, 2)), (full_res_x * 0.0651, full_res_y * 0.0087))
-
-        screen.blit(font.render(f"Score: {data.score}", True, (226, 226, 10)), (full_res_x * 0.9309, full_res_y * 0.0087))
-        screen.blit(font.render(f"Wave:  {data.wave}" , True, (226, 226, 10)), (full_res_x * 0.8789, full_res_y * 0.0087))
-        screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (full_res_x * 0.6510, full_res_y * 0.0087))
-
-        screen.blit(font.render(f"{ingame_time(current_time)}", True, (255, 255, 255)), (full_res_x * 0.4883, full_res_y * 0.0087))
+        screen.blit(font.render(f"{ingame_time()}", True, (255, 255, 255)), (full_res_x * 0.4883, full_res_y * 0.0087))
+        
+        #   development tool
+        #screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 840))
 
         # FPS Counter
         if int(epoch) - last_fps_log >= 1:

@@ -45,10 +45,10 @@ try:
 
     fps =        float(default_data[5])
     fov =        float(default_data[6])
-    running =    bool(default_data[7])
-    fullscreen = bool(default_data[8])
-    db =         bool(default_data[9])
-    copy =       bool(default_data[10])
+    running =    default_data[7].strip() == "True"
+    fullscreen = default_data[8].strip() == "True"
+    db =         default_data[9].strip() == "True"
+    copy =       default_data[10].strip() == "True"
 
     # Shells Data   (gs - green shell;  os - orange shell;  rs - red shell)
     gs_dmg = float(default_data[12])    # damage
@@ -65,6 +65,10 @@ try:
 
     wave =  int(default_data[21])
     score = int(default_data[22])
+
+    playing = default_data[23].strip() == "True"
+
+    seconds = 0
 
 
     # Loading Textures and Sounds
@@ -108,6 +112,8 @@ try:
     green_shell =   pygame.transform.scale_by(pygame.image.load(texture_loading_path[4]), (fov / 25))
 
     shells = pygame.transform.scale_by(pygame.image.load(texture_loading_path[5]), (fov / 5))
+
+    game_menu = pygame.transform.scale_by(pygame.image.load(texture_loading_path[6]), (fov / 1.125))
 
     #Sounds
     shot_sound =    pygame.mixer.Sound(sound_loading_path[0])

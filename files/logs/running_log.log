@@ -1,5 +1,5 @@
  
-[20:52:55]
+[12:22:37]
 Resolution:
 	<VideoInfo(hw = 0, wm = 1,video_mem = 0
          blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
@@ -11,10 +11,10 @@ Resolution:
          current_w = 1536, current_h = 864
          pixel_format = SDL_PIXELFORMAT_RGB888)
 >
-Resolution X:	1920.0 px
-Resolution Y:	1080 px
+Resolution X:	1536 px
+Resolution Y:	803 px
 PyClock:	<Clock(fps=0.00)>
-CurrentTime:	1557
-Epoch:		1748976775.2819304
+CurrentTime:	1174
+Epoch:		1749032557.1502745
 PyGame Version:	2.6.1
-Database connection status: True, Connection object: False
+Database connection status: False, Connection object: False

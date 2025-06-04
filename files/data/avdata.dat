@@ -4,7 +4,8 @@ textures = [
     "orange_shell.png",
     "red_shell.png",
     "green_shell.png",
-    "shells.png"
+    "shells.png",
+    "menu_buttons.png"
 ]
 
 sounds = [
