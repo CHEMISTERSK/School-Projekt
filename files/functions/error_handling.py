@@ -37,3 +37,16 @@ def error_window_db(real_time, e, sorce):
         file.write(f"[{real_time}]\nDatabase connection error.\n")
         file.write(f"[{real_time}]\nError in {sorce}: {e}")
         file.close()
+
+def loading_error(e, sorce):
+    log_file_path_temp = os.path.join(log_dir, "temp.log")
+    log_file_path = os.path.join(log_dir, "error_log.log")
+
+    with open(log_file_path_temp, "a") as file:
+        file.write(f"[{real_time}]\nSave loading error.\n")
+        file.write(f"[{real_time}]\nError in {sorce}: {e}")
+        file.close()
+    
+    with open(log_file_path, "a") as file:
+        file.write(f"[{real_time}]Error in {sorce}: {e}\n")
+        file.close()

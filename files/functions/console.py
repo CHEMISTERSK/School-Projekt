@@ -72,7 +72,7 @@ try:
                 file.close()
             return default_data
         
-        def reload():
+        def av_reload():
             data.texture_loading_path, data.sound_loading_path = data.load_audiovisual()
 
             data.test_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))
@@ -89,6 +89,33 @@ try:
 
             data.calm_engine.set_volume(0.5)    # %
             data.active_engine.set_volume(0.2)  # %
+
+        def data_reload():
+            data.default_data = data.set_default_values()
+
+            data.tank_x =              float(data.default_data[0])
+            data.tank_y =              float(data.default_data[1])
+            data.tank_angle =          float(data.default_data[2])
+            data.tank_speed =          float(data.default_data[3])
+            data.tank_rotation_speed = float(data.default_data[4])
+            data.tank_hp =             float(data.default_data[11])
+            data.max_tank_hp =         float(data.default_data[11])
+
+            # Shells Data   (gs - green shell;  os - orange shell;  rs - red shell)
+            data.gs_dmg = float(data.default_data[12])    # damage
+            data.gs_pen = float(data.default_data[13])    # penetration
+            data.gs_spd = float(data.default_data[14])    # speed
+
+            data.os_dmg = float(data.default_data[15])
+            data.os_pen = float(data.default_data[16])
+            data.os_spd = float(data.default_data[17])
+
+            data.rs_dmg = float(data.default_data[18])
+            data.rs_pen = float(data.default_data[19])
+            data.rs_spd = float(data.default_data[20])
+
+            data.wave =  int(data.default_data[21])
+            data.score = int(data.default_data[22])
 
         def command_line_execution(command_line):
             command = command_line.split()
@@ -127,7 +154,7 @@ try:
                 elif command[1] == "fov":
                     if float(command[2]) >= 0.1 and float(command[2]) <= 5:
                         data.fov = float(command[2])
-                        reload()
+                        av_reload()
                     else:
                         append_to_console("Error: Invalid argument or out of range.")
                         append_to_temp_log("Error: Invalid argument or out of range.")
@@ -147,33 +174,42 @@ try:
                 if command[1] == "tank_info":
                     append_to_console(console_output_log(data.tank_x, data.tank_y, data.tank_angle, data.tank_speed, data.tank_rotation_speed, data.tank_hp))
                     append_to_temp_log(console_output_log(data.tank_x, data.tank_y, data.tank_angle, data.tank_speed, data.tank_rotation_speed, data.tank_hp))
+
                 elif command[1] == "time":
                     append_to_console(f"[{real_time}]")
                     append_to_temp_log(f"[{real_time}]")
+
                 elif command[1] == "fps":
                     append_to_console(str(int(data.fps)))
                     append_to_temp_log(str(int(data.fps)))
+
                 elif command[1] == "res":
                     resolution = pygame.display.Info()
                     full_res_x = resolution.current_w
                     full_res_y = resolution.current_h
                     append_to_console(f"{full_res_x}x{full_res_y}")
                     append_to_temp_log(f"{full_res_x}x{full_res_y}")
+
                 elif command[1] == "tank_speed":
                     append_to_console(f"Tank Speed: {data.tank_speed}")
                     append_to_temp_log(f"Tank Speed: {data.tank_speed}")
+
                 elif command[1] == "tank_rotation_speed":
                     append_to_console(f"Tank Rotation Speed: {data.tank_rotation_speed}")
                     append_to_temp_log(f"Tank Rotation Speed: {data.tank_rotation_speed}")
+
                 elif command[1] == "tank_location":
                     append_to_console(f"Tank Location: ({data.tank_x}, {data.tank_y})")
                     append_to_temp_log(f"Tank Location: ({data.tank_x}, {data.tank_y})")
+
                 elif command[1] == "tank_angle":
                     append_to_console(f"Tank Angle: {data.tank_angle}")
                     append_to_temp_log(f"Tank Angle: {data.tank_angle}")
+
                 elif command[1] == "?":
                     append_to_console("variables:\n\ttank_info\n\ttime\n\tfps\n\tres\n\ttank_speed\n\ttank_rotation_speed\n\ttank_location\n\ttank_angle")
                     append_to_temp_log("variables:\n\ttank_info\n\ttime\n\tfps\n\tres\n\ttank_speed\n\ttank_rotation_speed\n\ttank_location\n\ttank_angle")
+
                 else:
                     append_to_console(f"Unknown variable: {command[1]}")
                     append_to_temp_log(f"Unknown variable: {command[1]}")
@@ -182,12 +218,21 @@ try:
                 append_to_console("Shutting down...")
                 append_to_temp_log("Shutting down...")
                 data.running = False
-            elif command[0] == "reload":
-                append_to_console("Reoading AV data...")
-                append_to_temp_log("Reoading AV data...")
-                reload()
+
+            elif command[0] == "reload_av":
+                append_to_console("Reloading AV data...")
+                append_to_temp_log("Reloading AV data...")
+                av_reload()
                 append_to_console("AV data reloaded successfully.")
                 append_to_temp_log("AV data reloaded successfully.")
+
+            elif command[0] == "reload_data":
+                append_to_console("Reloading data...")
+                append_to_temp_log("Reloading data...")
+                data_reload()
+                append_to_console("Data reloaded successfully.")
+                append_to_temp_log("Data reloaded successfully.")
+
             else:
                 append_to_console(f"Unknown command: {command[0]}")
                 append_to_temp_log(f"Unknown command: {command[0]}")

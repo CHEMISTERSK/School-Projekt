@@ -9,6 +9,7 @@ from functions.db.db import get_connection
 from functions.console import console
 from functions.func import *
 from functions import data
+from functions.save import *
 
 # Importing Mechanics
 from mechanics import generation as gen
@@ -28,7 +29,6 @@ screen = pygame.display.set_mode((full_res_x, full_res_y * 0.93))
 
 epoch = t.time()
 last_log = int(epoch)
-T = int(pygame.time.get_ticks() / 1000)
 
 clock = pygame.time.Clock()
 
@@ -76,6 +76,8 @@ try:
             # Key Binding
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
+                    data.time_data = ingame_time(True)
+                    saveing()
                     data.playing = False
         
                 # Switching Between Fullscreen And Windowed Mode
@@ -84,12 +86,13 @@ try:
 
                 elif event.key == pygame.K_F12:
                     threading.Thread(target = console, daemon = True).start()
-
+        
+        if data.playing == False:
             play_button(mouse_x, mouse_y, full_res_x, full_res_y)
+            continue_button(mouse_x, mouse_y, full_res_x, full_res_y)
             exit_button(mouse_x, mouse_y, full_res_x, full_res_y)
 
-
-        if data.playing == True:
+        elif data.playing == True:
             gen.generation(screen)
             data.menu_ambient.stop()
 
@@ -172,7 +175,7 @@ try:
             screen.blit(font.render(f"Wave:  {data.wave}" , True, (226, 226, 10)), (full_res_x * 0.8789, full_res_y * 0.0087))
             screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (full_res_x * 0.6510, full_res_y * 0.0087))
         
-        screen.blit(font.render(f"{ingame_time()}", True, (255, 255, 255)), (full_res_x * 0.4883, full_res_y * 0.0087))
+        screen.blit(font.render(f"{ingame_time(False)}", True, (255, 255, 255)), (full_res_x * 0.4883, full_res_y * 0.0087))
 
         if data.playing == False:
             menu_buttons(full_res_x, full_res_y, screen)
@@ -182,7 +185,7 @@ try:
             data.active_engine.stop()
 
         #   development tool
-        #screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 840))
+        screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 650))
 
         # FPS Counter
         if int(epoch) - last_fps_log >= 1:

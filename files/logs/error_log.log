@@ -66,814 +66,90 @@
 [08:15:51]Error in Main.py: 'NoneType' object has no attribute 'play'
 [08:16:28]Error in Main.py: 'NoneType' object has no attribute 'play'
 [10:59:11]Error in db.py: connection to server at "192.168.43.10", port 5432 failed: Connection timed out (0x0000274C/10060)
+[09:38:44]Error in Main.py: expected str, bytes or os.PathLike object, not NoneType
+[09:39:22]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
-
-[11:17:10]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:23:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:24:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:25:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:26:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:27:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:29:40]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:30:40]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:31:40]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:32:40]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:33:40]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:36:48]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:39:48]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[13:40:40]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[15:30:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:27:02]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:28:33]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:38:15]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:27:54]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:28:08]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:28:24]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:28:29]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:28:37]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:28:43]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:28:48]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:29:03]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:31:03]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:31:18]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:31:30]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:31:40]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:32:02]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:37:21]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:37:58]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:38:05]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:38:31]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:39:27]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:40:14]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:41:52]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:42:00]Error in Main.py: No file 'arial' found in working directory 'C:\Projekts\School_Project'.
-[16:42:32]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:42:38]Error in Main.py: No file 'arial' found in working directory 'C:\Projekts\School_Project'.
-[16:44:45]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:45:09]Error in Main.py: No file 'fonts\impact.ttf' found in working directory 'C:\Projekts\School_Project'.
-[16:45:36]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:45:54]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:46:02]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:51:25]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:51:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:51:47]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:51:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:51:59]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:52:05]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:52:20]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:52:27]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:53:45]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:53:51]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:54:03]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:54:41]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:55:41]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:56:31]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:56:54]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:58:11]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:58:22]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:59:48]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[18:00:00]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[18:00:13]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[18:00:20]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[18:02:59]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:07:51]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:09:16]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:09:20]Error in Main.py: name 'ingame_time' is not defined
-[07:09:43]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:14:52]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:15:17]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:18:44]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:20:08]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:29:28]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:33:28]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:37:28]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:18:22]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:19:36]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:20:32]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:20:48]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:21:17]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[16:23:37]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[17:22:00]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[17:22:55]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[17:25:20]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[17:29:20]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[17:30:23]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[20:52:55]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:38:55]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:39:16]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:39:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:39:54]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:41:14]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:41:35]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:41:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:42:23]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:43:49]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:44:02]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:44:21]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:44:45]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:45:09]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:45:22]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:45:36]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:45:55]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:46:12]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:46:32]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:46:44]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:47:03]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:50:30]Error in Data.py: Error during file loading: invalid literal for int() with base 10: 'False\n'
-[07:50:30]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:50:32]Error in Main.py: module 'functions.data' has no attribute 'playing'
-[07:50:45]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:51:38]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:52:11]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:53:49]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:54:43]Error in Data.py: Error during file loading: unsupported operand type(s) for +: 'bool' and 'str'
-[07:54:43]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:55:03]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:55:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:58:43]Error in Data.py: Error during file loading: list index out of range
-[07:58:43]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[07:58:44]Error in Main.py: module 'functions.data' has no attribute 'paused'
-[07:59:06]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:01:25]Error in Data.py: Error during file loading: 'bool' object has no attribute 'strip'
-[08:02:25]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:03:20]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:04:59]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:06:09]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:28:13]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:28:36]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:28:57]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:30:38]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:31:12]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:31:20]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:31:30]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:31:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:32:15]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:32:29]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:32:43]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:32:51]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:33:02]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:33:10]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:33:17]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:35:05]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:35:30]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:35:51]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:36:03]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:36:12]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:37:15]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:37:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:44:17]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:45:36]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:55:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:56:09]Error in Main.py: argument 1 must be pygame.surface.Surface, not str
-[08:56:30]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:56:34]Error in Main.py: argument 1 must be pygame.surface.Surface, not str
-[08:57:04]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:57:16]Error in Main.py: argument 1 must be pygame.surface.Surface, not str
-[08:58:51]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[08:59:07]Error in Main.py: argument 2 must be str, not tuple
-[08:59:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:00:37]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:00:43]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:01:04]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:01:15]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:01:25]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:01:36]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:01:44]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:01:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:02:47]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:02:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:02:58]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:03:04]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:03:09]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:03:25]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:03:31]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:03:41]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:03:47]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:03:52]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:03:57]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:10:19]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:10:40]Error in Main.py: 'float' object cannot be interpreted as an integer
-[09:11:25]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:11:35]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:17:03]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:19:36]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:21:29]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:27:12]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:29:03]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:30:17]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:31:36]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:32:21]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:32:46]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:33:52]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:34:10]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:36:50]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:37:22]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[09:38:02]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:32:32]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:33:59]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:34:57]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:44:15]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:45:52]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:46:05]Error in Main.py: cannot access local variable 'seconds' where it is not associated with a value
-[10:52:23]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:54:07]Error in Main.py: cannot access local variable 'seconds' where it is not associated with a value
-[10:54:08]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:54:47]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:57:13]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:57:28]Error in Main.py: ingame_time() missing 1 required positional argument: 'seconds'
-[10:57:38]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[10:58:04]Error in Main.py: cannot access local variable 'seconds' where it is not associated with a value
-[11:00:19]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:00:31]Error in Main.py: cannot access local variable 'seconds' where it is not associated with a value
-[11:16:21]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:18:06]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:18:24]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:19:20]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:19:47]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:20:32]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:21:29]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:25:03]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:25:13]Error in Main.py: name 'last_tick' is not defined
-[11:25:29]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:27:09]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:27:18]Error in Main.py: ingame_time() takes 0 positional arguments but 2 were given
-[11:27:26]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:29:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:33:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:38:02]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:38:31]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:40:28]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:41:11]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:41:45]Error in Main.py: unsupported operand type(s) for -: 'int' and 'NoneType'
-[11:41:46]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:42:00]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:42:16]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:42:43]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:44:20]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:46:34]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:48:55]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[11:58:42]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:06:40]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:06:48]Error in Main.py: No file 'files\textures\re_dot.png' found in working directory 'C:\Projekts\School_Project'.
-[12:06:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:07:03]Error in Main.py: invalid destination position for blit
-[12:08:49]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:09:02]Error in Main.py: size must be two numbers
-[12:10:54]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:11:14]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:11:24]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:11:35]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:12:07]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:12:17]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:12:25]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:12:34]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:12:59]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
-	Is the server running on that host and accepting TCP/IP connections?
-
-[12:13:10]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[09:42:17]Error in Main.py: Unknown format code 'd' for object of type 'float'[10:05:31]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[12:13:20]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[10:13:04]Error in Main.py: Unknown format code 'd' for object of type 'float'
+[10:13:40]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[12:13:27]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[10:20:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[12:13:33]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[10:21:38]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[12:13:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[10:34:13]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[12:15:18]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[10:35:53]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[12:15:54]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[10:36:04]Error in Main.py: invalid literal for int() with base 10: '_20250605103450'
+[10:36:29]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[12:21:49]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[10:55:50]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[12:22:37]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[10:56:02]Error in Main.py: name 'game_ms' is not defined
+[10:59:11]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[13:35:01]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[10:59:34]Error in Main.py: ingame_time() missing 7 required positional arguments: 'game_ms', 'last_tick', 'delta', 'now', 'minutes', 'seconds', and 'seconds_total'
+[11:03:21]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[13:35:42]Error in Main.py: [WinError 3] The system cannot find the path specified: 'c:\\Projekts\\School_Project\\files\\mechanics\\logs\\temp.log'
-[13:35:43]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:08:54]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[13:36:12]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:09:19]Error in Main.py: unsupported operand type(s) for //: 'NoneType' and 'int'
+[11:11:41]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[13:36:16]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:12:07]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[13:50:56]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:16:17]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[13:52:37]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:16:22]Error in Main.py: [Errno 2] No such file or directory: 'files\\saves\\save_0.sav'
+[11:16:30]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[16:11:17]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:17:06]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[16:29:26]Error in Data.py: Error during file loading: No such file or directory: 'c:\Projekts\School_Project\files\functions\..\sounds\calm_engine.wavmenu_ambient.mp3'.
-[16:29:26]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:19:43]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[16:29:30]Error in Main.py: module 'functions.data' has no attribute 'calm_engine'
-[16:29:55]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:20:12]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[16:31:57]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:20:26]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[17:17:44]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:21:24]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[17:19:58]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:21:39]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[17:25:35]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:21:51]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[17:25:47]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:22:11]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[17:26:06]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:22:23]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[19:26:22]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:22:37]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 
-[20:32:44]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
+[11:22:49]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
 

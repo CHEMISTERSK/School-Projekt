@@ -68,6 +68,9 @@ try:
 
     playing = default_data[23].strip() == "True"
 
+    # Time Data
+    time_data = []
+
 
     # Loading Textures and Sounds
 
