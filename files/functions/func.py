@@ -25,7 +25,7 @@ def ingame_time(exp):
     seconds = seconds_total % 60
 
     if exp == True:
-        return [game_ms, last_tick, now, delta, seconds_total, minutes, seconds]
+        return [game_ms, None, now, delta, seconds_total, minutes, seconds]
     else:
         return f"{minutes:02d}:{seconds:02d}"
 

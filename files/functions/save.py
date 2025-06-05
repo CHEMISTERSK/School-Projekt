@@ -99,7 +99,7 @@ try:
             data.score =                   int(loaded_data[17].strip())
 
             func.game_ms =           int(loaded_data[18].strip())
-            func.last_tick =         None
+            func.last_tick =        eval(loaded_data[19].strip())
             func.now =               int(loaded_data[20].strip())
             func.delta =             int(loaded_data[21].strip())
             func.seconds_total =     int(loaded_data[22].strip())
