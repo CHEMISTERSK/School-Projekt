@@ -1,8 +1,8 @@
-# Importing external functions
+# Importing External Functions
 import pygame, sys, time as t, os, random as r, datetime, math, threading
 from pygame.locals import *
 
-# Importing internal functions
+# Importing Internal Functions
 from functions.error_handling import error_window
 from functions.logging import *
 from functions.db.db import get_connection
@@ -53,7 +53,6 @@ main_log(real_time, resolution, res_xy[0], res_xy[1], clock, pygame.time.get_tic
 fullscreen_toggle(full_res_x, full_res_y)
 
 
-
 try:
 # Main Loop
     while data.running:
@@ -73,7 +72,8 @@ try:
                 os.remove(os.path.join(log_dir, "temp.log"))
                 data.running = False
 
-            # Key Binding
+        # Key Binding
+            # Back To Menu
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     data.time_data = ingame_time(True)
@@ -87,6 +87,7 @@ try:
                 elif event.key == pygame.K_F12:
                     threading.Thread(target = console, daemon = True).start()
         
+        #   Menu Buttons
         if data.playing == False:
             play_button(mouse_x, mouse_y, full_res_x, full_res_y)
             continue_button(mouse_x, mouse_y, full_res_x, full_res_y)
@@ -133,7 +134,7 @@ try:
                     data.calm_engine.play()
                 data.active_engine.stop()
 
-
+            # Tank Mobility
             rotated_tank = pygame.transform.rotate(pygame.transform.scale_by(data.test_tank, 0.5), data.tank_angle)
             rotated_tank_rect = rotated_tank.get_rect(center = (d_x, d_y))
             screen.blit(rotated_tank, rotated_tank_rect.topleft)
@@ -158,7 +159,7 @@ try:
 
 
             
-
+        # Top Info Bar
             if int(epoch) - last_log == 240:
                 last_log = int(epoch)
                 data.db, connection = get_connection()
@@ -178,14 +179,14 @@ try:
         screen.blit(font.render(f"{ingame_time(False)}", True, (255, 255, 255)), (full_res_x * 0.4883, full_res_y * 0.0087))
 
         if data.playing == False:
-            menu_buttons(full_res_x, full_res_y, screen)
+            menu_buttons(full_res_x, screen)
             if data.menu_ambient.get_num_channels() == 0:
                     data.menu_ambient.play()
             data.calm_engine.stop()
             data.active_engine.stop()
 
-        #   development tool
-        screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 650))
+        # development tool
+        #screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 650))
 
         # FPS Counter
         if int(epoch) - last_fps_log >= 1:
@@ -202,7 +203,7 @@ try:
     pygame.quit()
     sys.exit()
 
-#Error Handling
+# Error Handling
 except Exception as e:
     error_window(e, "Main.py")
     os.remove(os.path.join(log_dir, "temp.log"))

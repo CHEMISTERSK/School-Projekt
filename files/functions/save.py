@@ -5,7 +5,6 @@ from functions import func
 
 sorce = "save.py"
 
-
 try:
     def saveing():
         global data
@@ -38,7 +37,6 @@ try:
                 save_file.write(f"{data_}\n")
             save_file.close()
         
-        # Pridaný algoritmus na mazanie najstaršieho save, ak ich je viac ako 5
         save_files = os.listdir("files\\saves")
         if len(save_files) > 5:
             oldest_time = float('inf')
@@ -57,9 +55,8 @@ try:
             if oldest_file:
                 try:
                     os.remove(os.path.join("files\\saves", oldest_file))
-                    print(f"Removed oldest save file: {oldest_file}")
                 except Exception as e:
-                    print(f"Error removing oldest save: {e}")
+                    error_window(e, sorce)
 
     def loading():
         global data, func

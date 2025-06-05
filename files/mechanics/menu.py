@@ -4,7 +4,7 @@ from functions import data
 from functions.func import *
 from functions.save import loading
 
-def menu_buttons(full_res_x, full_res_y, screen):
+def menu_buttons(full_res_x, screen):
     screen.blit(data.game_menu, (full_res_x * 0.0586, 0))
 
 def play_button(mouse_x, mouse_y, full_res_x, full_res_y):
