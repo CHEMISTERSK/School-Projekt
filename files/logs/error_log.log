@@ -72,4 +72,33 @@
 [09:42:17]Error in Main.py: Unknown format code 'd' for object of type 'float'
 [10:05:31]Error in db.py: connection to server at "0.0.0.0", port 5432 failed: Cannot assign requested address (0x00002741/10049)
 	Is the server running on that host and accepting TCP/IP connections?
-[10:13:04]Error in Main.py: Unknown format code 'd' for object of type 'float'
+[10:13:04]Error in Main.py: Unknown format code 'd' for object of type 'float'[12:13:28]Error in Main.py: 'bool' object has no attribute 'cursor'
+[12:14:44]Error in Main.py: 'bool' object has no attribute 'cursor'
+[12:16:28]Error in Main.py: 'bool' object has no attribute 'cursor'
+[12:17:32]Error in Main.py: 'bool' object has no attribute 'cursor'
+[12:27:11]Error in Main.py: clound_load() takes 0 positional arguments but 1 was given
+[13:45:47]Error in Main.py: [Errno 2] No such file or directory: 'files\\saves\\save_0.sav'
+[13:47:20]Error in Main.py: list index out of range
+[13:50:07]Error in Main.py: write() argument must be str, not list
+[13:56:16]Error in Main.py: invalid literal for int() with base 10: ''
+[13:59:43]Error in Main.py: invalid literal for int() with base 10: ''
+[14:01:30]Error in Main.py: invalid literal for int() with base 10: ''
+[14:04:11]Error in Main.py: invalid literal for int() with base 10: ''
+[14:05:06]Error in Main.py: invalid literal for int() with base 10: ''
+[14:06:19]Error in Main.py: invalid literal for int() with base 10: ''
+[15:39:21]Error in Main.py: invalid literal for int() with base 10: ''
+[15:43:05]Error in Main.py: invalid literal for int() with base 10: ''
+[15:47:04]Error in save.py: 'bool' object is not subscriptable
+[15:47:58]Error in save.py: 'bool' object is not subscriptable
+[15:52:39]Error in save.py: '<' not supported between instances of 'str' and 'int'
+[15:55:59]Error in save.py: 'bool' object is not subscriptable
+[15:57:07]Error in save.py: 'bool' object is not subscriptable
+[15:59:54]Error in save.py: 'bool' object is not subscriptable
+[16:10:56]Error in save.py: 'bool' object is not subscriptable
+[16:14:29]Error in save.py: 'bool' object is not subscriptable
+[16:15:15]Error in save.py: 'bool' object is not subscriptable
+[16:15:54]Error in save.py: 'bool' object is not subscriptable
+[16:16:25]Error in save.py: 'bool' object is not subscriptable
+[16:25:59]Error in save.py: 'bool' object is not subscriptable
+[16:38:23]Error in save.py: 'float' object has no attribute 'strip'
+[16:43:35]Error in save.py: 'float' object has no attribute 'strip'

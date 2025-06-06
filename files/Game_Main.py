@@ -10,6 +10,8 @@ from functions.console import console
 from functions.func import *
 from functions import data
 from functions.save import *
+from functions.db.logic.account_logic import *
+from functions.db.logic.saveing_logic import *
 
 # Importing Mechanics
 from mechanics import generation as gen
@@ -48,7 +50,7 @@ d_y = full_res_y * 0.5
 # Functions Calling
 res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
 main_log_clear()
-db, connection = get_connection()
+connection = get_connection()
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, pygame.time.get_ticks(), epoch, data.db, connection)
 fullscreen_toggle(full_res_x, full_res_y)
 
@@ -77,6 +79,7 @@ try:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     data.time_data = ingame_time(True)
+                    cloud_save("CHEMISTER")
                     saveing()
                     data.playing = False
         
@@ -167,7 +170,7 @@ try:
 
             pygame.draw.rect(screen, (0, 0, 0), (0, 0, res_xy[0], 35), 100)
 
-            if not db:
+            if not data.db:
                 screen.blit(font.render("No Connection To The Server", True, (219, 17, 4)), (full_res_x * 0.0651, full_res_y * 0.0087))
             else:
                 screen.blit(font.render("Connected To The Server", True, (5, 199, 2)), (full_res_x * 0.0651, full_res_y * 0.0087))

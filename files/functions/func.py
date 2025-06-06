@@ -3,7 +3,7 @@ import pygame
 
 game_ms = 0  
 last_tick = None
-now = None
+now = 0
 delta = 0
 minutes = 0
 seconds = 0

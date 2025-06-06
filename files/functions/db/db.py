@@ -1,8 +1,8 @@
 import sys, os, datetime, psycopg2
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'files')))
 from functions.error_handling import error_window_db, error_window
+from functions import data
 
-#Variables For except Exception
 sorce = "db.py"
 
 try:
@@ -12,15 +12,14 @@ try:
         sorce = "db.py"
         try:
             connection = psycopg2.connect(
-                host = "0.0.0.0",   # insert ip
+                host = "localhost",   # insert ip
                 port = 5432,
-                database = "demo",  # name of database
+                database = "school_project",
                 user = "postgres",
                 password = "50028082"
             )
             print("Database connection established.")
 
-            # Test the connection by executing a simple query
             with connection.cursor() as cursor:
                 cursor.execute("SELECT 1;")
                 result = cursor.fetchone()
@@ -29,16 +28,14 @@ try:
                 else:
                     print("Database connection failed.")
 
-            db = True
-            return db, connection
+            data.db = True
+            return connection
         
         except psycopg2.OperationalError as e:
-            db = False
+            data.db = False
             connection = False
-            error_window_db(real_time, e, sorce)
-            print("Database connection failed.")
-            return db, connection
+            error_window_db(real_time, e, sorce, data.db)
+            return connection
 
 except Exception as e:
     error_window(e, sorce)
-    sys.exit()

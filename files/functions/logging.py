@@ -52,4 +52,3 @@ try:
 
 except Exception as e:
     error_window(e, sorce)
-    sys.exit()
