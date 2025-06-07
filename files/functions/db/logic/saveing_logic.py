@@ -122,8 +122,6 @@ def clound_load(player_name):
         result = cur.fetchone()
         return result
 
-
-    
     except Exception as e:
         error_window_db(real_time, e, "saveing_logic.py", data.db)
         conn.rollback()

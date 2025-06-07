@@ -1,8 +1,7 @@
-import sys, datetime, re, os
+import datetime, os
 from functions.error_handling import error_window, loading_error
 from functions import data, func
 from functions.db.logic.saveing_logic import clound_load
-
 
 sorce = "save.py"
 
@@ -140,6 +139,5 @@ try:
         except Exception as e:
             loading_error(e, sorce)
 
-        
 except Exception as e:
     error_window(e, sorce)

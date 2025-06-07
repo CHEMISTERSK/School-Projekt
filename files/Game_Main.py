@@ -79,14 +79,18 @@ try:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     data.time_data = ingame_time(True)
+                    data.playing = False
+
+                # Save Game
+                elif event.key == pygame.K_F5:
                     cloud_save("CHEMISTER")
                     saveing()
-                    data.playing = False
-        
+
                 # Switching Between Fullscreen And Windowed Mode
                 elif event.key == pygame.K_F11:
                     fullscreen_toggle(full_res_x, full_res_y)
-
+                    
+                # Console
                 elif event.key == pygame.K_F12:
                     threading.Thread(target = console, daemon = True).start()
         
