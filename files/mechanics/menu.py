@@ -3,7 +3,6 @@ from pygame.locals import *
 from functions import data
 from functions.func import *
 from functions.save import loading
-from functions.db.logic.saveing_logic import clound_load
 
 def menu_buttons(full_res_x, screen):
     screen.blit(data.game_menu, (full_res_x * 0.0586, 0))

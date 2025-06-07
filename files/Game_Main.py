@@ -89,7 +89,7 @@ try:
                 # Switching Between Fullscreen And Windowed Mode
                 elif event.key == pygame.K_F11:
                     fullscreen_toggle(full_res_x, full_res_y)
-                    
+
                 # Console
                 elif event.key == pygame.K_F12:
                     threading.Thread(target = console, daemon = True).start()
@@ -98,6 +98,7 @@ try:
         if data.playing == False:
             play_button(mouse_x, mouse_y, full_res_x, full_res_y)
             continue_button(mouse_x, mouse_y, full_res_x, full_res_y)
+            settings_button(mouse_x, mouse_y, full_res_x, full_res_y)
             exit_button(mouse_x, mouse_y, full_res_x, full_res_y)
 
         elif data.playing == True:

@@ -101,10 +101,9 @@ try:
             data.tank_hp =             float(data.default_data[11])
             data.max_tank_hp =         float(data.default_data[11])
 
-            # Shells Data   (gs - green shell;  os - orange shell;  rs - red shell)
-            data.gs_dmg = float(data.default_data[12])    # damage
-            data.gs_pen = float(data.default_data[13])    # penetration
-            data.gs_spd = float(data.default_data[14])    # speed
+            data.gs_dmg = float(data.default_data[12])    
+            data.gs_pen = float(data.default_data[13])    
+            data.gs_spd = float(data.default_data[14])    
 
             data.os_dmg = float(data.default_data[15])
             data.os_pen = float(data.default_data[16])

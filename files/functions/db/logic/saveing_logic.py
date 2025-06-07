@@ -22,12 +22,20 @@ def cloud_save(player_name):
             
         player_id = player_result[0] 
         timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-        
+
         cur.execute('''
-            UPDATE player_data
-            SET wave = %s, score = %s, timestemp = %s
-            WHERE id = %s
-        ''', (data.wave, data.score, timestamp, player_id))
+            SELECT wave, score FROM player_data
+            WHERE id = %s;
+        ''', (player_id,))
+        
+        high_score = cur.fetchone()
+
+        if (high_score[0] < data.wave) or (high_score[1] < data.score):
+            cur.execute('''
+                UPDATE player_data
+                SET wave = %s, score = %s, timestemp = %s
+                WHERE id = %s
+            ''', (data.wave, data.score, timestamp, player_id))
         
         cur.execute('''
             INSERT INTO tank_data 
