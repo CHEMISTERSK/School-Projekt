@@ -56,7 +56,7 @@ fullscreen_toggle(full_res_x, full_res_y)
 
 
 try:
-# Main Loop
+    # Main Loop
     while data.running:
 
         # Screen Resolution

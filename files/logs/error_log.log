@@ -102,3 +102,5 @@
 [16:25:59]Error in save.py: 'bool' object is not subscriptable
 [16:38:23]Error in save.py: 'float' object has no attribute 'strip'
 [16:43:35]Error in save.py: 'float' object has no attribute 'strip'
+[14:03:41]Error in Main.py: 0
+[14:05:09]Error in Main.py: 0

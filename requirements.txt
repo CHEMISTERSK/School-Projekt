@@ -1,0 +1,24 @@
+# Tank Game Project - Requirements
+# Hlavné herné knižnice
+pygame>=2.6.0
+
+# Databázové knižnice
+psycopg2-binary>=2.9.0
+
+# Grafické rozhranie
+# tkinter je zabudovaný v Python štandardnej knižnici
+
+# Následujúce knižnice sú zabudované v Python štandardnej knižnici:
+# - os
+# - sys
+# - time
+# - datetime
+# - math
+# - random
+# - threading
+# - json
+# - subprocess
+
+# Voliteľné knižnice pre development
+# black>=22.0.0        # Code formatting
+# pylint>=2.15.0       # Code linting

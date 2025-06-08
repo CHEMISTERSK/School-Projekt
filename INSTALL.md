@@ -36,12 +36,14 @@ pip install -r requirements.txt
 
 #### Manuálna inštalácia:
 ```bash
-pip install pygame
+pip install pygame>=2.6.0
+pip install psycopg2-binary>=2.9.0
 ```
 
 ### 5. Overenie inštalácie
 ```bash
 python -c "import pygame; print('Pygame verzia:', pygame.version.ver)"
+python -c "import psycopg2; print('psycopg2 úspešne nainštalovaný')"
 ```
 
 ### 6. Spustenie hry
@@ -95,7 +97,16 @@ py -m pip install pygame
 python -m pip install --upgrade pip
 
 # Potom skúste znovu
-pip install pygame
+pip install pygame>=2.6.0
+```
+
+### psycopg2 sa nedá nainštalovať
+```bash
+# Skúste binary verziu
+pip install psycopg2-binary
+
+# Alebo na Windows
+pip install psycopg2-binary --force-reinstall --no-cache-dir
 ```
 
 ### Chyba s cestami k súborom
@@ -128,8 +139,10 @@ dir files\sounds\
 - [ ] Python 3.8+ je nainštalovaný
 - [ ] Projekt je v `C:\School_Project\`
 - [ ] Pygame je nainštalovaný (`pip list | grep pygame`)
+- [ ] psycopg2-binary je nainštalovaný (`pip list | grep psycopg2`)
 - [ ] Súbory `files/data/settings.json` existujú
 - [ ] Priečinky `textures/` a `sounds/` obsahujú súbory
+- [ ] PostgreSQL databáza je spustená (voliteľné)
 - [ ] `python game.pyw` spustí hru bez chýb
 
 ---

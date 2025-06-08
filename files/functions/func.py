@@ -49,11 +49,11 @@ def screen_resolution(full_res_x, full_res_y, fullscreen):
     window_res_x = full_res_x
     window_res_y = full_res_y * 0.93 #%
 
-    if fullscreen == True:
+    if fullscreen == False:
         res_x = full_res_x * 1.25 #%
         res_y = full_res_y * 1.25 #%
 
-    elif fullscreen == False:
+    elif fullscreen == True:
         res_x = window_res_x
         res_y = window_res_y
 
@@ -80,29 +80,29 @@ def av_reload():
 def data_reload():
     data.default_data = data.set_default_values()
 
-    data.tank_x =              float(data.default_data[0])
-    data.tank_y =              float(data.default_data[1])
-    data.tank_angle =          float(data.default_data[2])
-    data.tank_speed =          float(data.default_data[3])
-    data.tank_rotation_speed = float(data.default_data[4])
-    data.tank_hp =             float(data.default_data[11])
-    data.max_tank_hp =         float(data.default_data[11])
+    data.tank_x =              float(data.default_data["tank_x"])
+    data.tank_y =              float(data.default_data["tank_y"])
+    data.tank_angle =          float(data.default_data["tank_angle"])
+    data.tank_speed =          float(data.default_data["tank_speed"])
+    data.tank_rotation_speed = float(data.default_data["tank_rotation_speed"])
+    data.tank_hp =             float(data.default_data["tank_hp"])
+    data.max_tank_hp =         float(data.default_data["max_tank_hp"])
 
     # Shells Data   (gs - green shell;  os - orange shell;  rs - red shell)
-    data.gs_dmg = float(data.default_data[12])    # damage
-    data.gs_pen = float(data.default_data[13])    # penetration
-    data.gs_spd = float(data.default_data[14])    # speed
+    data.gs_dmg = float(data.default_data["gs_dmg"])    # damage
+    data.gs_pen = float(data.default_data["gs_pen"])    # penetration
+    data.gs_spd = float(data.default_data["gs_spd"])    # speed
 
-    data.os_dmg = float(data.default_data[15])
-    data.os_pen = float(data.default_data[16])
-    data.os_spd = float(data.default_data[17])
+    data.os_dmg = float(data.default_data["os_dmg"])
+    data.os_pen = float(data.default_data["os_pen"])
+    data.os_spd = float(data.default_data["os_spd"])
 
-    data.rs_dmg = float(data.default_data[18])
-    data.rs_pen = float(data.default_data[19])
-    data.rs_spd = float(data.default_data[20])
+    data.rs_dmg = float(data.default_data["rs_dmg"])
+    data.rs_pen = float(data.default_data["rs_pen"])
+    data.rs_spd = float(data.default_data["rs_spd"])
 
-    data.wave =  int(data.default_data[21])
-    data.score = int(data.default_data[22])
+    data.wave =  int(data.default_data["wave"])
+    data.score = int(data.default_data["score"])
 
 def append_to_temp_log(text):
     log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs')

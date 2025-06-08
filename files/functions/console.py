@@ -1,4 +1,4 @@
-import sys, datetime as dt, os, tkinter, pygame
+import sys, datetime as dt, os, tkinter, pygame, json
 from tkinter import scrolledtext
 from functions.error_handling import error_window
 from functions import data
@@ -64,13 +64,6 @@ try:
             root.clipboard_append(console_output.get("1.0", tkinter.END))
             console_output.config(state='disabled')
             root.update()
-
-        def default_values():
-            data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
-            with open (os.path.join(data_path, "default_data.dat"), "r") as file:
-                default_data = file.readlines()
-                file.close()
-            return default_data
         
         def av_reload():
             data.texture_loading_path, data.sound_loading_path = data.load_audiovisual()
@@ -87,34 +80,34 @@ try:
             data.active_engine = pygame.mixer.Sound(data.sound_loading_path[2])
             data.calm_engine =   pygame.mixer.Sound(data.sound_loading_path[3])
 
-            data.calm_engine.set_volume(0.5)    # %
-            data.active_engine.set_volume(0.2)  # %
+            data.calm_engine.set_volume(data.settings["volume"])    
+            data.active_engine.set_volume(data.settings["volume"] / 2)  
 
         def data_reload():
             data.default_data = data.set_default_values()
 
-            data.tank_x =              float(data.default_data[0])
-            data.tank_y =              float(data.default_data[1])
-            data.tank_angle =          float(data.default_data[2])
-            data.tank_speed =          float(data.default_data[3])
-            data.tank_rotation_speed = float(data.default_data[4])
-            data.tank_hp =             float(data.default_data[11])
-            data.max_tank_hp =         float(data.default_data[11])
+            data.tank_x =              float(data.default_data["tank_x"])
+            data.tank_y =              float(data.default_data["tank_y"])
+            data.tank_angle =          float(data.default_data["tank_angle"])
+            data.tank_speed =          float(data.default_data["tank_speed"])
+            data.tank_rotation_speed = float(data.default_data["tank_rotation_speed"])
+            data.tank_hp =             float(data.default_data["tank_hp"])
+            data.max_tank_hp =         float(data.default_data["max_tank_hp"])
 
-            data.gs_dmg = float(data.default_data[12])    
-            data.gs_pen = float(data.default_data[13])    
-            data.gs_spd = float(data.default_data[14])    
+            data.gs_dmg = float(data.default_data["gs_dmg"])    
+            data.gs_pen = float(data.default_data["gs_pen"])    
+            data.gs_spd = float(data.default_data["gs_spd"])    
 
-            data.os_dmg = float(data.default_data[15])
-            data.os_pen = float(data.default_data[16])
-            data.os_spd = float(data.default_data[17])
+            data.os_dmg = float(data.default_data["os_dmg"])
+            data.os_pen = float(data.default_data["os_pen"])
+            data.os_spd = float(data.default_data["os_spd"])
 
-            data.rs_dmg = float(data.default_data[18])
-            data.rs_pen = float(data.default_data[19])
-            data.rs_spd = float(data.default_data[20])
+            data.rs_dmg = float(data.default_data["rs_dmg"])
+            data.rs_pen = float(data.default_data["rs_pen"])
+            data.rs_spd = float(data.default_data["rs_spd"])
 
-            data.wave =  int(data.default_data[21])
-            data.score = int(data.default_data[22])
+            data.wave =  int(data.default_data["wave"])
+            data.score = int(data.default_data["score"])
 
         def command_line_execution(command_line):
             command = command_line.split()
@@ -147,7 +140,7 @@ try:
                 elif command[1] == "tank_angle":
                     data.tank_angle = float(eval(command[2]))
                 elif command[1] == "tank_speed":
-                    data.tank_speed = float(eval(command[2]))
+                    data.tank_speed = float(eval(command[2]))                
                 elif command[1] == "tank_rotation_speed":
                     data.tank_rotation_speed = float(eval(command[2]))
                 elif command[1] == "fov":
@@ -158,13 +151,13 @@ try:
                         append_to_console("Error: Invalid argument or out of range.")
                         append_to_temp_log("Error: Invalid argument or out of range.")
                 elif command[1] == "default" and command[2] == "all":
-                    default_data = default_values()
-                    data.tank_x =               float(default_data[0])
-                    data.tank_y =               float(default_data[1])
-                    data.tank_angle =           float(default_data[2])
-                    data.tank_speed =           float(default_data[3])
-                    data.tank_rotation_speed =  float(default_data[4])
-                    data.fov =                  float(default_data[6])
+                    default_data = data.set_default_values()
+                    data.tank_x =               float(default_data["tank_x"])
+                    data.tank_y =               float(default_data["tank_y"])
+                    data.tank_angle =           float(default_data["tank_angle"])
+                    data.tank_speed =           float(default_data["tank_speed"])
+                    data.tank_rotation_speed =  float(default_data["tank_rotation_speed"])
+                    data.fov =                  float(default_data["fov"])
                 else:
                     append_to_console(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")
                     append_to_temp_log(f"Unknown variable: {command[1]} or argument\nUse \"set ?\" for help.")

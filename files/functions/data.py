@@ -6,67 +6,67 @@ try:
 
     def set_default_values():
         data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
-        with open (os.path.join(data_path, "default_data.dat"), "r") as file:
-            default_data = file.readlines()
+        with open(os.path.join(data_path, "default_data.json"), "r", encoding="utf-8") as file:
+            default_data = json.load(file)
             file.close()
         return default_data
 
     def set_tank_location_default(default_data):
-        tank_x = float(default_data[0])
-        tank_y = float(default_data[1])
+        tank_x = float(default_data["tank_x"])
+        tank_y = float(default_data["tank_y"])
         return tank_x, tank_y
     
     def set_tank_angle_default(default_data):
-        tank_angle = float(default_data[2])
+        tank_angle = float(default_data["tank_angle"])
         return tank_angle
     
     def set_tank_speed_default(default_data):
-        tank_speed = float(default_data[3])
+        tank_speed = float(default_data["tank_speed"])
         return tank_speed
 
     def set_tank_rotation_speed_default(default_data):
-        tank_rotation_speed = float(default_data[4])
+        tank_rotation_speed = float(default_data["tank_rotation_speed"])
         return tank_rotation_speed
     
     def set_fov_default(default_data):
-        fov = float(default_data[6])
+        fov = float(default_data["fov"])
         return fov
 
     # Numerical and Logical values loading
     default_data = set_default_values()
 
-    tank_x =              float(default_data[0])
-    tank_y =              float(default_data[1])
-    tank_angle =          float(default_data[2])
-    tank_speed =          float(default_data[3])
-    tank_rotation_speed = float(default_data[4])
-    tank_hp =             float(default_data[11])
-    max_tank_hp =         float(default_data[11])
+    tank_x =              float(default_data["tank_x"])
+    tank_y =              float(default_data["tank_y"])
+    tank_angle =          float(default_data["tank_angle"])
+    tank_speed =          float(default_data["tank_speed"])
+    tank_rotation_speed = float(default_data["tank_rotation_speed"])
+    tank_hp =             float(default_data["tank_hp"])
+    max_tank_hp =         float(default_data["max_tank_hp"])
 
-    fps =        float(default_data[5])
-    fov =        float(default_data[6])
-    running =    default_data[7].strip() == "True"
-    fullscreen = default_data[8].strip() == "True"
-    db =         default_data[9].strip() == "True"
-    copy =       default_data[10].strip() == "True"
+    fps =        float(default_data["fps"])
+    fov =        float(default_data["fov"])
+    running =    default_data["running"]
+    fullscreen = default_data["fullscreen"]
+    db =         default_data["db"]
+    copy =       default_data["copy"]
 
     # Shells Data   (gs - green shell;  os - orange shell;  rs - red shell)
-    gs_dmg = float(default_data[12])    # damage
-    gs_pen = float(default_data[13])    # penetration
-    gs_spd = float(default_data[14])    # speed
+    gs_dmg = float(default_data["gs_dmg"])    # damage
+    gs_pen = float(default_data["gs_pen"])    # penetration
+    gs_spd = float(default_data["gs_spd"])    # speed
 
-    os_dmg = float(default_data[15])
-    os_pen = float(default_data[16])
-    os_spd = float(default_data[17])
+    os_dmg = float(default_data["os_dmg"])
+    os_pen = float(default_data["os_pen"])
+    os_spd = float(default_data["os_spd"])
 
-    rs_dmg = float(default_data[18])
-    rs_pen = float(default_data[19])
-    rs_spd = float(default_data[20])
+    rs_dmg = float(default_data["rs_dmg"])
+    rs_pen = float(default_data["rs_pen"])
+    rs_spd = float(default_data["rs_spd"])
 
-    wave =  int(default_data[21])
-    score = int(default_data[22])
+    wave =  int(default_data["wave"])
+    score = int(default_data["score"])
 
-    playing = default_data[23].strip() == "True"
+    playing = default_data["playing"]
 
     # Time Data
     time_data = []
