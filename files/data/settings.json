@@ -1,0 +1,9 @@
+{
+    "player_name": "CHEMISTER",
+    "password": "heslo123",
+    "fov": 0.75,
+    "volume": 0.5,
+    "default_fullscreen": false,
+    "server_ip_address": "localhost",
+    "server_port": 5432
+}

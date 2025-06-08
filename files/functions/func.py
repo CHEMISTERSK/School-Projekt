@@ -1,5 +1,5 @@
 from functions import data
-import pygame
+import pygame, os
 
 game_ms = 0  
 last_tick = None
@@ -35,13 +35,13 @@ def reset_game_time():
     last_tick = None
 
 def fullscreen_toggle(full_res_x, full_res_y):
-    if not data.fullscreen:
-        data.fullscreen = True
+    if data.fullscreen:
+        data.fullscreen = False
         res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
         pygame.display.set_mode((res_xy[0], res_xy[1]), pygame.FULLSCREEN)
 
-    elif data.fullscreen:
-        data.fullscreen = False
+    elif not data.fullscreen:
+        data.fullscreen = True
         res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
         pygame.display.set_mode((res_xy[0], res_xy[1]))
     
@@ -103,3 +103,15 @@ def data_reload():
 
     data.wave =  int(data.default_data[21])
     data.score = int(data.default_data[22])
+
+def append_to_temp_log(text):
+    log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs')
+    with open (os.path.join(log_dir, "temp.log"), 'a') as temp_file:
+        temp_file.write(f"{text}\n")
+        temp_file.close()
+
+def settings_json(settings):
+    if not settings["player_name"] or not settings["password"]:
+        print("")
+        
+    

@@ -1,4 +1,4 @@
-import os, pygame
+import os, pygame, json
 from functions.error_handling import error_window
 
 try:
@@ -71,9 +71,35 @@ try:
     # Time Data
     time_data = []
 
+    # Settings loading
+    def settings_loading():
+        settings_data = {}
+        data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
+        while True:
+            try:
+                with open(os.path.join(data_path, "settings.json"), "r", encoding = "utf-8") as file:
+                    settings_data = json.load(file)
+                    file.close()
+                return settings_data
+            except FileNotFoundError:
+                settings_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
+                with open(os.path.join(settings_dir, 'settings.json'), 'w') as settings_file:
+                    default_settings = {
+                        "player_name": "",
+                        "password": "",
+                        "fov": 0.75,
+                        "volume": 0.5,
+                        "default_fullscreen": False,
+                        "server_ip_address": "localhost",
+                        "server_port": 5432,
+                    }
+                    json.dump(default_settings, settings_file, indent=4)
+                    settings_file.close()
+    
+    settings = settings_loading()
+
 
     # Loading Textures and Sounds
-
     def load_audiovisual():
         data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
         with open(os.path.join(data_path, "avdata.dat"), "r") as file:
@@ -124,8 +150,9 @@ try:
     menu_ambient =  pygame.mixer.Sound(sound_loading_path[4])
     
     # Volume setting
-    calm_engine.set_volume(0.5)    # %
-    active_engine.set_volume(0.2)  # %
+    calm_engine.set_volume(settings["volume"])    
+    active_engine.set_volume(settings["volume"] / 2)
+
 
 except Exception as e:
     source = "Data.py"

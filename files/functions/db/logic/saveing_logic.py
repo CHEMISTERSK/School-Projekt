@@ -2,7 +2,7 @@ import os, sys, datetime, pygame
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
 from functions.db.db import get_connection
 from functions.error_handling import *
-from functions import data, console as cons, func
+from functions import data, func
 
 def cloud_save(player_name):
     conn = get_connection()
@@ -17,7 +17,7 @@ def cloud_save(player_name):
         
         player_result = cur.fetchone()
         if not player_result:
-            cons.append_to_console(f"Player '{player_name}' not found")
+            func.append_to_temp_log("Game could't be saved.")
             return False
             
         player_id = player_result[0] 
@@ -56,8 +56,7 @@ def cloud_save(player_name):
         ''', (player_id, func.game_ms, func.last_tick, func.now, func.delta, func.seconds_total, func.minutes, func.seconds, timestamp, False))
         
         conn.commit()
-        cons.append_to_console(f"Game data saved to cloud")
-        cons.append_to_temp_log(f"Game data saved to cloud")
+        func.append_to_temp_log("Game saved to cloud")
         return True
         
     except Exception as e:
