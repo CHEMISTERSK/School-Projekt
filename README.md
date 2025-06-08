@@ -81,7 +81,7 @@ School_Project/
 │   ├── Game_Main.py      # Hlavná herná logika
 │   ├── data/             # Konfiguračné súbory
 │   │   ├── settings.json
-│   │   ├── default_data.dat
+│   │   ├── default_data.json
 │   │   └── avdata.dat
 │   ├── functions/        # Pomocné funkcie
 │   │   ├── data.py       # Načítanie dát
