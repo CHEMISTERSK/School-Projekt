@@ -11,7 +11,6 @@ real_time = dt.datetime.now().strftime("%H:%M:%S")
 sorce = "console.py"
 command_line = None
 
-
 try:
     def console():
 

@@ -38,7 +38,9 @@ real_time = datetime.datetime.now().strftime("%H:%M:%S")
 
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 
-font = pygame.font.Font('files\\fonts\\impact.ttf', 15)
+# Správna cesta k fontom
+font_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fonts', 'impact.ttf')
+font = pygame.font.Font(font_path, 15)
 
 last_fps_log = int(epoch)
 fps_text = f"FPS: "
@@ -53,7 +55,7 @@ main_log_clear()
 connection = get_connection()
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, pygame.time.get_ticks(), epoch, data.db, connection)
 fullscreen_toggle(full_res_x, full_res_y)
-
+settings_json(data.settings)
 
 try:
     # Main Loop
@@ -83,7 +85,7 @@ try:
 
                 # Save Game
                 elif event.key == pygame.K_F5:
-                    cloud_save("CHEMISTER")
+                    cloud_save(data.settings["player_name"])
                     saveing()
 
                 # Switching Between Fullscreen And Windowed Mode
@@ -146,26 +148,6 @@ try:
             rotated_tank = pygame.transform.rotate(pygame.transform.scale_by(data.test_tank, 0.5), data.tank_angle)
             rotated_tank_rect = rotated_tank.get_rect(center = (d_x, d_y))
             screen.blit(rotated_tank, rotated_tank_rect.topleft)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             
         # Top Info Bar
             if int(epoch) - last_log == 240:
@@ -194,14 +176,12 @@ try:
             data.active_engine.stop()
 
         # development tool
-        #screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 650))
-
-        # FPS Counter
+        #screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 650))        # FPS Counter
         if int(epoch) - last_fps_log >= 1:
             last_fps_log = int(epoch)
             data.fps = clock.get_fps()
             fps_text = f"FPS: {int(data.fps)}"
-            font = pygame.font.Font('files\\fonts\\impact.ttf', 15)
+            # Používame už definovaný font namiesto vytvárania nového
             text_surface = font.render(fps_text, True, (255, 255, 255))
         screen.blit(text_surface, (full_res_x * 0.0065, full_res_y * 0.0087))
 

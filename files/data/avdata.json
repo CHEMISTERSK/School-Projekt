@@ -1,4 +1,5 @@
-textures = [
+{
+  "textures": [
     "ST-1.png",
     "Surface.jpg",
     "orange_shell.png",
@@ -6,12 +7,13 @@ textures = [
     "green_shell.png",
     "shells.png",
     "menu_buttons.png"
-]
-
-sounds = [
+  ],
+  
+  "sounds": [
     "cannon_shot.wav",
     "reload_sound.wav",
     "engine.wav",
     "calm_engine.wav",
     "menu_ambient.mp3"
-]
+  ]
+}

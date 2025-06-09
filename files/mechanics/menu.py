@@ -24,7 +24,7 @@ def exit_button(mouse_x, mouse_y, full_res_x, full_res_y):
 def continue_button(mouse_x, mouse_y, full_res_x, full_res_y):
     if mouse_x in range(int(full_res_x * 0.5664), int(full_res_x * 0.7878)) and mouse_y in range(int(full_res_y * 0.4070), int(full_res_y * 0.5465)):
         if pygame.mouse.get_pressed()[0]:
-            loading("CHEMISTER")
+            loading(data.settings["player_name"])
             data.playing = True
 
 def settings_button(mouse_x, mouse_y, full_res_x, full_res_y):

@@ -102,16 +102,14 @@ try:
     # Loading Textures and Sounds
     def load_audiovisual():
         data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data')
-        with open(os.path.join(data_path, "avdata.dat"), "r") as file:
-            av_data = file.read()
+        with open(os.path.join(data_path, "avdata.json"), "r", encoding="utf-8") as file:
+            av_data = json.load(file)
+
+        textures = av_data.get("textures", [])
+        sounds = av_data.get("sounds", [])
 
         texture_loading_path = []
         sound_loading_path = []
-        namespace = {}
-        exec(av_data, {}, namespace)
-
-        textures = namespace.get("textures", [])
-        sounds = namespace.get("sounds", [])
 
         texture_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'textures')
         sound_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sounds')

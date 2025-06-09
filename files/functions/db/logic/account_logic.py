@@ -3,6 +3,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 from functions.db.db import get_connection
 from functions.error_handling import *
 from functions import data
+from functions.logging import append_to_temp_log
 
 real_time = datetime.datetime.now().strftime("%H:%M:%S")
 
@@ -18,7 +19,7 @@ def sign_up(wave, score, player_name, password):
         result = cur.fetchone()
         if result:
             login_sign_error("Username already exists", "account_logic.py")
-            print("Sign up failed: Username already exists")
+            append_to_temp_log("Sign up failed: Username already exists")
             return False
         
         else:
@@ -26,7 +27,7 @@ def sign_up(wave, score, player_name, password):
                 INSERT INTO player_data (wave, score, player_name, password, timestemp, softdelete) 
                 VALUES (%s, %s, %s, %s, %s, %s)
             ''', (wave, score, player_name, password, timestamp, False))
-            print("Sign up successful")
+            append_to_temp_log("Sign up successful")
             conn.commit()
             return True
         
@@ -47,11 +48,11 @@ def login(player_name, password):
 
         result = cur.fetchone()
         if result:
-            print("Login successful")
+            append_to_temp_log("Login successful")
             return True
         
         else:
-            print("Login failed: Invalid credentials or account deleted")
+            append_to_temp_log("Login failed: Invalid credentials or account deleted")
             return False
         
     except Exception as e:

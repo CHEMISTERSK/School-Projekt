@@ -7,6 +7,13 @@ real_time = dt.datetime.now().strftime("%H:%M:%S")
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs')
 sorce = "logging.py"
 
+def append_to_temp_log(text):
+    """Pridá text do temp.log súboru"""
+    log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs')
+    with open(os.path.join(log_dir, "temp.log"), 'a') as temp_file:
+        temp_file.write(f"{text}\n")
+        temp_file.close()
+
 try:
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)

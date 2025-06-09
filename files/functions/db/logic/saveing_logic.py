@@ -30,7 +30,7 @@ def cloud_save(player_name):
         
         high_score = cur.fetchone()
 
-        if (high_score[0] < data.wave) or (high_score[1] < data.score):
+        if (high_score[0] <= data.wave) or (high_score[1] <= data.score):
             cur.execute('''
                 UPDATE player_data
                 SET wave = %s, score = %s, timestemp = %s
