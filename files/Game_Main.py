@@ -38,7 +38,6 @@ real_time = datetime.datetime.now().strftime("%H:%M:%S")
 
 log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
 
-# Správna cesta k fontom
 font_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fonts', 'impact.ttf')
 font = pygame.font.Font(font_path, 15)
 
