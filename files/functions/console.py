@@ -61,13 +61,12 @@ try:
             root.clipboard_append(console_output.get("1.0", tkinter.END))
             console_output.config(state='disabled')
             root.update()
-        
         def av_reload():
             data.texture_loading_path, data.sound_loading_path = data.load_audiovisual()
             data.test_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))
             data.main_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Hráčský tank
-            data.hull           =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Podvozok hráča
-            data.turret         =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Veža hráča
+            data.hull           =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[7]), (data.fov / 1))  # Podvozok hráča
+            data.turret         =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[8]), (data.fov / 1))  # Veža hráča
             data.surface        =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[1]), (data.fov / 2))
             data.orange_shell   =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), (data.fov / 25))
             data.red_shell      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[3]), (data.fov / 25))
@@ -108,15 +107,14 @@ try:
 
             data.wave =  int(data.default_data["wave"])
             data.score = int(data.default_data["score"])
-            
-            # Reset enemies
+              # Reset enemies
             data.enemies = []
 
         def command_line_execution(command_line):
             command = command_line.split()
             if command[0] == "help":
-                append_to_console("Available commands:\n\tset\n\tshow\n\tshutdown")
-                append_to_temp_log("Available commands:\n\tset\n\tshow\n\tshutdown")
+                append_to_console("Available commands:\n\tset\n\tshow\n\tshutdown\n\treset_enemies\n\treload_av\n\treload_data")
+                append_to_temp_log("Available commands:\n\tset\n\tshow\n\tshutdown\n\treset_enemies\n\treload_av\n\treload_data")
             elif command[0] == "set":
                 if command[1] == "?":
                     append_to_console("variables:\n\ttank_x [value]/default\n\ttank_y [value]/default\n\ttank_angle [value]/default\n\ttank_speed [value]/default\n\ttank_rotation_speed [value]/default\n\ttank_location default\n\tdefault all")
@@ -208,7 +206,6 @@ try:
                 else:
                     append_to_console(f"Unknown variable: {command[1]}")
                     append_to_temp_log(f"Unknown variable: {command[1]}")
-            
             elif command[0] == "shutdown":
                 append_to_console("Shutting down...")
                 append_to_temp_log("Shutting down...")
@@ -227,6 +224,14 @@ try:
                 data_reload()
                 append_to_console("Data reloaded successfully.")
                 append_to_temp_log("Data reloaded successfully.")
+
+            elif command[0] == "reset_enemies":
+                append_to_console("Resetting all enemies...")
+                append_to_temp_log("Resetting all enemies...")
+                enemy_count = len(data.enemies)
+                data.enemies = []
+                append_to_console(f"Successfully removed {enemy_count} enemies.")
+                append_to_temp_log(f"Successfully removed {enemy_count} enemies.")
 
             else:
                 append_to_console(f"Unknown command: {command[0]}")

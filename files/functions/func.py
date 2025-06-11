@@ -1,6 +1,6 @@
 from functions import data
 from functions.db.logic.account_logic import login, sign_up
-import pygame, os, tkinter as tk, json
+import pygame, os, tkinter as tk, json, threading
 from tkinter import messagebox, ttk
 
 game_ms = 0  
@@ -66,8 +66,8 @@ def av_reload():
 
     data.test_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))
     data.main_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Hráčský tank
-    data.hull           =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Podvozok hráča
-    data.turret         =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Veža hráča
+    data.hull           =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[7]), (data.fov / 1))  # Podvozok hráča
+    data.turret         =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[8]), (data.fov / 1))  # Veža hráča
     data.surface        =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[1]), (data.fov / 2))
     data.orange_shell   =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), (data.fov / 25))
     data.red_shell      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[3]), (data.fov / 25))
@@ -79,8 +79,8 @@ def av_reload():
     data.active_engine = pygame.mixer.Sound(data.sound_loading_path[2])
     data.calm_engine =   pygame.mixer.Sound(data.sound_loading_path[3])
 
-    data.calm_engine.set_volume(0.5)    # %
-    data.active_engine.set_volume(0.2)  # %
+    data.calm_engine.set_volume(data.settings["volume"])    
+    data.active_engine.set_volume(data.settings["volume"] / 2)
 
 def data_reload():
     data.default_data = data.set_default_values()
@@ -293,5 +293,189 @@ def settings_json(settings):
                 messagebox.showerror("Chyba", f"Nepodarilo sa uložiť nastavenia: {e}")
         else:
             messagebox.showwarning("Upozornenie", "Neboli zadané platné prihlasovacie údaje!")
-        
+            
+# Globálna premenná pre sledovanie stavu okna nastavení
+settings_window_open = False
+
+def open_settings_window():
+    """Otvorí okno nastavení s možnosťou úpravy FOV, hlasitosti, fullscreen a server IP"""
+    global settings_window_open
     
+    if settings_window_open:
+        return
+    
+    settings_window_open = True
+    
+    try:        # Vytvorenie hlavného okna
+        root = tk.Tk()
+        root.title("Nastavenia Hry")
+        root.geometry("600x500")
+        root.resizable(False, False)
+        
+        print("Settings window created successfully")
+        
+        # Centrovanie okna
+        root.update_idletasks()
+        width = root.winfo_width()
+        height = root.winfo_height()
+        x = (root.winfo_screenwidth() // 2) - (width // 2)
+        y = (root.winfo_screenheight() // 2) - (height // 2)
+        root.geometry(f'{width}x{height}+{x}+{y}')
+        
+        # Načítanie aktuálnych nastavení
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'settings.json'), 'r') as f:
+            current_settings = json.load(f)
+        
+        # Hlavný nadpis
+        title_label = tk.Label(root, text="Nastavenia Hry", font=("Arial", 16, "bold"))
+        title_label.pack(pady=20)
+        
+        # FOV Slider
+        fov_frame = tk.Frame(root)
+        fov_frame.pack(pady=10, padx=20, fill='x')
+        
+        fov_label = tk.Label(fov_frame, text="FOV (Field of View):", font=("Arial", 12))
+        fov_label.pack(anchor='w')
+        
+        fov_var = tk.DoubleVar(value=current_settings.get("fov", 1.0))
+        fov_value_label = tk.Label(fov_frame, text=f"Hodnota: {fov_var.get():.2f}", font=("Arial", 10))
+        fov_value_label.pack(anchor='w')
+        
+        def update_fov_label(val):
+            fov_value_label.config(text=f"Hodnota: {float(val):.2f}")
+        
+        fov_slider = tk.Scale(fov_frame, from_=0.1, to=5.0, resolution=0.1, orient='horizontal',
+                             variable=fov_var, command=update_fov_label, length=400)
+        fov_slider.pack(fill='x', pady=5)
+        
+        # Volume Slider
+        volume_frame = tk.Frame(root)
+        volume_frame.pack(pady=10, padx=20, fill='x')
+        
+        volume_label = tk.Label(volume_frame, text="Hlasitosť:", font=("Arial", 12))
+        volume_label.pack(anchor='w')
+        
+        volume_var = tk.DoubleVar(value=current_settings.get("volume", 1.0))
+        volume_value_label = tk.Label(volume_frame, text=f"Hodnota: {volume_var.get():.2f}", font=("Arial", 10))
+        volume_value_label.pack(anchor='w')
+        
+        def update_volume_label(val):
+            volume_value_label.config(text=f"Hodnota: {float(val):.2f}")
+        
+        volume_slider = tk.Scale(volume_frame, from_=0.01, to=5.0, resolution=0.01, orient='horizontal',
+                                variable=volume_var, command=update_volume_label, length=400)
+        volume_slider.pack(fill='x', pady=5)
+        
+        # Fullscreen Checkbox
+        fullscreen_frame = tk.Frame(root)
+        fullscreen_frame.pack(pady=10, padx=20, fill='x')
+        
+        fullscreen_var = tk.BooleanVar(value=current_settings.get("fullscreen", False))
+        fullscreen_checkbox = tk.Checkbutton(fullscreen_frame, text="Fullscreen Mode", 
+                                           variable=fullscreen_var, font=("Arial", 12))
+        fullscreen_checkbox.pack(anchor='w')
+          # Server IP Textbox
+        ip_frame = tk.Frame(root)
+        ip_frame.pack(pady=10, padx=20, fill='x')
+        
+        ip_label = tk.Label(ip_frame, text="Server IP Adresa:", font=("Arial", 12))
+        ip_label.pack(anchor='w')
+        
+        ip_var = tk.StringVar(value=current_settings.get("server_ip_address", "localhost"))
+        ip_entry = tk.Entry(ip_frame, textvariable=ip_var, font=("Arial", 11), width=50)
+        ip_entry.pack(fill='x', pady=5)
+        def apply_settings():
+            """Aplikuje nastavenia bez zatvorenia okna"""
+            print("Apply settings clicked!")
+            try:
+                # Aplikovanie zmien do data module
+                data.fov = fov_var.get()
+                print(f"Applied FOV: {fov_var.get()}")
+                av_reload()  # Znovu načítanie s novou FOV hodnotou
+                
+                # Nastavenie novej hlasitosti pre zvuky
+                volume_value = volume_var.get()
+                print(f"Applied Volume: {volume_value}")
+                if hasattr(data, 'calm_engine') and data.calm_engine:
+                    data.calm_engine.set_volume(volume_value)
+                if hasattr(data, 'active_engine') and data.active_engine:
+                    data.active_engine.set_volume(volume_value / 2)
+                if hasattr(data, 'menu_ambient') and data.menu_ambient:
+                    data.menu_ambient.set_volume(volume_value / 3)
+                
+                messagebox.showinfo("Aplikované", "Nastavenia boli aplikované!")
+                
+            except Exception as e:
+                print(f"Error in apply_settings: {e}")
+                messagebox.showerror("Chyba", f"Nepodarilo sa aplikovať nastavenia: {e}")
+        
+        def save_settings():
+            try:
+                # Uloženie nových nastavení
+                new_settings = current_settings.copy()
+                new_settings["fov"] = fov_var.get()
+                new_settings["volume"] = volume_var.get()
+                new_settings["default_fullscreen"] = fullscreen_var.get()
+                new_settings["server_ip_address"] = ip_var.get().strip()
+                
+                # Zápis do súboru
+                settings_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'settings.json')
+                with open(settings_path, 'w') as f:
+                    json.dump(new_settings, f, indent=4)
+                
+                # Aplikovanie zmien
+                data.settings = new_settings
+                data.fov = new_settings["fov"]
+                av_reload()  # Znovu načítanie s novou FOV hodnotou
+                
+                # Nastavenie novej hlasitosti pre zvuky
+                if hasattr(data, 'calm_engine') and data.calm_engine:
+                    data.calm_engine.set_volume(volume_var.get())
+                if hasattr(data, 'active_engine') and data.active_engine:
+                    data.active_engine.set_volume(volume_var.get() / 2)
+                if hasattr(data, 'menu_ambient') and data.menu_ambient:
+                    data.menu_ambient.set_volume(volume_var.get() / 3)
+                
+                messagebox.showinfo("Úspech", "Nastavenia boli úspešne uložené!")
+                global settings_window_open
+                settings_window_open = False
+                root.destroy()
+                
+            except Exception as e:
+                messagebox.showerror("Chyba", f"Nepodarilo sa uložiť nastavenia: {e}")
+        
+        def cancel_settings():
+            global settings_window_open
+            settings_window_open = False
+            root.destroy()
+          # Tlačidlá
+        button_frame = tk.Frame(root)
+        button_frame.pack(pady=20)
+        
+        print("Creating buttons...")
+        
+        apply_btn = tk.Button(button_frame, text="Aplikovať", command=apply_settings,
+                             font=("Arial", 11), bg="#2196F3", fg="white", 
+                             width=12, height=2)
+        apply_btn.pack(side=tk.LEFT, padx=5)
+        print("Apply button created")
+        
+        save_btn = tk.Button(button_frame, text="Uložiť", command=save_settings,
+                            font=("Arial", 11, "bold"), bg="#4CAF50", fg="white", 
+                            width=12, height=2)
+        save_btn.pack(side=tk.LEFT, padx=5)
+        print("Save button created")
+        
+        cancel_btn = tk.Button(button_frame, text="Zrušiť", command=cancel_settings,
+                              font=("Arial", 11), bg="#f44336", fg="white", 
+                              width=12, height=2)
+        cancel_btn.pack(side=tk.LEFT, padx=5)
+        print("Cancel button created")
+        
+        # Spustenie mainloop pre okno nastavení
+        root.mainloop()
+        
+    except Exception as e:
+        print(f"Chyba pri vytváraní okna nastavení: {e}")
+        settings_window_open = False
+

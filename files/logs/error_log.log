@@ -107,3 +107,4 @@
 [08:49:10]Error in save.py: Save file is corrupted or incomplete.
 [18:19:38]Error in account_logic.py: Username already exists
 [18:20:56]Error in Main.py: No file 'fonts\impact.ttf' found in working directory 'C:\Projekts\School_Project'.
+[16:21:56]Error in Main.py: 'Toplevel' object has no attribute 'eval'

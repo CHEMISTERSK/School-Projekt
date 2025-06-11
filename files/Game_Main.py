@@ -68,6 +68,7 @@ try:
         epoch = t.time()
         keys = pygame.key.get_pressed()
         mouse_x, mouse_y = pygame.mouse.get_pos()
+        mouse_clicked = False
 
         # Event Handling
         for event in pygame.event.get():
@@ -75,8 +76,12 @@ try:
                 os.remove(os.path.join(log_dir, "temp.log"))
                 data.running = False
 
+            # Mouse click detection
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:  # Left mouse button
+                    mouse_clicked = True
+
         # Key Binding
-            # Back To Menu
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     data.time_data = ingame_time(True)
@@ -94,13 +99,12 @@ try:
                 # Console
                 elif event.key == pygame.K_F12:
                     threading.Thread(target = console, daemon = True).start()
-        
-        #   Menu Buttons
+          #   Menu Buttons
         if data.playing == False:
-            play_button(mouse_x, mouse_y, full_res_x, full_res_y)
-            continue_button(mouse_x, mouse_y, full_res_x, full_res_y)
-            settings_button(mouse_x, mouse_y, full_res_x, full_res_y)
-            exit_button(mouse_x, mouse_y, full_res_x, full_res_y)
+            play_button(mouse_x, mouse_y, full_res_x, full_res_y, mouse_clicked)
+            continue_button(mouse_x, mouse_y, full_res_x, full_res_y, mouse_clicked)
+            settings_button(mouse_x, mouse_y, full_res_x, full_res_y, mouse_clicked)
+            exit_button(mouse_x, mouse_y, full_res_x, full_res_y, mouse_clicked)
 
         elif data.playing == True:
             gen.generation(screen)
@@ -130,7 +134,7 @@ try:
 
             elif keys[pygame.K_s]:
                 data.tank_x += (data.tank_speed * math.sin(angle_radians)) * data.fov
-                data.tank_y += (data.tank_speed * math.cos(angle_radians)) * data.fov            # Turret mouse tracking - ALTERNATIVE APPROACH
+                data.tank_y += (data.tank_speed * math.cos(angle_radians)) * data.fov
             mouse_x, mouse_y = pygame.mouse.get_pos()
             # Calculate angle from turret center to mouse cursor
             dx = mouse_x - d_x
@@ -153,11 +157,11 @@ try:
             else:
                 if data.calm_engine.get_num_channels() == 0:
                     data.calm_engine.play()
-                data.active_engine.stop()            # Tank Mobility - Hull and Turret system
+                data.active_engine.stop()            
             # Render hull (follows tank movement)
             rotated_hull = pygame.transform.rotate(pygame.transform.scale_by(data.hull, 0.5), data.tank_angle)
             rotated_hull_rect = rotated_hull.get_rect(center = (d_x, d_y))
-            screen.blit(rotated_hull, rotated_hull_rect.topleft)            # Render turret (follows mouse cursor) - SIMPLIFIED VERSION
+            screen.blit(rotated_hull, rotated_hull_rect.topleft)            
             turret_center_x = d_x
             turret_center_y = d_y + 10
             
@@ -170,18 +174,18 @@ try:
             screen.blit(rotated_turret, turret_rect)
             
             # Enemy Logic
-            # Spawnovanie nepriateľov (každých 5 sekúnd)
-            if len(data.enemies) < 5 and current_time % 5000 < 16:  # 16ms tolerance pre 240fps
-                # Spawn enemy okolo hráča (ale nie príliš blízko)
+            # Enemies spawn every 5 seconds if there are less than 5 enemies
+            if len(data.enemies) < 10 and current_time % 5000 < 16:  # 16ms tolerance pre 240fps
+                # Spawn enemy around the player
                 spawn_distance = 1000
                 attempts = 0
-                while attempts < 10:  # Maximálne 10 pokusov o spawn
+                while attempts < 10:  # Max 10 attempts to spawn an enemy
                     angle = r.uniform(0, 2 * math.pi)
                     enemy_x = data.tank_x + math.cos(angle) * spawn_distance
                     enemy_y = data.tank_y + math.sin(angle) * spawn_distance
                     new_enemy = Enemy(enemy_x, enemy_y, speed=1.5)
                     
-                    # Kontrola či sa neprekrýva s existujúcimi nepriateľmi
+                    # check for collision with existing enemies
                     collision = False
                     for existing_enemy in data.enemies:
                         if math.hypot(new_enemy.x - existing_enemy.x, new_enemy.y - existing_enemy.y) < 100:
@@ -193,25 +197,25 @@ try:
                         break
                     attempts += 1
             
-            # Aktualizácia nepriateľov
+            # actualization of enemies
             player_pos = (data.tank_x, data.tank_y)
             total_hits = 0
             
             for enemy in data.enemies:
-                # Aktualizácia nepriateľa
+                # actualization of enemies
                 enemy.update(player_pos)
                 
-                # Kontrola kolízie s ostatnými nepriateľmi
+                # check for collision with other enemies
                 enemy.check_collision_with_others(data.enemies)
                 
-                # Kontrola kolízie striel s hráčom
+                # check for collision of shot with player
                 hits = enemy.check_projectile_collision_with_player(data.tank_x, data.tank_y)
                 total_hits += hits
                 
-                # Vykreslenie nepriateľa
+                # draw enemy
                 enemy.draw(screen, data.tank_x, data.tank_y)
             
-            # Poškodenie hráča
+            # damage to player
             if total_hits > 0:
                 damage = total_hits * 13  # 13 HP za každý zásah
                 data.tank_hp -= damage
