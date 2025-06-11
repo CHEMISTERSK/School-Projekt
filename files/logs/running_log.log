@@ -1,5 +1,5 @@
  
-[10:00:37]
+[10:58:18]
 Resolution:
 	<VideoInfo(hw = 0, wm = 1,video_mem = 0
          blit_hw = 0, blit_hw_CC = 0, blit_hw_A = 0,
@@ -14,7 +14,7 @@ Resolution:
 Resolution X:	1920.0 px
 Resolution Y:	1080 px
 PyClock:	<Clock(fps=0.00)>
-CurrentTime:	6831
-Epoch:		1749628837.249181
+CurrentTime:	12062
+Epoch:		1749632298.8344812
 PyGame Version:	2.6.1
-Database connection status: True, Connection object: <connection object at 0x000002DFFB186BD0; dsn: 'user=postgres password=xxx dbname=school_project host=localhost port=5432', closed: 0>
+Database connection status: True, Connection object: <connection object at 0x0000025258292CE0; dsn: 'user=postgres password=xxx dbname=school_project host=localhost port=5432', closed: 0>

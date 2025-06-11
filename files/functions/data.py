@@ -129,9 +129,9 @@ try:
     
     texture_loading_path, sound_loading_path = load_audiovisual()    # Textures
     test_tank = pygame.transform.scale_by(pygame.image.load(texture_loading_path[0]), fov)
-    main_tank = pygame.transform.scale_by(pygame.image.load(texture_loading_path[0]), fov)  # Hráčský tank (môže byť iný model)
-    hull = pygame.transform.scale_by(pygame.image.load(texture_loading_path[7]), fov)  # Podvozok hráča
-    turret = pygame.transform.scale_by(pygame.image.load(texture_loading_path[8]), fov)  # Veža hráča
+    main_tank = pygame.transform.scale_by(pygame.image.load(texture_loading_path[0]), fov)
+    hull = pygame.transform.scale_by(pygame.image.load(texture_loading_path[7]), fov)
+    turret = pygame.transform.scale_by(pygame.image.load(texture_loading_path[8]), fov)
     surface =   pygame.transform.scale_by(pygame.image.load(texture_loading_path[1]), (fov / 2))
 
     orange_shell =  pygame.transform.scale_by(pygame.image.load(texture_loading_path[2]), (fov / 25))
@@ -152,7 +152,6 @@ try:
     # Volume setting
     calm_engine.set_volume(settings["volume"])    
     active_engine.set_volume(settings["volume"] / 2)
-
 
 except Exception as e:
     source = "Data.py"
