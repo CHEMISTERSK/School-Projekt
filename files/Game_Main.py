@@ -16,6 +16,7 @@ from functions.db.logic.saveing_logic import *
 # Importing Mechanics
 from mechanics import generation as gen
 from mechanics.menu import *
+from mechanics.enemy import Enemy
 
 
 # Game Initialization
@@ -67,7 +68,6 @@ try:
         epoch = t.time()
         keys = pygame.key.get_pressed()
         mouse_x, mouse_y = pygame.mouse.get_pos()
-        
 
         # Event Handling
         for event in pygame.event.get():
@@ -130,7 +130,19 @@ try:
 
             elif keys[pygame.K_s]:
                 data.tank_x += (data.tank_speed * math.sin(angle_radians)) * data.fov
-                data.tank_y += (data.tank_speed * math.cos(angle_radians)) * data.fov
+                data.tank_y += (data.tank_speed * math.cos(angle_radians)) * data.fov            # Turret mouse tracking - ALTERNATIVE APPROACH
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            # Calculate angle from turret center to mouse cursor
+            dx = mouse_x - d_x
+            dy = mouse_y - (d_y + 10)
+            # Try different angle calculation
+            data.turret_angle = -math.degrees(math.atan2(dy, dx)) + 90
+            
+            # Normalize angle to 0-360 degrees
+            while data.turret_angle < 0:
+                data.turret_angle += 360
+            while data.turret_angle >= 360:
+                data.turret_angle -= 360
 
             # Engine Sounds
             if (keys[pygame.K_s] or keys[pygame.K_w]) or (keys[pygame.K_a] or keys[pygame.K_d]):
@@ -141,12 +153,70 @@ try:
             else:
                 if data.calm_engine.get_num_channels() == 0:
                     data.calm_engine.play()
-                data.active_engine.stop()
-
-            # Tank Mobility
-            rotated_tank = pygame.transform.rotate(pygame.transform.scale_by(data.test_tank, 0.5), data.tank_angle)
-            rotated_tank_rect = rotated_tank.get_rect(center = (d_x, d_y))
-            screen.blit(rotated_tank, rotated_tank_rect.topleft)
+                data.active_engine.stop()            # Tank Mobility - Hull and Turret system
+            # Render hull (follows tank movement)
+            rotated_hull = pygame.transform.rotate(pygame.transform.scale_by(data.hull, 0.5), data.tank_angle)
+            rotated_hull_rect = rotated_hull.get_rect(center = (d_x, d_y))
+            screen.blit(rotated_hull, rotated_hull_rect.topleft)            # Render turret (follows mouse cursor) - SIMPLIFIED VERSION
+            turret_center_x = d_x
+            turret_center_y = d_y + 10
+            
+            # Scale and rotate turret
+            scaled_turret = pygame.transform.scale_by(data.turret, 0.5)
+            rotated_turret = pygame.transform.rotate(scaled_turret, data.turret_angle)
+            
+            # Center the rotated turret on the desired position
+            turret_rect = rotated_turret.get_rect(center=(turret_center_x, turret_center_y))
+            screen.blit(rotated_turret, turret_rect)
+            
+            # Enemy Logic
+            # Spawnovanie nepriateľov (každých 5 sekúnd)
+            if len(data.enemies) < 5 and current_time % 5000 < 16:  # 16ms tolerance pre 240fps
+                # Spawn enemy okolo hráča (ale nie príliš blízko)
+                spawn_distance = 1000
+                attempts = 0
+                while attempts < 10:  # Maximálne 10 pokusov o spawn
+                    angle = r.uniform(0, 2 * math.pi)
+                    enemy_x = data.tank_x + math.cos(angle) * spawn_distance
+                    enemy_y = data.tank_y + math.sin(angle) * spawn_distance
+                    new_enemy = Enemy(enemy_x, enemy_y, speed=1.5)
+                    
+                    # Kontrola či sa neprekrýva s existujúcimi nepriateľmi
+                    collision = False
+                    for existing_enemy in data.enemies:
+                        if math.hypot(new_enemy.x - existing_enemy.x, new_enemy.y - existing_enemy.y) < 100:
+                            collision = True
+                            break
+                    
+                    if not collision:
+                        data.enemies.append(new_enemy)
+                        break
+                    attempts += 1
+            
+            # Aktualizácia nepriateľov
+            player_pos = (data.tank_x, data.tank_y)
+            total_hits = 0
+            
+            for enemy in data.enemies:
+                # Aktualizácia nepriateľa
+                enemy.update(player_pos)
+                
+                # Kontrola kolízie s ostatnými nepriateľmi
+                enemy.check_collision_with_others(data.enemies)
+                
+                # Kontrola kolízie striel s hráčom
+                hits = enemy.check_projectile_collision_with_player(data.tank_x, data.tank_y)
+                total_hits += hits
+                
+                # Vykreslenie nepriateľa
+                enemy.draw(screen, data.tank_x, data.tank_y)
+            
+            # Poškodenie hráča
+            if total_hits > 0:
+                damage = total_hits * 13  # 13 HP za každý zásah
+                data.tank_hp -= damage
+                if data.tank_hp < 0:
+                    data.tank_hp = 0
             
         # Top Info Bar
             if int(epoch) - last_log == 240:
@@ -175,7 +245,9 @@ try:
             data.active_engine.stop()
 
         # development tool
-        #screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 650))        # FPS Counter
+        #screen.blit(pygame.transform.scale_by(pygame.image.load("files\\textures\\red_dot.png"), 0.25), (900, 650))        
+
+        # # FPS Counter
         if int(epoch) - last_fps_log >= 1:
             last_fps_log = int(epoch)
             data.fps = clock.get_fps()

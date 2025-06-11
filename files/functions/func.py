@@ -65,6 +65,9 @@ def av_reload():
     data.texture_loading_path, data.sound_loading_path = data.load_audiovisual()
 
     data.test_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))
+    data.main_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Hráčský tank
+    data.hull           =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Podvozok hráča
+    data.turret         =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Veža hráča
     data.surface        =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[1]), (data.fov / 2))
     data.orange_shell   =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), (data.fov / 25))
     data.red_shell      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[3]), (data.fov / 25))
@@ -85,6 +88,7 @@ def data_reload():
     data.tank_x =              float(data.default_data["tank_x"])
     data.tank_y =              float(data.default_data["tank_y"])
     data.tank_angle =          float(data.default_data["tank_angle"])
+    data.turret_angle =        0.0  # Reset uhla veže
     data.tank_speed =          float(data.default_data["tank_speed"])
     data.tank_rotation_speed = float(data.default_data["tank_rotation_speed"])
     data.tank_hp =             float(data.default_data["tank_hp"])
@@ -93,9 +97,7 @@ def data_reload():
     # Shells Data   (gs - green shell;  os - orange shell;  rs - red shell)
     data.gs_dmg = float(data.default_data["gs_dmg"])    # damage
     data.gs_pen = float(data.default_data["gs_pen"])    # penetration
-    data.gs_spd = float(data.default_data["gs_spd"])    # speed
-
-    data.os_dmg = float(data.default_data["os_dmg"])
+    data.gs_spd = float(data.default_data["gs_spd"])    # speed    data.os_dmg = float(data.default_data["os_dmg"])
     data.os_pen = float(data.default_data["os_pen"])
     data.os_spd = float(data.default_data["os_spd"])
 
@@ -105,6 +107,9 @@ def data_reload():
 
     data.wave =  int(data.default_data["wave"])
     data.score = int(data.default_data["score"])
+    
+    # Reset enemies
+    data.enemies = []
 
 def get_registration_data():
     """Zobrazí registračné okno pre zadanie mena a hesla"""

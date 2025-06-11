@@ -6,7 +6,9 @@
     "red_shell.png",
     "green_shell.png",
     "shells.png",
-    "menu_buttons.png"
+    "menu_buttons.png",
+    "hull.png",
+    "turret.png"
   ],
   
   "sounds": [

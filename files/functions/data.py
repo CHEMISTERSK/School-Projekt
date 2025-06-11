@@ -30,14 +30,13 @@ try:
     
     def set_fov_default(default_data):
         fov = float(default_data["fov"])
-        return fov
-
-    # Numerical and Logical values loading
+        return fov    # Numerical and Logical values loading
     default_data = set_default_values()
 
     tank_x =              float(default_data["tank_x"])
     tank_y =              float(default_data["tank_y"])
     tank_angle =          float(default_data["tank_angle"])
+    turret_angle =        0.0  # Uhol veže (bude sa nastavovať podľa myši)
     tank_speed =          float(default_data["tank_speed"])
     tank_rotation_speed = float(default_data["tank_rotation_speed"])
     tank_hp =             float(default_data["tank_hp"])
@@ -70,6 +69,9 @@ try:
 
     # Time Data
     time_data = []
+
+    # Enemies Data
+    enemies = []
 
     # Settings loading
     def settings_loading():
@@ -125,11 +127,11 @@ try:
                 sound_loading_path.append(os.path.join(sound_path, filename))
         return texture_loading_path, sound_loading_path
     
-    texture_loading_path, sound_loading_path = load_audiovisual()
-
-
-    # Textures
+    texture_loading_path, sound_loading_path = load_audiovisual()    # Textures
     test_tank = pygame.transform.scale_by(pygame.image.load(texture_loading_path[0]), fov)
+    main_tank = pygame.transform.scale_by(pygame.image.load(texture_loading_path[0]), fov)  # Hráčský tank (môže byť iný model)
+    hull = pygame.transform.scale_by(pygame.image.load(texture_loading_path[7]), fov)  # Podvozok hráča
+    turret = pygame.transform.scale_by(pygame.image.load(texture_loading_path[8]), fov)  # Veža hráča
     surface =   pygame.transform.scale_by(pygame.image.load(texture_loading_path[1]), (fov / 2))
 
     orange_shell =  pygame.transform.scale_by(pygame.image.load(texture_loading_path[2]), (fov / 25))
