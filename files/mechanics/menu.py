@@ -1,4 +1,4 @@
-import pygame, os, threading
+import os, threading
 from pygame.locals import *
 from functions import data
 from functions.func import *
