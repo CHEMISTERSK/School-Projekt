@@ -21,9 +21,7 @@ try:
         # Grid layout configuration (2 rows: output + input line)
         root.grid_rowconfigure(0, weight=1)
         root.grid_rowconfigure(1, weight=0)
-        root.grid_columnconfigure(0, weight=1)
-
-        # Output console
+        root.grid_columnconfigure(0, weight=1)        # Output console
         console_output = scrolledtext.ScrolledText(
             root, wrap=tkinter.WORD, state='disabled', bg='black', fg='white'
         )
@@ -66,8 +64,10 @@ try:
         
         def av_reload():
             data.texture_loading_path, data.sound_loading_path = data.load_audiovisual()
-
             data.test_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))
+            data.main_tank      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Hráčský tank
+            data.hull           =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Podvozok hráča
+            data.turret         =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[0]), (data.fov / 1))  # Veža hráča
             data.surface        =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[1]), (data.fov / 2))
             data.orange_shell   =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[2]), (data.fov / 25))
             data.red_shell      =       pygame.transform.scale_by(pygame.image.load(data.texture_loading_path[3]), (data.fov / 25))
@@ -79,15 +79,16 @@ try:
             data.active_engine = pygame.mixer.Sound(data.sound_loading_path[2])
             data.calm_engine =   pygame.mixer.Sound(data.sound_loading_path[3])
 
-            data.calm_engine.set_volume(data.settings["volume"])    
-            data.active_engine.set_volume(data.settings["volume"] / 2)  
+            data.calm_engine.set_volume(data.settings["volume"])
+            data.active_engine.set_volume(data.settings["volume"] / 2)
 
         def data_reload():
             data.default_data = data.set_default_values()
-
+            
             data.tank_x =              float(data.default_data["tank_x"])
             data.tank_y =              float(data.default_data["tank_y"])
             data.tank_angle =          float(data.default_data["tank_angle"])
+            data.turret_angle =        0.0  # Reset turret angle
             data.tank_speed =          float(data.default_data["tank_speed"])
             data.tank_rotation_speed = float(data.default_data["tank_rotation_speed"])
             data.tank_hp =             float(data.default_data["tank_hp"])
@@ -95,7 +96,7 @@ try:
 
             data.gs_dmg = float(data.default_data["gs_dmg"])    
             data.gs_pen = float(data.default_data["gs_pen"])    
-            data.gs_spd = float(data.default_data["gs_spd"])    
+            data.gs_spd = float(data.default_data["gs_spd"])
 
             data.os_dmg = float(data.default_data["os_dmg"])
             data.os_pen = float(data.default_data["os_pen"])
@@ -107,6 +108,9 @@ try:
 
             data.wave =  int(data.default_data["wave"])
             data.score = int(data.default_data["score"])
+            
+            # Reset enemies
+            data.enemies = []
 
         def command_line_execution(command_line):
             command = command_line.split()

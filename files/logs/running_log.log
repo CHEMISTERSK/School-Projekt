@@ -8,13 +8,13 @@ Resolution:
          masks =  (0x00ff0000, 0x0000ff00, 0x000000ff, 0x00000000),
          shifts = (16, 8, 0, 0),
          losses =  (0, 0, 0, 8),
-         current_w = 1707, current_h = 1067
+         current_w = 1536, current_h = 864
          pixel_format = SDL_PIXELFORMAT_RGB888)
 >
-Resolution X:	2133.75 px
-Resolution Y:	1333 px
+Resolution X:	1920.0 px
+Resolution Y:	1080 px
 PyClock:	<Clock(fps=0.00)>
 CurrentTime:	9223
 Epoch:		1749625187.8562443
 PyGame Version:	2.6.1
-Database connection status: False, Connection object: False
+Database connection status: True, Connection object: <connection object at 0x000002DFFB186BD0; dsn: 'user=postgres password=xxx dbname=school_project host=localhost port=5432', closed: 0>
