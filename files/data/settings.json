@@ -4,6 +4,6 @@
     "fov": 0.75,
     "volume": 0.5,
     "default_fullscreen": false,
-    "server_ip_address": "localhost",
+    "server_ip_address": "10.2.11.100",
     "server_port": 5432
 }
