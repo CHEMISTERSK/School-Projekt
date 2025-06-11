@@ -17,12 +17,16 @@ from functions.db.logic.saveing_logic import *
 from mechanics import generation as gen
 from mechanics.menu import *
 from mechanics.enemy import Enemy
+from mechanics.player_shooting import *
 
 
 # Game Initialization
 pygame.init()
 pygame.mixer.init()
 pygame.display.set_caption("SP")
+
+# Initialize player shooting after pygame init
+player_shooting = PlayerShooting()
 
 resolution = pygame.display.Info()
 full_res_x = resolution.current_w
@@ -163,7 +167,7 @@ try:
             rotated_hull_rect = rotated_hull.get_rect(center = (d_x, d_y))
             screen.blit(rotated_hull, rotated_hull_rect.topleft)            
             turret_center_x = d_x
-            turret_center_y = d_y + 10
+            turret_center_y = d_y
             
             # Scale and rotate turret
             scaled_turret = pygame.transform.scale_by(data.turret, 0.5)
@@ -175,7 +179,7 @@ try:
             
             # Enemy Logic
             # Enemies spawn every 5 seconds if there are less than 5 enemies
-            if len(data.enemies) < 10 and current_time % 5000 < 16:  # 16ms tolerance pre 240fps
+            if len(data.enemies) < 5 and current_time % 5000 < 16:  # 16ms tolerance for 240fps
                 # Spawn enemy around the player
                 spawn_distance = 1000
                 attempts = 0
@@ -183,12 +187,11 @@ try:
                     angle = r.uniform(0, 2 * math.pi)
                     enemy_x = data.tank_x + math.cos(angle) * spawn_distance
                     enemy_y = data.tank_y + math.sin(angle) * spawn_distance
-                    new_enemy = Enemy(enemy_x, enemy_y, speed=1.5)
-                    
+                    new_enemy = Enemy(enemy_x, enemy_y, speed = 2)
                     # check for collision with existing enemies
                     collision = False
                     for existing_enemy in data.enemies:
-                        if math.hypot(new_enemy.x - existing_enemy.x, new_enemy.y - existing_enemy.y) < 100:
+                        if math.hypot(new_enemy.x - existing_enemy.x, new_enemy.y - existing_enemy.y) < (100 * data.fov):
                             collision = True
                             break
                     
@@ -196,10 +199,15 @@ try:
                         data.enemies.append(new_enemy)
                         break
                     attempts += 1
-            
+                    
             # actualization of enemies
             player_pos = (data.tank_x, data.tank_y)
             total_hits = 0
+            
+            # Player shooting mechanics            
+            player_shooting.shoot(data.tank_x, data.tank_y, mouse_x, mouse_y, mouse_clicked)
+            player_shooting.update_projectiles()
+            killed_enemies = player_shooting.check_enemy_collisions(data.enemies)
             
             for enemy in data.enemies:
                 # actualization of enemies
@@ -213,11 +221,12 @@ try:
                 total_hits += hits
                 
                 # draw enemy
-                enemy.draw(screen, data.tank_x, data.tank_y)
+                enemy.draw(screen, data.tank_x, data.tank_y)            # Draw player projectiles
+            player_shooting.draw_projectiles(screen, data.tank_x, data.tank_y)
             
             # damage to player
             if total_hits > 0:
-                damage = total_hits * 13  # 13 HP za každý zásah
+                damage = total_hits * 13
                 data.tank_hp -= damage
                 if data.tank_hp < 0:
                     data.tank_hp = 0
@@ -237,7 +246,13 @@ try:
 
             screen.blit(font.render(f"Score: {data.score}", True, (226, 226, 10)), (full_res_x * 0.9309, full_res_y * 0.0087))
             screen.blit(font.render(f"Wave:  {data.wave}" , True, (226, 226, 10)), (full_res_x * 0.8789, full_res_y * 0.0087))
-            screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (full_res_x * 0.6510, full_res_y * 0.0087))
+            screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (full_res_x * 0.6510, full_res_y * 0.0087))            # Weapon cooldown indicator
+            cooldown_progress = player_shooting.get_cooldown_progress()
+            if cooldown_progress < 1.0:
+                cooldown_text = f"Reloading... {int((1.0 - cooldown_progress) * 100)}%"
+                screen.blit(font.render(cooldown_text, True, (255, 100, 100)), (full_res_x * 0.5500, full_res_y * 0.0087))
+            else:
+                screen.blit(font.render("Ready to fire!", True, (100, 255, 100)), (full_res_x * 0.5500, full_res_y * 0.0087))
         
         screen.blit(font.render(f"{ingame_time(False)}", True, (255, 255, 255)), (full_res_x * 0.4883, full_res_y * 0.0087))
 

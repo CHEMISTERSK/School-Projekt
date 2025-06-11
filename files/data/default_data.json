@@ -18,15 +18,15 @@
 
 "gs_dmg": 125,  
 "gs_pen": 0.8,
-"gs_spd": 80,
+"gs_spd": 40,
 
 "os_dmg": 100,
 "os_pen": 0.95,
-"os_spd": 65,
+"os_spd": 35,
 
 "rs_dmg": 225,
 "rs_pen": 0.35,
-"rs_spd": 45,
+"rs_spd": 25,
 
 "wave":  1,
 "score": 0,

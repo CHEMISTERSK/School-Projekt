@@ -144,7 +144,7 @@ try:
 
     #Sounds
     shot_sound =    pygame.mixer.Sound(sound_loading_path[0])
-    realod_sound =  pygame.mixer.Sound(sound_loading_path[1])
+    reload_sound =  pygame.mixer.Sound(sound_loading_path[1])
     active_engine = pygame.mixer.Sound(sound_loading_path[2])
     calm_engine =   pygame.mixer.Sound(sound_loading_path[3])
     menu_ambient =  pygame.mixer.Sound(sound_loading_path[4])
@@ -152,6 +152,7 @@ try:
     # Volume setting
     calm_engine.set_volume(settings["volume"])    
     active_engine.set_volume(settings["volume"] / 2)
+    shot_sound.set_volume(settings["volume"])
 
 except Exception as e:
     source = "Data.py"

@@ -1,10 +1,8 @@
-import math
-import pygame
-import time
+import math, time, pygame
 from functions import data
 
 class Projectile:
-    def __init__(self, x, y, angle, speed=10):
+    def __init__(self, x, y, angle, speed = data.gs_spd):
         self.x = x
         self.y = y
         self.angle = angle  # uhol v radiánoch
@@ -37,11 +35,11 @@ class Projectile:
         return pygame.Rect(self.x - shell_size//2, self.y - shell_size//2, shell_size, shell_size)
 
 class Enemy:
-    def __init__(self, x, y, speed=2):
+    def __init__(self, x, y, speed = 2):
         self.x = x
         self.y = y
         self.speed = speed
-        self.target_distance = 500
+        self.target_distance = 750 * data.fov
         self.shooting = False
         self.cooldown = 0
         self.angle = 0  # uhol otočenia tanku
@@ -106,7 +104,6 @@ class Enemy:
     def get_rect(self):
         # Získanie obdĺžnika pre detekciu kolízií
         return pygame.Rect(self.x - self.size//2, self.y - self.size//2, self.size, self.size)
-    
     def check_collision_with_others(self, others):
         # Kontrola kolízie s ostatnými nepriateľmi
         my_rect = self.get_rect()
@@ -119,11 +116,12 @@ class Enemy:
                     dy = self.y - other.y
                     distance = math.hypot(dx, dy)
                     if distance > 0:
-                        # Normalizuj vektor a posun sa o malú vzdialenosť
+                        # Normalizuj vektor a posun sa o vzdialenosť upravenú podľa data.fov
                         dx /= distance
                         dy /= distance
-                        self.x += dx * 10
-                        self.y += dy * 10
+                        separation_distance = 10 * data.fov
+                        self.x += dx * separation_distance
+                        self.y += dy * separation_distance
 
     def check_projectile_collision_with_player(self, player_x, player_y, player_size=40):
         # Kontrola kolízie striel s hráčom
