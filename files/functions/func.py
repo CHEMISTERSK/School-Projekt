@@ -1,7 +1,7 @@
 from functions import data
 from functions.db.logic.account_logic import login, sign_up
 import pygame, os, tkinter as tk, json
-from tkinter import simpledialog, messagebox, ttk
+from tkinter import messagebox, ttk
 
 game_ms = 0  
 last_tick = None
@@ -118,21 +118,17 @@ def get_registration_data():
     root.geometry("420x320")
     root.resizable(False, False)
     
-    # Centrovanie okna
     root.eval('tk::PlaceWindow . center')
-    
-    # Premenné pre vstupné polia
+
     player_name = tk.StringVar()
     password = tk.StringVar()
     confirm_password = tk.StringVar()
     result = {"success": False, "name": "", "password": "", "back_to_login": False}
-    
-    # Štýlovanie
+
     style = ttk.Style()
     style.configure("TLabel", font=("Arial", 10))
     style.configure("TButton", font=("Arial", 9))
     
-    # Vytvorenie vstupných polí
     tk.Label(root, text="Vytvorenie nového účtu", font=("Arial", 12, "bold")).pack(pady=10)
     
     tk.Label(root, text="Meno používateľa:", font=("Arial", 10)).pack(pady=5)
@@ -164,7 +160,6 @@ def get_registration_data():
             messagebox.showerror("Chyba", "Heslo musí mať aspoň 3 znaky!")
             return
         
-        # Pokus o registráciu v databáze
         if sign_up(data.wave, data.score, name, pwd):
             result["success"] = True
             result["name"] = name
@@ -180,11 +175,10 @@ def get_registration_data():
         
     def cancel():
         root.destroy()
-      # Tlačidlá s lepším rozložením
+
     button_frame = tk.Frame(root)
     button_frame.pack(pady=20)
     
-    # Každé tlačidlo v vlastnom riadku pre lepšiu viditeľnosť
     create_btn = tk.Button(button_frame, text="Vytvoriť účet", command=register, 
                           font=("Arial", 11, "bold"), bg="#4CAF50", fg="white", 
                           width=15, height=2)
@@ -200,10 +194,8 @@ def get_registration_data():
                           width=15, height=1)
     cancel_btn.pack(pady=3)
     
-    # Focus na prvé pole
     name_entry.focus()
     
-    # Bind Enter key to register
     def on_enter(event):
         register()
     
@@ -220,15 +212,12 @@ def get_user_credentials():
         root.geometry("300x180")
         root.resizable(False, False)
         
-        # Centrovanie okna
         root.eval('tk::PlaceWindow . center')
         
-        # Premenné
         player_name = tk.StringVar()
         password = tk.StringVar()
         action_result = {"action": None, "name": "", "password": ""}
-        
-        # Vstupné polia
+
         tk.Label(root, text="Meno používateľa:", font=("Arial", 10)).pack(pady=5)
         name_entry = tk.Entry(root, textvariable=player_name, font=("Arial", 10), width=25)
         name_entry.pack(pady=5)
@@ -258,7 +247,6 @@ def get_user_credentials():
             action_result["action"] = "cancel"
             root.destroy()
         
-        # Tlačidlá
         button_frame = tk.Frame(root)
         button_frame.pack(pady=15)
         
@@ -268,7 +256,6 @@ def get_user_credentials():
                   font=("Arial", 10), bg="#FF9800", fg="white", width=10).pack(side=tk.LEFT, padx=3)
         tk.Button(button_frame, text="Zrušiť", command=cancel_action,
                   font=("Arial", 10), bg="#f44336", fg="white", width=10).pack(side=tk.LEFT, padx=3)
-          # Focus na prvé pole
         name_entry.focus()
         
         root.mainloop()
@@ -276,16 +263,12 @@ def get_user_credentials():
         if action_result["action"] == "cancel":
             return None, None
         elif action_result["action"] == "signup":
-            # Otvorenie registračného okna
             reg_result = get_registration_data()
             if reg_result["success"]:
                 return reg_result["name"], reg_result["password"]
             elif reg_result["back_to_login"]:
-                # Používateľ sa chce vrátiť na login, pokračuj v slučke
                 continue
-            # Ak registrácia zlyhala alebo bola zrušená, pokračuj v slučke
         elif action_result["action"] == "login":
-            # Overenie prihlásenia
             login_success = login(action_result["name"], action_result["password"])
             if login_success:
                 return action_result["name"], action_result["password"]
