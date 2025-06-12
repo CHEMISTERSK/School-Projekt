@@ -479,3 +479,32 @@ def open_settings_window():
         print(f"Chyba pri vytváraní okna nastavení: {e}")
         settings_window_open = False
 
+def update_high_score(current_score):
+    """Aktualizuje high-score v settings.json iba ak je current_score vyšší"""
+    try:
+        # Načítanie aktuálnych nastavení
+        settings_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'settings.json')
+        with open(settings_path, 'r', encoding='utf-8') as f:
+            settings = json.load(f)
+        
+        # Získanie aktuálneho high-score (ak neexistuje, nastaví sa na 0)
+        current_high_score = settings.get("heigh-score", 0)
+        
+        # Aktualizácia iba ak je nové skóre vyšie
+        if current_score > current_high_score:
+            settings["heigh-score"] = current_score
+            
+            # Uloženie späť do súboru
+            with open(settings_path, 'w', encoding='utf-8') as f:
+                json.dump(settings, f, indent=4, ensure_ascii=False)
+                
+            print(f"Nový high-score: {current_score} (predchádzajúci: {current_high_score})")
+            return True
+        else:
+            print(f"Skóre {current_score} nie je vyšie ako high-score {current_high_score}")
+            return False
+            
+    except Exception as e:
+        print(f"Chyba pri aktualizácii high-score: {e}")
+        return False
+

@@ -117,8 +117,8 @@ try:
                 append_to_temp_log("Available commands:\n\tset\n\tshow\n\tshutdown\n\treset_enemies\n\treload_av\n\treload_data")
             elif command[0] == "set":
                 if command[1] == "?":
-                    append_to_console("variables:\n\ttank_x [value]/default\n\ttank_y [value]/default\n\ttank_angle [value]/default\n\ttank_speed [value]/default\n\ttank_rotation_speed [value]/default\n\ttank_location default\n\tdefault all")
-                    append_to_temp_log("variables:\n\ttank_x [value]/default\n\ttank_y [value]/default\n\ttank_angle [value]/default\n\ttank_speed [value]/default\n\ttank_rotation_speed [value]/default\n\ttank_location default\n\tdefault all")
+                    append_to_console("variables:\n\ttank_x [value]/default\n\ttank_y [value]/default\n\ttank_angle [value]/default\n\ttank_speed [value]/default\n\ttank_rotation_speed [value]/default\n\ttank_location default\n\tfov [value]\n\tport [value]\n\tdefault all")
+                    append_to_temp_log("variables:\n\ttank_x [value]/default\n\ttank_y [value]/default\n\ttank_angle [value]/default\n\ttank_speed [value]/default\n\ttank_rotation_speed [value]/default\n\ttank_location default\n\tfov [value]\n\tport [value]\n\tdefault all")
                 elif command[2] == "default":
                     if command[1] == "tank_location":
                         data.tank_x, data.tank_y = data.set_tank_location_default(data.default_data)
@@ -139,7 +139,7 @@ try:
                 elif command[1] == "tank_y":
                     data.tank_y = float(eval(command[2]))
                 elif command[1] == "tank_angle":
-                    data.tank_angle = float(eval(command[2]))
+                    data.tank_angle = float(eval(command[2]))                
                 elif command[1] == "tank_speed":
                     data.tank_speed = float(eval(command[2]))                
                 elif command[1] == "tank_rotation_speed":
@@ -151,6 +151,34 @@ try:
                     else:
                         append_to_console("Error: Invalid argument or out of range.")
                         append_to_temp_log("Error: Invalid argument or out of range.")
+                elif command[1] == "port":
+                    try:
+                        new_port = int(command[2])
+                        if 1024 <= new_port <= 65535:
+                            # Načítanie aktuálnych nastavení
+                            settings_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'settings.json')
+                            with open(settings_path, 'r', encoding='utf-8') as f:
+                                settings = json.load(f)
+                            
+                            # Aktualizácia portu
+                            old_port = settings.get("server_port", "unknown")
+                            settings["server_port"] = new_port
+                            
+                            # Uloženie späť do súboru
+                            with open(settings_path, 'w', encoding='utf-8') as f:
+                                json.dump(settings, f, indent=4, ensure_ascii=False)
+                            
+                            # Aktualizácia v data module
+                            data.settings["server_port"] = new_port
+                            
+                            append_to_console(f"Port changed from {old_port} to {new_port}")
+                            append_to_temp_log(f"Port changed from {old_port} to {new_port}")
+                        else:
+                            append_to_console("Error: Port must be between 1024 and 65535.")
+                            append_to_temp_log("Error: Port must be between 1024 and 65535.")
+                    except ValueError:
+                        append_to_console("Error: Port must be a valid number.")
+                        append_to_temp_log("Error: Port must be a valid number.")
                 elif command[1] == "default" and command[2] == "all":
                     default_data = data.set_default_values()
                     data.tank_x =               float(default_data["tank_x"])

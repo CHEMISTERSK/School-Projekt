@@ -52,9 +52,7 @@ try:
     # Shells Data   (gs - green shell;  os - orange shell;  rs - red shell)
     gs_dmg = float(default_data["gs_dmg"])    # damage
     gs_pen = float(default_data["gs_pen"])    # penetration
-    gs_spd = float(default_data["gs_spd"])    # speed
-
-    os_dmg = float(default_data["os_dmg"])
+    gs_spd = float(default_data["gs_spd"])    # speed    os_dmg = float(default_data["os_dmg"])
     os_pen = float(default_data["os_pen"])
     os_spd = float(default_data["os_spd"])
 
@@ -66,6 +64,7 @@ try:
     score = int(default_data["score"])
 
     playing = default_data["playing"]
+    game_over = False  # Game over state
 
     # Time Data
     time_data = []
@@ -93,13 +92,15 @@ try:
                         "volume": 0.5,
                         "default_fullscreen": False,
                         "server_ip_address": "localhost",
-                        "server_port": 5432,
-                    }
+                        "server_port": 5432,                    }
                     json.dump(default_settings, settings_file, indent=4)
                     settings_file.close()
     
     settings = settings_loading()
 
+    # Apply settings values to override defaults where applicable
+    if "fov" in settings:
+        fov = float(settings["fov"])
 
     # Loading Textures and Sounds
     def load_audiovisual():
@@ -140,7 +141,7 @@ try:
 
     shells = pygame.transform.scale_by(pygame.image.load(texture_loading_path[5]), (fov / 5))
 
-    game_menu = pygame.transform.scale_by(pygame.image.load(texture_loading_path[6]), (fov / 1.125))
+    game_menu = pygame.transform.scale_by(pygame.image.load(texture_loading_path[6]), 0.65)
 
     #Sounds
     shot_sound =    pygame.mixer.Sound(sound_loading_path[0])

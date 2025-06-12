@@ -23,7 +23,7 @@ from mechanics.player_shooting import *
 # Game Initialization
 pygame.init()
 pygame.mixer.init()
-pygame.display.set_caption("SP")
+pygame.display.set_caption("School Project")
 
 # Initialize player shooting after pygame init
 player_shooting = PlayerShooting()
@@ -56,7 +56,7 @@ d_y = full_res_y * 0.5
 # Functions Calling
 res_xy = screen_resolution(full_res_x, full_res_y, data.fullscreen)
 main_log_clear()
-connection = get_connection()
+connection = get_connection(data.settings)
 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, pygame.time.get_ticks(), epoch, data.db, connection)
 fullscreen_toggle(full_res_x, full_res_y)
 settings_json(data.settings)
@@ -98,11 +98,27 @@ try:
 
                 # Switching Between Fullscreen And Windowed Mode
                 elif event.key == pygame.K_F11:
-                    fullscreen_toggle(full_res_x, full_res_y)
-
-                # Console
+                    fullscreen_toggle(full_res_x, full_res_y)                # Console
                 elif event.key == pygame.K_F12:
                     threading.Thread(target = console, daemon = True).start()
+                
+                # Restart game from game over screen
+                elif event.key == pygame.K_r and data.game_over:
+                    # Reset game state
+                    data.game_over = False
+                    data.playing = True
+                    data.tank_hp = data.max_tank_hp
+                    data.tank_x = 0
+                    data.tank_y = 0
+                    data.tank_angle = 0
+                    data.score = 0
+                    data.wave = 1
+                    data.enemies = []
+                
+                # Return to menu from game over screen
+                elif event.key == pygame.K_m and data.game_over:
+                    data.game_over = False
+                    data.playing = False
           #   Menu Buttons
         if data.playing == False:
             play_button(mouse_x, mouse_y, full_res_x, full_res_y, mouse_clicked)
@@ -219,22 +235,25 @@ try:
                 # check for collision of shot with player
                 hits = enemy.check_projectile_collision_with_player(data.tank_x, data.tank_y)
                 total_hits += hits
-                
-                # draw enemy
-                enemy.draw(screen, data.tank_x, data.tank_y)            # Draw player projectiles
-            player_shooting.draw_projectiles(screen, data.tank_x, data.tank_y)
+                  # draw enemy
+                enemy.draw(screen, data.tank_x, data.tank_y)
             
-            # damage to player
+            # Draw player projectiles
+            player_shooting.draw_projectiles(screen, data.tank_x, data.tank_y)
+              # damage to player
             if total_hits > 0:
                 damage = total_hits * 13
                 data.tank_hp -= damage
-                if data.tank_hp < 0:
+                if data.tank_hp <= 0:
                     data.tank_hp = 0
+                    data.game_over = True
+                    # Aktualizácia high-score pri game over
+                    update_high_score(data.score)
             
-        # Top Info Bar
+            # Top Info Bar
             if int(epoch) - last_log == 240:
                 last_log = int(epoch)
-                data.db, connection = get_connection()
+                data.db, connection = get_connection(data.settings)
                 main_log(real_time, resolution, res_xy[0], res_xy[1], clock, current_time, epoch, data.db, connection)
 
             pygame.draw.rect(screen, (0, 0, 0), (0, 0, res_xy[0], 35), 100)
@@ -246,7 +265,9 @@ try:
 
             screen.blit(font.render(f"Score: {data.score}", True, (226, 226, 10)), (full_res_x * 0.9309, full_res_y * 0.0087))
             screen.blit(font.render(f"Wave:  {data.wave}" , True, (226, 226, 10)), (full_res_x * 0.8789, full_res_y * 0.0087))
-            screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (full_res_x * 0.6510, full_res_y * 0.0087))            # Weapon cooldown indicator
+            screen.blit(font.render(f"HP:  {int((data.tank_hp / data.max_tank_hp)*100)}%", True, (219, 17, 4)), (full_res_x * 0.6510, full_res_y * 0.0087))
+            
+            # Weapon cooldown indicator
             cooldown_progress = player_shooting.get_cooldown_progress()
             if cooldown_progress < 1.0:
                 cooldown_text = f"Reloading... {int((1.0 - cooldown_progress) * 100)}%"
@@ -256,7 +277,41 @@ try:
         
         screen.blit(font.render(f"{ingame_time(False)}", True, (255, 255, 255)), (full_res_x * 0.4883, full_res_y * 0.0087))
 
-        if data.playing == False:
+        # Game Over Screen
+        if data.game_over:
+            # Semi-transparent overlay
+            overlay = pygame.Surface((full_res_x, full_res_y))
+            overlay.set_alpha(180)
+            overlay.fill((0, 0, 0))
+            screen.blit(overlay, (0, 0))
+            
+            # Game Over text
+            game_over_font = pygame.font.Font(font_path, 80)
+            game_over_text = game_over_font.render("GAME OVER", True, (255, 0, 0))
+            game_over_rect = game_over_text.get_rect(center=(full_res_x * 0.5, full_res_y * 0.4))
+            screen.blit(game_over_text, game_over_rect)
+            
+            # Score text
+            score_font = pygame.font.Font(font_path, 40)
+            score_text = score_font.render(f"Score: {data.score}", True, (255, 255, 255))
+            score_rect = score_text.get_rect(center=(full_res_x * 0.5, full_res_y * 0.5))
+            screen.blit(score_text, score_rect)
+            
+            # Instructions
+            instruction_font = pygame.font.Font(font_path, 25)
+            restart_text = instruction_font.render("Press R to Restart", True, (255, 255, 255))
+            restart_rect = restart_text.get_rect(center=(full_res_x * 0.5, full_res_y * 0.6))
+            screen.blit(restart_text, restart_rect)
+            
+            menu_text = instruction_font.render("Press M to Return to Menu", True, (255, 255, 255))
+            menu_rect = menu_text.get_rect(center=(full_res_x * 0.5, full_res_y * 0.65))
+            screen.blit(menu_text, menu_rect)
+            
+            # Stop all game sounds
+            data.calm_engine.stop()
+            data.active_engine.stop()
+
+        elif data.playing == False:
             menu_buttons(full_res_x, screen)
             if data.menu_ambient.get_num_channels() == 0:
                     data.menu_ambient.play()

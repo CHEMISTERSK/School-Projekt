@@ -6,14 +6,14 @@ from functions import data
 sorce = "db.py"
 
 try:
-    def get_connection():
+    def get_connection(settings):
         print("Connecting to database...")
         real_time = datetime.datetime.now().strftime("%H:%M:%S")
         sorce = "db.py"
         try:
             connection = psycopg2.connect(
-                host = "localhost",   # insert ip
-                port = 5432,
+                host = settings["server_ip_address"],   
+                port = settings["server_port"],
                 database = "school_project",
                 user = "postgres",
                 password = "50028082"
