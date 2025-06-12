@@ -261,4 +261,4 @@ Pre otázky a problémy kontaktujte autorov:
 - Tomáš Vavro
 - Radoslav Blecha
 
-**Škola:** SPŠE Karla Adlera 5
+**Škola:** SPŠE Karla Adlera 5      (Podpora ukončená od: 12.6.2025)
